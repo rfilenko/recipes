@@ -51,7 +51,7 @@ const Recipe = () => {
               <img src={recipe.image} alt={recipe.name.toLowerCase()} />
             </div>
             <div>
-              Ingridients:
+              <p>Ingridients:</p>
               <ul>
                 {Object.values(recipe.ingridients).map((value, index) => {
                   return <li key={index}>{value}</li>;

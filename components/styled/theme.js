@@ -1,16 +1,28 @@
 export const theme = {
-  COLORS: {
-    primary: '#38cfd9',
-    secondary: '#659da1',
-    text: '#77898b',
-    bodyText: '#2a2a2a',
-    white: '#fff',
-    reddish: '#FF5733',
+  breakpoint: {
+    mobile: '600px',
+    small: '767px',
+    tablet: '768px',
+    laptop: '1024px',
+    desktop: '1200px',
   },
-  SIZES: {
+  colors: {
+    bodyText: '#2a2a2a',
+    mutedText: '#949494',
+    primary: '#38cfd9',
+    reddish: '#FF5733',
+    secondary: '#659da1',
+    text: '#404040b',
+    yellow: '#eaee44',
+    white: '#fff',
+  },
+  sizes: {
     small: '0.75rem',
-    normal: '1.25rem',
-    medium: '1.75rem',
-    large: '2.25rem',
+    normal: '1rem',
+    medium: '1.5rem',
+    large: '2.5rem',
+  },
+  boxShadow: {
+    normal: '1px 1px 13px 1px rgba(0, 0, 0, 0.13)',
   },
 };

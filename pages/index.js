@@ -47,9 +47,11 @@ const Index = () => {
       <StyledContainer>
         {recipeTitle}
         {isFiltered && (
-          <StyledButton mb="1rem" onClick={handleClearTag}>
-            Clear filter
-          </StyledButton>
+          <StyledFlex>
+            <StyledButton mb="1rem" onClick={handleClearTag}>
+              Clear filter
+            </StyledButton>
+          </StyledFlex>
         )}
         <StyledFlex>
           {!!localRecipes &&

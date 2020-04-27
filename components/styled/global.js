@@ -8,18 +8,18 @@ const GlobalStyle = createGlobalStyle`
   body{
     margin: 0;
     padding: 0;
-    color: ${theme.COLORS.text};
+    color: ${theme.colors.text};
     font-family: 'Merriweather', serif;
   }
   a {
     color: inherit;
     text-decoration: none;
   }
-    a:hover {
+  a:hover {
       text-decoration: underline;
       opacity: .75;
   }
-    img {
+  img {
     display: block;
     max-width: 100%;
   }

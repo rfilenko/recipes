@@ -1,21 +1,19 @@
 import styled, { css } from 'styled-components';
 import { theme } from './theme';
 
-const boxShadow = '1px 1px 13px 1px rgba(0, 0, 0, 0.13)';
-
 export const StyledContainer = styled.div`
-  font-size: ${theme.SIZES.normal};
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  @media screen and (max-width: 767px) {
-    padding: 0 0.5rem;
-  }
-`;
+         font-size: ${theme.sizes.normal};
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 0 1rem;
+         @media screen and (max-width: ${theme.breakpoint.small}) {
+           padding: 0 0.5rem;
+         }
+       `;
 export const StyledH2 = styled.h2`
   text-align: center;
   span {
-    color: ${theme.COLORS.reddish};
+    color: ${theme.colors.reddish};
   }
 `;
 export const StyledFlex = styled.div`
@@ -26,162 +24,194 @@ export const StyledFlex = styled.div`
 `;
 
 export const StyledButton = styled.button`
+  background: ${(props) =>
+    props.variant ? theme.colors.secondary : theme.colors.reddish};
   border: none;
-  background: ${(props) => (props.variant ? 'orange' : theme.COLORS.reddish)};
-  color: ${theme.COLORS.white};
-  padding: 0.5em 1.5em;
-  margin: 0 0 ${(props) => (props.mb ? props.mb : '.5em')};
   border-radius: 0.5em;
+  box-shadow: ${theme.boxShadow.normal};
+  color: ${theme.colors.white};
   cursor: pointer;
+  margin: 0 0 ${(props) => (props.mb ? props.mb : '.5em')};
+  padding: 0.5em 1.5em;
   transition: all 0.2s ease-in-out;
 
   &:hover {
     opacity: 0.75;
   }
+  &:focus {
+    outline: 1px dotted
+      ${(props) =>
+        props.variant ? theme.colors.secondary : theme.colors.reddish};
+    outline-offset: 2px;
+  }
 `;
 
 export const StyledTag = styled(StyledButton)`
-  font-size: 75%;
-  padding: 0.5em;
-  margin: 0 0.25em;
-`;
+         font-size: 75%;
+         margin: 0 0.25em;
+         padding: 0.5em;
+
+         @media screen and (max-width: ${theme.breakpoint.mobile}) {
+           font-size: ${theme.sizes.small};
+           letter-spacing: 0.05em;
+         }
+       `;
 
 export const StyledRecipe = styled.div`
-  box-shadow: ${boxShadow};
-  position: relative;
-  border-radius: 0.5em;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  max-width: 20rem;
+         box-shadow: ${theme.boxShadow.normal};
+         border-radius: 0.5em;
+         display: flex;
+         flex-direction: column;
+         margin-bottom: 1rem;
+         max-width: 20rem;
+         position: relative;
 
-  @media screen and (min-width: 700px) {
-    margin-left: 1rem;
-  }
+         @media screen and (min-width: ${theme.breakpoint.small}) {
+           margin-left: 1rem;
+         }
 
-  & > *:not(.img-container) {
-    padding: 0.5em;
-  }
-  .img-container {
-    position: relative;
-    max-height: 200px;
-    overflow: hidden;
-    border-bottom-left-radius: 0.5em;
-    border-bottom-right-radius: 0.5em;
-  }
-  .img-container:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.25);
-  }
-  .read-more {
-    background: transparent;
-    border: 1px solid ${theme.COLORS.white};
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    padding: 0.5em 1.5em;
-    font-weight: bold;
-    z-index: 3;
-  }
+         & > *:not(.img-container) {
+           padding: 0.5em;
+         }
+         .img-container {
+           border-bottom-left-radius: 0.5em;
+           border-bottom-right-radius: 0.5em;
+           max-height: 200px;
+           overflow: hidden;
+           position: relative;
+         }
+         .img-container:before {
+           background: rgba(0, 0, 0, 0.25);
+           content: '';
+           position: absolute;
+           left: 0;
+           top: 0;
+           height: 100%;
+           width: 100%;
+         }
+         .read-more {
+           position: absolute;
+           background: transparent;
+           border: 1px solid ${theme.colors.white};
+           bottom: 1rem;
+           font-weight: bold;
+           right: 1rem;
+           padding: 0.5em 1.5em;
+           z-index: 3;
+           &:focus {
+             outline: 1px dotted ${theme.colors.white};
+             outline-offset: 2px;
+           }
+         }
 
-  h4 {
-    color: ${theme.COLORS.bodyText};
-    margin: 0;
-    text-transform: uppercase;
-  }
-  > div {
-    flex-grow: 3;
-  }
-  p:nth-child(2) {
-    display: flex;
-    margin: 0;
-  }
-  p {
-    font-size: 65%;
-    margin: 0 0 0.5em;
-    span {
-      font-weight: bold;
-    }
-  }
+         h4 {
+           color: ${theme.colors.bodyText};
+           margin: 0;
+           text-transform: uppercase;
+         }
+         > div {
+           flex-grow: 3;
+         }
+         p:nth-child(2) {
+           display: flex;
+           margin: 0;
+         }
+         p {
+           font-size: 65%;
+           margin: 0 0 0.5em;
 
-  img {
-    object-fit: cover;
-  }
-`;
+           span {
+             font-weight: bold;
+           }
+         }
+
+         img {
+           object-fit: cover;
+         }
+       `;
 export const StyledRecipeDetail = styled.div`
-  .prep_time {
-    font-size: 0.8rem;
-    color: #ccc;
-    @media screen and (min-width: 768px) {
-      display: flex;
-    }
-  }
-  p {
-    margin: 0 0 0.5rem;
-  }
-  .tags {
-    display: flex;
-    margin-bottom: 1rem;
-    justify-content: center;
-    font-size: 60%;
-    p {
-      display: flex;
-      align-items: center;
-    }
-  }
+         .prep_time {
+           color: ${theme.colors.mutedText};
+           font-size: 0.8rem;
 
-  .recipe_img {
-    position: relative;
-    @media screen and (min-width: 768px) {
-      width: 35%;
-    }
+           @media screen and (min-width: ${theme.breakpoint.tablet}) {
+             display: flex;
+           }
+         }
+         p {
+           margin: 0 0 0.5rem;
+         }
+         .tags {
+           display: flex;
+           font-size: 60%;
+           justify-content: center;
+           margin-bottom: 1rem;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 0.25em;
-      @media screen and (max-width: 767px) {
-        max-height: 250px;
-        margin-bottom: 1rem;
-      }
-    }
+           p {
+             display: flex;
+             align-items: center;
+           }
+         }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(120deg, #eaee44, #33d0ff);
-      opacity: 0.35;
-      mix-blend-mode: hard-light;
-    }
-  }
+         .recipe_img {
+           position: relative;
 
-  .desc {
-    @media screen and (min-width: 768px) {
-      display: flex;
-      justify-content: space-between;
-    }
-    margin-bottom: 1rem;
+           @media screen and (min-width: ${theme.breakpoint.tablet}) {
+             width: 35%;
+           }
 
-    div:nth-child(2) {
-      max-width: 30rem;
-    }
-    ul {
-      list-style: disc;
-      margin-top: 0.5em;
-    }
-    li {
-      margin-bottom: 0.25em;
-      font-size: 1rem;
-    }
-  }
-`;
+           img {
+             border-radius: 0.25em;
+             height: 100%;
+             object-fit: cover;
+             width: 100%;
+
+             @media screen and (max-width: ${theme.breakpoint.small}) {
+               margin-bottom: 1rem;
+               max-height: 250px;
+             }
+           }
+
+           &::before {
+             background-image: linear-gradient(
+               120deg,
+               ${theme.colors.yellow},
+               ${theme.colors.primary}
+             );
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             mix-blend-mode: hard-light;
+             opacity: 0.35;
+           }
+         }
+
+         .desc {
+           @media screen and (min-width: ${theme.breakpoint.tablet}) {
+             display: flex;
+             justify-content: space-between;
+           }
+           margin-bottom: 1rem;
+
+           div:nth-child(2) {
+             max-width: 30rem;
+           }
+           p {
+             color: ${theme.colors.text};
+             font-weight: bold;
+             letter-spacing: 0.05em;
+             text-transform: uppercase;
+           }
+           ul {
+             list-style: disc;
+             margin-top: 0.5em;
+           }
+           li {
+             font-size: 1rem;
+             margin-bottom: 0.25em;
+           }
+         }
+       `;
