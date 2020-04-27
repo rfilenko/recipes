@@ -1,0 +1,23 @@
+{
+  "name": "recipes-nextjs-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next -p 3300",
+    "build": "next build && next export",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^9.2.2",
+    "polished": "^3.5.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "styled-components": "^5.1.0"
+  }
+}
