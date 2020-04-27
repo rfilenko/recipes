@@ -22,15 +22,15 @@ const Recipe = () => {
   if (!recipe) return <p></p>;
 
   return (
-    <BaseLayout title="Recipe details">
+    <BaseLayout title="Recipe details 🍪">
       <StyledContainer>
         <StyledRecipeDetail>
           <StyledH2>{recipe.name}</StyledH2>
 
           <p>{recipe.description}</p>
           <div className="prep_time">
-            <p>Preparation - {recipe.time_prep}</p>,{' '}
-            <p>time to cook - {recipe.time_cook}</p>,{' '}
+            <p>Preparation - {recipe.time_prep}, </p>
+            <p>time to cook - {recipe.time_cook}, </p>
             <p>total - {recipe.time_total}</p>
           </div>
 

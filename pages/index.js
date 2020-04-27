@@ -43,7 +43,7 @@ const Index = () => {
   );
 
   return (
-    <BaseLayout title="🍩 Recipes">
+    <BaseLayout title="Recipes app 🍩">
       <StyledContainer>
         {recipeTitle}
         {isFiltered && (
