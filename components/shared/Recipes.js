@@ -1,33 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { RecipesContext } from '../contexts/RecipesContext';
 import Link from 'next/link';
-import {
-  StyledRecipe,
-  StyledH2,
-  StyledFlex,
-  StyledTag,
-  StyledButton,
-} from '../styled';
+import { StyledRecipe, StyledFlex, StyledTag, StyledButton } from '../styled';
 
 const Recipes = (props) => {
-  const { list, handleTag, type, isFiltered, filterTitle } = props;
-  // const [localRecipes, setLocalRecipes] = useState([]);
-  // const [isFiltered, setIsFiltered] = useState(false);
-  // const [filterTitle, setFilterTitle] = useState('');
-
-  // useEffect(() => {
-  //   setLocalRecipes(list);
-  // }, []);
-
-  const recipeTitle = (
-    <StyledH2 mt={'1rem'}>
-      {type} recipes
-      {isFiltered && <b> with filter - </b>}
-      <span>{filterTitle}</span>
-    </StyledH2>
-  );
+  const { handleTag, list } = props;
+  const { isFiltered, filterTitle } = useContext(RecipesContext);
   return (
     <>
-      {recipeTitle}
       <StyledFlex>
         {!!list &&
           list.length > 0 &&

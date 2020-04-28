@@ -21,11 +21,16 @@ export const StyledFlex = styled.div`
   flex-wrap: wrap;
   justify-content: ${(props) =>
     props.spaceAround ? 'space-around' : 'center'};
+  /* TODO - make mixin for margin */
+  margin-top: ${(props) => (props.mt ? props.mt : '0')};
+  margin-bottom: ${(props) => (props.mb ? props.mb : '.5em')};
+  margin-left: ${(props) => (props.ml ? props.ml : '0')};
+  margin-right: ${(props) => (props.mr ? props.mr : '0')};
 `;
 
 export const StyledButton = styled.button`
   background: ${(props) =>
-    props.variant ? theme.colors.secondary : theme.colors.reddish};
+    props.variant ? theme.colors[props.variant] : theme.colors.reddish};
   border: none;
   border-radius: 0.5em;
   box-shadow: ${theme.boxShadow.normal};
@@ -33,6 +38,8 @@ export const StyledButton = styled.button`
   cursor: pointer;
   margin-top: ${(props) => (props.mt ? props.mt : '0')};
   margin-bottom: ${(props) => (props.mb ? props.mb : '.5em')};
+  margin-left: ${(props) => (props.ml ? props.ml : '0')};
+  margin-right: ${(props) => (props.mr ? props.mr : '0')};
   padding: 0.5em 1.5em;
   transition: all 0.2s ease-in-out;
 
@@ -65,7 +72,7 @@ export const StyledRecipe = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  max-width: 20rem;
+  max-width: 16rem;
   position: relative;
 
   @media screen and (min-width: ${theme.breakpoint.small}) {

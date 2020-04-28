@@ -1,5 +1,6 @@
 import App from 'next/app';
 import { theme } from '../components/styled/theme';
+import RecipesContextProvider from '../components/contexts/RecipesContext';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../components/styled/global';
 
@@ -9,8 +10,11 @@ export default class MyApp extends App {
     return (
       <>
         <GlobalStyles />
+
         <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
+          <RecipesContextProvider>
+            <Component {...pageProps} />
+          </RecipesContextProvider>
         </ThemeProvider>
       </>
     );

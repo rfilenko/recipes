@@ -1,44 +1,77 @@
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { useState, useEffect, useContext } from 'react';
+import { RecipesContext } from '../components/contexts/RecipesContext';
 import BaseLayout from '../components/layouts/BaseLayout';
 import Recipes from '../components/shared/Recipes';
 import {
   StyledContainer,
-  StyledRecipe,
-  StyledH2,
   StyledFlex,
-  StyledTag,
+  StyledH2,
   StyledButton,
 } from '../components/styled';
-import { LIKED_RECIPES_LIST, NEW_RECIPES_LIST } from '../data/recipes';
 
 const Index = () => {
-  const [localRecipes, setLocalRecipes] = useState([]);
-  const [isFiltered, setIsFiltered] = useState(false);
-  const [filterTitle, setFilterTitle] = useState('');
+  const {
+    recipesList,
+    isFiltered,
+    filterTitle,
+    setIsFiltered,
+    setFilterTitle,
+  } = useContext(RecipesContext);
+  const likedList = recipesList.filter((recipe) => recipe.type === 'liked');
+  const newList = recipesList.filter((recipe) => recipe.type === 'new');
 
+  const [localRecipes, setLocalRecipes] = useState([]);
   const handleTag = (e) => {
-    // let currTag = e.currentTarget.textContent;
     let currTag = e;
-    const filteredList = localRecipes.filter((recipe) =>
-      recipe.tags.includes(currTag)
+    const filteredList = recipesList.filter((recipe) =>
+      recipe.tags.includes(e)
     );
     setLocalRecipes(filteredList);
-    setFilterTitle(`${currTag}`);
+    setFilterTitle(`${e}`);
     setIsFiltered(true);
   };
   const handleClearTag = (e) => {
-    setLocalRecipes(LIKED_RECIPES_LIST);
+    setLocalRecipes(recipesList);
     setIsFiltered(false);
     setFilterTitle(``);
   };
+  //filter by type
+  const handleFilter = (e) => {
+    const type = e.currentTarget.textContent;
+    if (type === '🧡') {
+      setLocalRecipes(likedList);
+    } else {
+      setLocalRecipes(newList);
+    }
+  };
   useEffect(() => {
-    setLocalRecipes(LIKED_RECIPES_LIST);
+    setLocalRecipes(recipesList);
   }, []);
+  const recipeTitle = (
+    <StyledH2 mt={'1rem'}>
+      All recipes
+      {isFiltered && <b> with </b>}
+      <span>{filterTitle}</span>
+    </StyledH2>
+  );
 
   return (
     <BaseLayout title="Recipes app 🍩">
       <StyledContainer>
+        <StyledFlex mt="1rem">
+          <StyledButton mr=".5rem" onClick={handleFilter} title="Liked recipes">
+            🧡
+          </StyledButton>
+          <StyledButton
+            mr=".5rem"
+            variant="primary"
+            title="New recipes"
+            onClick={handleFilter}
+          >
+            🆕
+          </StyledButton>
+        </StyledFlex>
+        {recipeTitle}
         {/* clear filter btn */}
         {isFiltered && (
           <StyledFlex>
@@ -48,12 +81,7 @@ const Index = () => {
           </StyledFlex>
         )}
 
-        <Recipes
-          type={'liked'}
-          handleTag={handleTag}
-          list={LIKED_RECIPES_LIST}
-        />
-        <Recipes type={'new'} handleTag={handleTag} list={NEW_RECIPES_LIST} />
+        <Recipes handleTag={handleTag} list={localRecipes} />
       </StyledContainer>
     </BaseLayout>
   );

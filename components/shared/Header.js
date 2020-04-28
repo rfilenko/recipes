@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { theme } from '../styled/theme';
@@ -34,7 +33,6 @@ const StyledHeader = styled.header`
     }
   }
 `;
-
 const Header = () => {
   return (
     <StyledHeader>

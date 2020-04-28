@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { RecipesContext } from '../../components/contexts/RecipesContext';
 import BaseLayout from '../../components/layouts/BaseLayout';
-import { LIKED_RECIPES_LIST, NEW_RECIPES_LIST } from '../../data/recipes';
 import {
   StyledContainer,
   StyledH2,
@@ -10,23 +10,15 @@ import {
 import { useRouter } from 'next/router';
 
 const Recipe = () => {
+  const { recipesList } = useContext(RecipesContext);
   const [recipe, setRecipe] = useState(null);
   const router = useRouter();
   const { slug } = router.query;
   let recipeItem;
 
   useEffect(() => {
-    let currRecipe;
-    //liked recipes
-    if (slug < 100) {
-      recipeItem = slug - 1;
-      currRecipe = LIKED_RECIPES_LIST[recipeItem];
-    }
-    //new recipes to try out
-    else {
-      recipeItem = slug - 101;
-      currRecipe = NEW_RECIPES_LIST[recipeItem];
-    }
+    let currRecipe = recipesList[recipeItem];
+    recipeItem = slug - 1;
     setRecipe(currRecipe);
   }, []);
 
