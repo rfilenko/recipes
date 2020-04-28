@@ -56,7 +56,6 @@ export const StyledButton = styled.button`
 
 export const StyledTag = styled(StyledButton)`
   color: ${theme.colors.bodyText};
-  font-size: 75%;
   margin: 0 0.25em;
   padding: 0.5em;
 
@@ -72,11 +71,12 @@ export const StyledRecipe = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  max-width: 16rem;
+  max-width: 20rem;
   position: relative;
 
-  @media screen and (min-width: ${theme.breakpoint.small}) {
+  @media screen and (min-width: ${theme.breakpoint.mobile}) {
     margin-left: 1rem;
+    max-width: 16rem;
   }
 
   & > *:not(.img-container) {
@@ -90,7 +90,7 @@ export const StyledRecipe = styled.div`
     position: relative;
   }
   .img-container:before {
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.15);
     content: '';
     position: absolute;
     left: 0;
@@ -136,6 +136,8 @@ export const StyledRecipe = styled.div`
 
   img {
     object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
 `;
 export const StyledRecipeDetail = styled.div`
