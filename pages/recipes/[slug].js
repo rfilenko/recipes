@@ -17,8 +17,8 @@ const Recipe = () => {
   let recipeItem;
 
   useEffect(() => {
-    let currRecipe = recipesList[recipeItem];
     recipeItem = slug - 1;
+    let currRecipe = recipesList[recipeItem];
     setRecipe(currRecipe);
   }, []);
 
