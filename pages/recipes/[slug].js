@@ -5,6 +5,7 @@ import {
   StyledContainer,
   StyledH2,
   StyledTag,
+  StyledText,
   StyledRecipeDetail,
 } from '../../components/styled';
 import { useRouter } from 'next/router';
@@ -25,7 +26,7 @@ const Recipe = () => {
   if (!recipe) return <p></p>;
 
   return (
-    <BaseLayout title="Recipe details 🍪">
+    <BaseLayout title="🍪 details">
       <StyledContainer>
         <StyledRecipeDetail>
           <StyledH2>{recipe.name}</StyledH2>
@@ -54,13 +55,21 @@ const Recipe = () => {
               <img src={recipe.image} alt={recipe.name.toLowerCase()} />
             </div>
             <div>
-              <p>Ingridients:</p>
+              <StyledText>Ingridients:</StyledText>
               <ul>
                 {Object.values(recipe.ingridients).map((value, index) => {
                   return <li key={index}>{value}</li>;
                 })}
               </ul>
             </div>
+          </div>
+          <div className="instructions">
+            <StyledText>Instructions:</StyledText>
+            <ul>
+              {Object.values(recipe.instructions).map((value, index) => {
+                return <li key={index}>{value}</li>;
+              })}
+            </ul>
           </div>
         </StyledRecipeDetail>
       </StyledContainer>

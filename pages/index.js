@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { RecipesContext } from '../components/contexts/RecipesContext';
-import BaseLayout from '../components/layouts/BaseLayout';
 import Recipes from '../components/shared/Recipes';
+import BaseLayout from '../components/layouts/BaseLayout';
 import {
   StyledContainer,
   StyledFlex,
@@ -22,7 +22,6 @@ const Index = () => {
 
   const [localRecipes, setLocalRecipes] = useState([]);
   const handleTag = (e) => {
-    let currTag = e;
     const filteredList = recipesList.filter((recipe) =>
       recipe.tags.includes(e)
     );
@@ -38,11 +37,7 @@ const Index = () => {
   //filter by type
   const handleFilter = (e) => {
     const type = e.currentTarget.textContent;
-    if (type === '🧡') {
-      setLocalRecipes(likedList);
-    } else {
-      setLocalRecipes(newList);
-    }
+    type === '🧡' ? setLocalRecipes(likedList) : setLocalRecipes(newList);
   };
   useEffect(() => {
     setLocalRecipes(recipesList);
@@ -56,7 +51,7 @@ const Index = () => {
   );
 
   return (
-    <BaseLayout title="Recipes app 🍩">
+    <BaseLayout title="🍩 recipes app">
       <StyledContainer>
         <StyledFlex mt="1rem">
           <StyledButton mr=".5rem" onClick={handleFilter} title="Liked recipes">
@@ -75,9 +70,7 @@ const Index = () => {
         {/* clear filter btn */}
         {isFiltered && (
           <StyledFlex>
-            <StyledButton mt="1rem" onClick={handleClearTag}>
-              Clear filter
-            </StyledButton>
+            <StyledButton onClick={handleClearTag}>Clear filter</StyledButton>
           </StyledFlex>
         )}
 

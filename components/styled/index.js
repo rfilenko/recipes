@@ -12,6 +12,7 @@ export const StyledContainer = styled.div`
 `;
 export const StyledH2 = styled.h2`
   text-align: center;
+  /* margin-bottom: 0; */
   span {
     color: ${theme.colors.reddish};
   }
@@ -33,7 +34,7 @@ export const StyledButton = styled.button`
     props.variant ? theme.colors[props.variant] : theme.colors.reddish};
   border: none;
   border-radius: 0.5em;
-  box-shadow: ${theme.boxShadow.normal};
+  box-shadow: ${theme.boxShadow.small};
   color: ${theme.colors.white};
   cursor: pointer;
   margin-top: ${(props) => (props.mt ? props.mt : '0')};
@@ -41,10 +42,14 @@ export const StyledButton = styled.button`
   margin-left: ${(props) => (props.ml ? props.ml : '0')};
   margin-right: ${(props) => (props.mr ? props.mr : '0')};
   padding: 0.5em 1.5em;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
 
   &:hover {
+    box-shadow: ${theme.boxShadow.medium};
     opacity: 0.75;
+    transform: translate3d(0px, -1px, 0px);
   }
   &:focus {
     outline: 1px dotted
@@ -98,14 +103,15 @@ export const StyledRecipe = styled.div`
     height: 100%;
     width: 100%;
   }
-  .read-more {
+  .more {
     position: absolute;
+    bottom: 1rem;
+    right: 1rem;
     background: transparent;
     border: 1px solid ${theme.colors.white};
-    bottom: 1rem;
     font-weight: bold;
-    right: 1rem;
     padding: 0.5em 1.5em;
+    text-transform: capitalize;
     z-index: 3;
     &:focus {
       outline: 1px dotted ${theme.colors.white};
@@ -140,6 +146,14 @@ export const StyledRecipe = styled.div`
     width: 100%;
   }
 `;
+export const StyledText = styled.h4`
+  color: ${theme.colors.text};
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+  margin-top: 1rem;
+  text-transform: uppercase;
+`;
 export const StyledRecipeDetail = styled.div`
   .prep_time {
     color: ${theme.colors.mutedText};
@@ -154,7 +168,8 @@ export const StyledRecipeDetail = styled.div`
   }
   .tags {
     display: flex;
-    font-size: 60%;
+    font-size: 75%;
+    font-weight: bold;
     justify-content: center;
     margin-bottom: 1rem;
 
@@ -223,6 +238,17 @@ export const StyledRecipeDetail = styled.div`
     li {
       font-size: 1rem;
       margin-bottom: 0.25em;
+    }
+  }
+  .instructions {
+    ul {
+      list-style: decimal;
+      padding: 0;
+      padding-left: 1rem;
+    }
+    li {
+      margin-bottom: 0.75rem;
+      line-height: 1.5rem;
     }
   }
 `;

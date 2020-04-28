@@ -15,7 +15,7 @@ const Recipes = (props) => {
             <StyledRecipe key={recipe.name}>
               <h4>{recipe.name}</h4>
               <Link href={`/recipes/[slug]`} as={`/recipes/${recipe.id}`}>
-                <StyledButton className="read-more"> read more </StyledButton>
+                <StyledButton className="more"> more </StyledButton>
               </Link>
               <div>
                 <p>
