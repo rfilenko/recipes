@@ -1,4 +1,4 @@
-export const RECIPES_LIST = [
+export const LIKED_RECIPES_LIST = [
   {
     name: 'FRENCH ONION MEATBALLS',
     id: 1,
@@ -76,5 +76,34 @@ export const RECIPES_LIST = [
     time_cook: '1 hour',
     time_total: 'around 2 hours',
     image: '/images/apple-pie.jpg',
+  },
+];
+
+export const NEW_RECIPES_LIST = [
+  {
+    name: 'mrkvový dort',
+    id: 101,
+    tags: ['mrkev', 'dort'],
+    description: 'mrkvový dort recept popis',
+    ingridients: [
+      '3 středně velké mrkve, nadrobno nastrouhane',
+      '1 1/2 zralého avokáda',
+      'štáva ze 2 citronů nebo limet',
+      '9 celých vajec',
+      '6 hrnků mandlove mouky',
+      '3/4 lžičky jedlé sody',
+      '4 hrnky domácí zakysané smetany',
+      'vanilkový extrakt',
+      '4 hrnky domácí zakysané smetany',
+    ],
+    instructions: [
+      'Troubu předehřejme na 175 C',
+      'Připravíme si 3 formy o průmerů 20cm, které vymažeme, připadně vyložíme papírem na pečení',
+      'Do misky vložíme nastrouhanou mrkev, přidáme rozmačkané avokádo a společně vše promícháme. Přilijeme štávu z citronu nebo limety a znomu promícháme.',
+    ],
+    time_prep: '1 hour',
+    time_cook: '50 mins',
+    time_total: '1 hour 50 mins',
+    image: '/images/mrkovy-dort.jpg',
   },
 ];
