@@ -31,7 +31,8 @@ export const StyledButton = styled.button`
   box-shadow: ${theme.boxShadow.normal};
   color: ${theme.colors.white};
   cursor: pointer;
-  margin: 0 0 ${(props) => (props.mb ? props.mb : '.5em')};
+  margin-top: ${(props) => (props.mt ? props.mt : '0')};
+  margin-bottom: ${(props) => (props.mb ? props.mb : '.5em')};
   padding: 0.5em 1.5em;
   transition: all 0.2s ease-in-out;
 
