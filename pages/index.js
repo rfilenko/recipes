@@ -53,7 +53,7 @@ const Index = () => {
   return (
     <BaseLayout title="Recipes App 🍩">
       <StyledContainer>
-        <StyledFlex mt="1rem">
+        <StyledFlex mt="1rem" mb="0px">
           <StyledButton mr=".5rem" onClick={handleFilter} title="Liked recipes">
             🧡
           </StyledButton>

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { theme } from './theme';
+import { darken } from 'polished';
 
 export const StyledContainer = styled.div`
   font-size: ${theme.sizes.normal};
@@ -12,7 +13,6 @@ export const StyledContainer = styled.div`
 `;
 export const StyledH2 = styled.h2`
   text-align: center;
-  /* margin-bottom: 0; */
   span {
     color: ${theme.colors.reddish};
   }
@@ -22,11 +22,47 @@ export const StyledFlex = styled.div`
   flex-wrap: wrap;
   justify-content: ${(props) =>
     props.spaceAround ? 'space-around' : 'center'};
+  align-items: ${(props) => (props.align ? props.align : 'inherit')};
   /* TODO - make mixin for margin */
   margin-top: ${(props) => (props.mt ? props.mt : '0')};
-  margin-bottom: ${(props) => (props.mb ? props.mb : '.5em')};
+  margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
   margin-left: ${(props) => (props.ml ? props.ml : '0')};
   margin-right: ${(props) => (props.mr ? props.mr : '0')};
+`;
+export const StyledHeader = styled.header`
+  background-image: linear-gradient(
+    120deg,
+    ${theme.colors.primary},
+    ${theme.colors.yellow},
+    ${theme.colors.primary}
+  );
+  box-shadow: ${theme.boxShadow.normal};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  position: relative;
+  height: 44px;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+  }
+
+  a {
+    color: ${theme.colors.white};
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: ${darken(0.2, `${theme.colors.primary}`)};
+      opacity: 0.89;
+      text-decoration: none;
+    }
+  }
 `;
 
 export const StyledButton = styled.button`
