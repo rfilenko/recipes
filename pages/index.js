@@ -51,7 +51,7 @@ const Index = () => {
   );
 
   return (
-    <BaseLayout title="🍩 recipes app">
+    <BaseLayout title="Recipes App 🍩">
       <StyledContainer>
         <StyledFlex mt="1rem">
           <StyledButton mr=".5rem" onClick={handleFilter} title="Liked recipes">
