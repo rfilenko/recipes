@@ -3,6 +3,7 @@ export const RECIPES_LIST = [
     name: 'FRENCH ONION MEATBALLS',
     id: 1,
     type: 'liked',
+    slugUrl: 'onion-meatballs',
     tags: ['meat', 'onion'],
     description:
       'These french onion meatballs are super delicious! All the flavors of french onion soup made into juicy meatballs. Cheesy, saucy goodness!',
@@ -40,6 +41,7 @@ export const RECIPES_LIST = [
     name: 'Homemade Banana Pudding',
     id: 2,
     type: 'liked',
+    slugUrl: 'banana-pudding',
     tags: ['banana', 'pudding'],
     description:
       'This sweet, rich, and creamy banana pudding recipe goes light on added sugars and big on fresh banana flavor! Whip up this kid-friendly fruit dessert in under 15 minutes, then chill it for an after-dinner treat.',
@@ -67,6 +69,7 @@ export const RECIPES_LIST = [
     name: 'Apple Pie Recipe with the Best Filling',
     id: 3,
     type: 'liked',
+    slugUrl: 'apple-pie',
     tags: ['apple', 'pie', 'filling'],
     description:
       'Everyone has to make this Classic Apple Pie Recipe for Thanksgiving. You will love the flaky pie crust and the apple pie filling will surprise you.',
@@ -97,6 +100,7 @@ export const RECIPES_LIST = [
     name: 'Mrkvový dort',
     id: 4,
     type: 'new',
+    slugUrl: 'mrkvovy-dort',
     tags: ['mrkev', 'dort', 'pie'],
     description: 'Mrkvový dort recept popis',
     ingridients: [

@@ -10,7 +10,9 @@ const BaseLayout = ({ title, children }) => {
         <title>{title}</title>
       </Head>
       <Header />
-      <StyledContainer>{children}</StyledContainer>
+      <main>
+        <StyledContainer>{children}</StyledContainer>
+      </main>
     </>
   );
 };

@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme.colors.text};
     font-family: 'Merriweather', serif;
   }
+  main {
+        margin-top: 3.5rem;
+  }
   a {
     color: inherit;
     text-decoration: none;
