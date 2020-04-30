@@ -35,7 +35,8 @@ export const RECIPES_LIST = [
     time_prep: '1 hour',
     time_cook: '25 mins',
     time_total: '1 hour 25 mins',
-    image: '/images/french-onion-meatballs.jpg',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588248840/french-onion-meatballs.jpg',
   },
   {
     name: 'Homemade Banana Pudding',
@@ -63,7 +64,8 @@ export const RECIPES_LIST = [
     time_prep: '15 mins',
     time_cook: '10 mins',
     time_total: '45 mins',
-    image: '/images/banana-pudding.jpg',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588248839/banana-pudding.jpg',
   },
   {
     name: 'Apple Pie Recipe with the Best Filling',
@@ -93,7 +95,8 @@ export const RECIPES_LIST = [
     time_prep: '30 mins',
     time_cook: '1 hour',
     time_total: 'around 2 hours',
-    image: '/images/apple-pie.jpg',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588248840/apple-pie.jpg',
   },
   {
     name: 'Mrkvový dort',
@@ -127,7 +130,8 @@ export const RECIPES_LIST = [
     time_prep: '1 hour',
     time_cook: '50 mins',
     time_total: '1 hour 50 mins',
-    image: '/images/mrkovy-dort.jpg',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588247802/mrkovy-dort.jpg',
   },
   {
     name: 'THE MOST AMAZING 20 MINUTE SEAFOOD PAELLA',
@@ -161,6 +165,7 @@ export const RECIPES_LIST = [
     time_prep: '30 mins',
     time_cook: '20 mins',
     time_total: '50 mins',
-    image: '/images/paella.png',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588248330/paella.png',
   },
 ];

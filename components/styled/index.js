@@ -293,11 +293,9 @@ export const StyledRecipeDetail = styled.div`
       padding-left: 1rem;
     }
     li {
-      margin-bottom: 0.75rem;
       line-height: 1.5rem;
-      @media screen and (max-width: ${theme.breakpoint.small}) {
-        text-align: justify;
-      }
+      margin-bottom: 0.75rem;
+      text-align: justify;
     }
   }
 `;
