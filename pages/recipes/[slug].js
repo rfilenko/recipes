@@ -26,7 +26,7 @@ const Recipe = () => {
   if (!recipe) return <p></p>;
 
   return (
-    <BaseLayout title="🍪 details">
+    <BaseLayout title={`${recipe.slugUrl} details`}>
       <StyledContainer>
         <StyledRecipeDetail>
           <StyledH2>{recipe.name}</StyledH2>

@@ -10,6 +10,11 @@ export const StyledContainer = styled.div`
   @media screen and (max-width: ${theme.breakpoint.small}) {
     padding: 0 0.5rem;
   }
+  @media screen and (min-width: ${theme.breakpoint.laptop}) {
+    & > * {
+      max-width: 85ch;
+    }
+  }
 `;
 export const StyledH2 = styled.h2`
   text-align: center;
@@ -44,10 +49,9 @@ export const StyledHeader = styled.header`
   width: 100%;
   position: relative;
   height: 44px;
-    position: fixed;
-    top: 0;
-    z-index: 99;
-  }
+  position: fixed;
+  top: 0;
+  z-index: 99;
 
   a {
     color: ${theme.colors.white};
@@ -55,7 +59,7 @@ export const StyledHeader = styled.header`
     font-weight: bold;
     margin: 0 0.5rem;
     text-transform: uppercase;
-    transition: all 0.15s ease;
+    transition: ${theme.transition.normal};
 
     &:hover {
       color: ${darken(0.2, `${theme.colors.primary}`)};
@@ -78,7 +82,7 @@ export const StyledButton = styled.button`
   margin-left: ${(props) => (props.ml ? props.ml : '0')};
   margin-right: ${(props) => (props.mr ? props.mr : '0')};
   padding: 0.5em 1.5em;
-  transition: all 0.2s ease;
+  transition: ${theme.transition.normal};
   user-select: none;
   white-space: nowrap;
 
@@ -180,6 +184,12 @@ export const StyledRecipe = styled.div`
     object-fit: cover;
     height: 100%;
     width: 100%;
+    transition: ${theme.transition.normal};
+  }
+  &:hover {
+    img {
+      transform: scale(1.025, 1.025);
+    }
   }
 `;
 export const StyledText = styled.h4`
@@ -285,6 +295,9 @@ export const StyledRecipeDetail = styled.div`
     li {
       margin-bottom: 0.75rem;
       line-height: 1.5rem;
+      @media screen and (max-width: ${theme.breakpoint.small}) {
+        text-align: justify;
+      }
     }
   }
 `;
