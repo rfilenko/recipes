@@ -27,7 +27,7 @@ const Index = () => {
       recipe.tags.includes(e)
     );
     setLocalRecipes(filteredList);
-    setFilterTitle(`${e}`);
+    setFilterTitle(`with ${e}`);
     setIsFiltered(true);
   };
   const handleClearTag = (e) => {
@@ -39,7 +39,7 @@ const Index = () => {
   //filter by type
   const handleFilter = (e) => {
     const type = e.currentTarget.textContent;
-    if (type === '🧡') {
+    if (type === '💖') {
       setLocalRecipes(likedList);
       setRecipesTitle('Liked ');
       setIsFiltered(true);
@@ -55,8 +55,7 @@ const Index = () => {
   const recipeTitle = (
     <StyledH2 mt={'1rem'}>
       {recipesTitle} recipes
-      {isFiltered && <b> with </b>}
-      <span>{filterTitle}</span>
+      {isFiltered && <span> {filterTitle}</span>}
     </StyledH2>
   );
 
@@ -65,7 +64,7 @@ const Index = () => {
       <StyledContainer>
         <StyledFlex mt="1rem" mb="0px">
           <StyledButton mr=".5rem" onClick={handleFilter} title="Liked recipes">
-            🧡
+            💖
           </StyledButton>
           <StyledButton
             mr=".5rem"
