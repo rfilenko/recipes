@@ -18,6 +18,7 @@ export const StyledContainer = styled.div`
 `;
 export const StyledH2 = styled.h2`
   text-align: center;
+  margin-bottom: 0.5rem;
   span {
     color: ${theme.colors.reddish};
   }

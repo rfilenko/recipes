@@ -8,7 +8,7 @@ const Recipes = (props) => {
   const { isFiltered, filterTitle } = useContext(RecipesContext);
   return (
     <>
-      <StyledFlex>
+      <StyledFlex mt="1rem">
         {!!list &&
           list.length > 0 &&
           list.map((recipe) => (

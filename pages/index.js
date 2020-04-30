@@ -21,6 +21,7 @@ const Index = () => {
   const newList = recipesList.filter((recipe) => recipe.type === 'new');
 
   const [localRecipes, setLocalRecipes] = useState([]);
+  const [recipesTitle, setRecipesTitle] = useState('All ');
   const handleTag = (e) => {
     const filteredList = recipesList.filter((recipe) =>
       recipe.tags.includes(e)
@@ -33,18 +34,27 @@ const Index = () => {
     setLocalRecipes(recipesList);
     setIsFiltered(false);
     setFilterTitle(``);
+    setRecipesTitle('All recipes');
   };
   //filter by type
   const handleFilter = (e) => {
     const type = e.currentTarget.textContent;
-    type === '🧡' ? setLocalRecipes(likedList) : setLocalRecipes(newList);
+    if (type === '🧡') {
+      setLocalRecipes(likedList);
+      setRecipesTitle('Liked ');
+      setIsFiltered(true);
+    } else {
+      setLocalRecipes(newList);
+      setRecipesTitle('New ');
+      setIsFiltered(true);
+    }
   };
   useEffect(() => {
     setLocalRecipes(recipesList);
   }, []);
   const recipeTitle = (
     <StyledH2 mt={'1rem'}>
-      All recipes
+      {recipesTitle} recipes
       {isFiltered && <b> with </b>}
       <span>{filterTitle}</span>
     </StyledH2>
@@ -68,11 +78,11 @@ const Index = () => {
         </StyledFlex>
         {recipeTitle}
         {/* clear filter btn */}
-        {isFiltered && (
+        {isFiltered ? (
           <StyledFlex>
             <StyledButton onClick={handleClearTag}>Clear filter</StyledButton>
           </StyledFlex>
-        )}
+        ) : null}
 
         <Recipes handleTag={handleTag} list={localRecipes} />
       </StyledContainer>
