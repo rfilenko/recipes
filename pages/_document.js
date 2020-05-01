@@ -1,25 +1,30 @@
-import Document, { Main, NextScript, Head } from 'next/document';
+import Document from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import { LayoutFavicon } from '../components/layouts/LayoutFavicon';
 
 export default class MyDocument extends Document {
-  render() {
-    return (
-      <html lang="en">
-        <Head>
-          <meta name="description" content="recipe app, build with nextjs" />
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Merriweather:wght@400;700&display=swap"
-            rel="stylesheet"
-          />
-          <LayoutFavicon />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </html>
-    );
+  static async getInitialProps(ctx) {
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
+
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        });
+
+      const initialProps = await Document.getInitialProps(ctx);
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      };
+    } finally {
+      sheet.seal();
+    }
   }
 }
