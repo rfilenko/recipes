@@ -82,7 +82,6 @@ const Recipe = () => {
           </StyledRecipeDetail>
         </StyledContainer>
       </BaseLayout>
-      <Footer />
     </>
   );
 };
