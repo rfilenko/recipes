@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Image, Transformation } from 'cloudinary-react';
 import { RecipesContext } from '../contexts/RecipesContext';
 import Link from 'next/link';
 import { StyledRecipe, StyledFlex, StyledTag, StyledButton } from '../styled';
@@ -31,7 +32,17 @@ const Recipes = (props) => {
                 </p>
               </div>
               <div className="img-container">
-                <img src={recipe.image} alt={recipe.name} />
+                <Image
+                  cloudName={process.env.CLOUDINARY_CLOUD_NAME}
+                  publicId={recipe.slugUrl}
+                  alt={recipe.name.toLowerCase()}
+                >
+                  <Transformation
+                    fetchFormat="auto"
+                    quality="auto"
+                    effect="saturation:60"
+                  />
+                </Image>
               </div>
             </StyledRecipe>
           ))}

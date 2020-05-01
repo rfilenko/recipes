@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "cloudinary-react": "^1.5.0",
     "isomorphic-fetch": "^2.2.1",
     "next": "^9.2.2",
     "polished": "^3.5.2",

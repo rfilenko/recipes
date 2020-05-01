@@ -174,7 +174,7 @@ export const RECIPES_LIST = [
     id: 6,
     type: 'liked',
     slugUrl: 'kefir-pancakes',
-    tags: ['kefir', 'palacinky'],
+    tags: ['kefir', 'pancakes'],
     description:
       'Блины получаются тонкие, ажурные и очень вкусные. Все-все в мелкую дырочку и на столе смотрятся красиво!',
     ingridients: [
@@ -199,6 +199,6 @@ export const RECIPES_LIST = [
     time_cook: '20 mins',
     time_total: '30 mins',
     image:
-      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588331260/pancakes.jpg',
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588335326/kefir-pancakes.jpg',
   },
 ];

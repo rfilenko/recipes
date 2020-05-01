@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Image, Transformation } from 'cloudinary-react';
 import { RecipesContext } from '../../components/contexts/RecipesContext';
 import BaseLayout from '../../components/layouts/BaseLayout';
 import {
@@ -26,54 +27,63 @@ const Recipe = () => {
   if (!recipe) return <p></p>;
 
   return (
-    <BaseLayout title={`${recipe.slugUrl} details`}>
-      <StyledContainer>
-        <StyledRecipeDetail>
-          <StyledH2>{recipe.name}</StyledH2>
-
-          <p>{recipe.description}</p>
-          <div className="prep_time">
-            <p>Preparation - {recipe.time_prep}, </p>
-            <p>time to cook - {recipe.time_cook}, </p>
-            <p>total - {recipe.time_total}</p>
-          </div>
-
-          <div className="tags">
-            <p>
-              tags:
-              {Object.values(recipe.tags).map((value, index) => {
-                return (
-                  <StyledTag key={index} as="span">
-                    {value}
-                  </StyledTag>
-                );
-              })}
-            </p>
-          </div>
-          <div className="desc">
-            <div className="recipe_img">
-              <img src={recipe.image} alt={recipe.name.toLowerCase()} />
+    <>
+      <BaseLayout title={`${recipe.slugUrl} details`}>
+        <StyledContainer>
+          <StyledRecipeDetail>
+            <StyledH2>{recipe.name}</StyledH2>
+            <p>{recipe.description}</p>
+            <div className="prep_time">
+              <p>Preparation - {recipe.time_prep}, </p>
+              <p>time to cook - {recipe.time_cook}, </p>
+              <p>total - {recipe.time_total}</p>
             </div>
-            <div>
-              <StyledText>Ingridients:</StyledText>
+
+            <div className="tags">
+              <p>
+                tags:
+                {Object.values(recipe.tags).map((value, index) => {
+                  return (
+                    <StyledTag key={index} as="span">
+                      {value}
+                    </StyledTag>
+                  );
+                })}
+              </p>
+            </div>
+            <div className="desc">
+              <div className="recipe_img">
+                {!recipe.image && <p>no image </p>}
+                <Image
+                  cloudName={process.env.CLOUDINARY_CLOUD_NAME}
+                  publicId={recipe.slugUrl}
+                  alt={recipe.name.toLowerCase()}
+                >
+                  <Transformation fetchFormat="auto" quality="auto" />
+                </Image>
+              </div>
+              <div>
+                <StyledText>Ingridients:</StyledText>
+                <ul>
+                  {Object.values(recipe.ingridients).map((value, index) => {
+                    return <li key={index}>{value}</li>;
+                  })}
+                </ul>
+              </div>
+            </div>
+            <div className="instructions">
+              <StyledText>Instructions:</StyledText>
               <ul>
-                {Object.values(recipe.ingridients).map((value, index) => {
+                {Object.values(recipe.instructions).map((value, index) => {
                   return <li key={index}>{value}</li>;
                 })}
               </ul>
             </div>
-          </div>
-          <div className="instructions">
-            <StyledText>Instructions:</StyledText>
-            <ul>
-              {Object.values(recipe.instructions).map((value, index) => {
-                return <li key={index}>{value}</li>;
-              })}
-            </ul>
-          </div>
-        </StyledRecipeDetail>
-      </StyledContainer>
-    </BaseLayout>
+          </StyledRecipeDetail>
+        </StyledContainer>
+      </BaseLayout>
+      <Footer />
+    </>
   );
 };
 
