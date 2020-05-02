@@ -99,6 +99,10 @@ export const StyledButton = styled.button`
     outline-offset: 2px;
   }
 `;
+export const StyledFooter = styled.footer`
+  background-image: linear-gradient(120deg, #38cfd9, #ff5733, #38cfd9);
+  padding: 0.5rem;
+`;
 
 export const StyledTag = styled(StyledButton)`
   color: ${theme.colors.bodyText};
@@ -298,5 +302,27 @@ export const StyledRecipeDetail = styled.div`
       margin-bottom: 0.75rem;
       text-align: justify;
     }
+  }
+`;
+
+export const StyledVideoWrapper = styled.div`
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin-bottom: 2rem;
+  & > div {
+    max-width: 100%;
+    height: 0 !important;
+  }
+  h4 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  & iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 `;

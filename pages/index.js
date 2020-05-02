@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { RecipesContext } from '../components/contexts/RecipesContext';
 import Recipes from '../components/shared/Recipes';
 import BaseLayout from '../components/layouts/BaseLayout';
+
 import {
   StyledContainer,
   StyledFlex,

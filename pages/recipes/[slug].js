@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import ReactPlayer from 'react-player';
 import { Image, Transformation } from 'cloudinary-react';
 import { RecipesContext } from '../../components/contexts/RecipesContext';
 import BaseLayout from '../../components/layouts/BaseLayout';
@@ -8,6 +9,7 @@ import {
   StyledTag,
   StyledText,
   StyledRecipeDetail,
+  StyledVideoWrapper,
 } from '../../components/styled';
 import { useRouter } from 'next/router';
 
@@ -79,6 +81,14 @@ const Recipe = () => {
                 })}
               </ul>
             </div>
+            {!!recipe.video && (
+              <>
+                <h4>Watch the Video Below</h4>
+                <StyledVideoWrapper>
+                  <ReactPlayer url={recipe.video} controls />
+                </StyledVideoWrapper>
+              </>
+            )}
           </StyledRecipeDetail>
         </StyledContainer>
       </BaseLayout>

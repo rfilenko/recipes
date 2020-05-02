@@ -168,6 +168,7 @@ export const RECIPES_LIST = [
     time_total: '50 mins',
     image:
       'https://res.cloudinary.com/dq1embvfh/image/upload/v1588248330/paella.png',
+    video: 'https://www.youtube.com/watch?v=NnuL_jPHmm8&feature=emb_title',
   },
   {
     name: 'Блины на кефире и молоке',
