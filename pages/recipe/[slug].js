@@ -103,15 +103,15 @@ const Recipe = () => {
 
 export default Recipe;
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   return {
     props: {},
   };
 }
 
-export async function getStaticPaths(ctx) {
+export async function getStaticPaths() {
   return {
-    paths: [{ params: { slug: '1' } }],
+    paths: [{ params: { slug: 'onion-meatballs' } }],
     fallback: true,
   };
 }
