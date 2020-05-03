@@ -6,7 +6,7 @@ import { StyledHeader, StyledFlex, StyledButton } from '../styled/';
 
 const Header = () => {
   const router = useRouter();
-  const isRecipePage = router.pathname.includes('/recipes');
+  const isRecipePage = router.pathname.includes('/recipe');
   const handleBack = () => {
     router.push('/');
   };

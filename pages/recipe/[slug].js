@@ -102,3 +102,16 @@ const Recipe = () => {
 };
 
 export default Recipe;
+
+export async function getStaticProps(context) {
+  return {
+    props: {},
+  };
+}
+
+export async function getStaticPaths(ctx) {
+  return {
+    paths: [{ params: { slug: '1' } }],
+    fallback: true,
+  };
+}

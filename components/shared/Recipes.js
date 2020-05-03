@@ -15,7 +15,7 @@ const Recipes = (props) => {
           list.map((recipe) => (
             <StyledRecipe key={recipe.name}>
               <h4>{recipe.name}</h4>
-              <Link href={`/recipes/[slug]`} as={`/recipes/${recipe.id}`}>
+              <Link href={`/recipe/[slug]`} as={`/recipe/${recipe.id}`}>
                 <StyledButton className="more"> more </StyledButton>
               </Link>
               <div>
@@ -40,7 +40,7 @@ const Recipes = (props) => {
                   <Transformation
                     fetchFormat="auto"
                     quality="auto"
-                    effect="saturation:60"
+                    effect="saturation:30"
                   />
                 </Image>
               </div>

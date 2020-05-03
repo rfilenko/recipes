@@ -106,7 +106,7 @@ export const RECIPES_LIST = [
     name: 'Mrkvový dort',
     id: 4,
     type: 'new',
-    slugUrl: 'mrkvovy-dort',
+    slugUrl: 'dort-mrkvovy',
     tags: ['mrkev', 'dort', 'pie'],
     description: 'Mrkvový dort recept popis',
     ingridients: [
@@ -135,7 +135,7 @@ export const RECIPES_LIST = [
     time_cook: '50 mins',
     time_total: '1 hour 50 mins',
     image:
-      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588247802/mrkovy-dort.jpg',
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588512854/dort-mrkvovy.jpg',
   },
   {
     name: 'THE MOST AMAZING 20 MINUTE SEAFOOD PAELLA',
