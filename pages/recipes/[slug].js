@@ -66,6 +66,11 @@ const Recipe = () => {
               </div>
               <div>
                 <StyledText>Ingridients:</StyledText>
+                {recipe.servings && (
+                  <span className="serves">
+                    (for {recipe.servings} servings)
+                  </span>
+                )}
                 <ul>
                   {Object.values(recipe.ingridients).map((value, index) => {
                     return <li key={index}>{value}</li>;

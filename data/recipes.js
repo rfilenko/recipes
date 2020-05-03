@@ -3,6 +3,7 @@ export const RECIPES_LIST = [
     name: 'FRENCH ONION MEATBALLS',
     id: 1,
     type: 'liked',
+    servings: 8,
     slugUrl: 'onion-meatballs',
     tags: ['meat', 'onion'],
     description:
@@ -17,8 +18,8 @@ export const RECIPES_LIST = [
       '1/4 cup seasoned bread crumbs',
       '3 tablespoons fresh parsley',
       '1 teaspoon dried thyme',
-      '1/2 teaspoon salt',
-      '1/2 teaspoon pepper',
+      '½ teaspoon salt',
+      '½ teaspoon pepper',
       '1 to 2 tablespoons olive oil, for browning the meatballs',
       '1 ½ cups chicken or beef stock',
       '1 teaspoon flour',
@@ -72,6 +73,7 @@ export const RECIPES_LIST = [
     name: 'Apple Pie Recipe with the Best Filling',
     id: 3,
     type: 'liked',
+    servings: 8,
     slugUrl: 'apple-pie',
     tags: ['apple', 'pie', 'filling'],
     description:
@@ -98,6 +100,7 @@ export const RECIPES_LIST = [
     time_total: 'around 2 hours',
     image:
       'https://res.cloudinary.com/dq1embvfh/image/upload/v1588248840/apple-pie.jpg',
+    video: 'https://www.youtube.com/watch?v=KbyahTnzbKA',
   },
   {
     name: 'Mrkvový dort',
@@ -137,8 +140,9 @@ export const RECIPES_LIST = [
   {
     name: 'THE MOST AMAZING 20 MINUTE SEAFOOD PAELLA',
     id: 5,
-    type: 'new',
+    type: 'liked',
     slugUrl: 'seafood-paella',
+    servings: 2,
     tags: ['paella', 'seafood'],
     description:
       'This paella is loaded with Spanish flavors, super easy to make and done in exactly 20 minutes! Enjoy this paella any day of the week and impress your family & friends with Spain´s most treasured dish.',

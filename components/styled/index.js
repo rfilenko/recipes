@@ -282,6 +282,11 @@ export const StyledRecipeDetail = styled.div`
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
+    .serves {
+      color: ${theme.colors.mutedText};
+      font-size: 0.8rem;
+      margin-left: 0.5em;
+    }
     ul {
       list-style: disc;
       margin-top: 0.5em;

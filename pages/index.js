@@ -35,7 +35,7 @@ const Index = () => {
     setLocalRecipes(recipesList);
     setIsFiltered(false);
     setFilterTitle(``);
-    setRecipesTitle('All recipes');
+    setRecipesTitle('All ');
   };
   //filter by type
   const handleFilter = (e) => {
