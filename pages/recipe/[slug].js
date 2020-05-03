@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReactPlayer from 'react-player';
+import fetch from 'isomorphic-fetch';
 import { Image, Transformation } from 'cloudinary-react';
 import { RecipesContext } from '../../components/contexts/RecipesContext';
 import BaseLayout from '../../components/layouts/BaseLayout';
@@ -13,7 +14,7 @@ import {
 } from '../../components/styled';
 import { useRouter } from 'next/router';
 
-const Recipe = () => {
+const Recipe = (props) => {
   const { recipesList } = useContext(RecipesContext);
   const [recipe, setRecipe] = useState(null);
   const router = useRouter();
@@ -104,14 +105,27 @@ const Recipe = () => {
 export default Recipe;
 
 export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  const res = await fetch('http://localhost:3300/api/recipes');
+  const recipes = await res.json();
+
   return {
-    props: {},
+    props: {
+      recipes,
+    },
   };
 }
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { slug: 'onion-meatballs' } }],
+    paths: [
+      { params: { slug: '1' } },
+      { params: { slug: '2' } },
+      { params: { slug: '3' } },
+      { params: { slug: '4' } },
+      { params: { slug: '5' } },
+      { params: { slug: '6' } },
+    ],
     fallback: true,
   };
 }
