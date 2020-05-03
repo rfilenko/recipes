@@ -15,8 +15,8 @@ const BaseLayout = ({ title, children }) => {
           href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Merriweather:wght@400;700&display=swap"
           rel="stylesheet"
         />
-        <LayoutFavicon />
       </Head>
+      <LayoutFavicon />
 
       <Header />
       <main>

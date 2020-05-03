@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { memo } from 'react';
 
 const LayoutFaviconComponent = () => (
-  <>
+  <Head>
     <meta name="theme-color" content="#38cfd9" />
     <link rel="shortcut icon" type="image/ico" href="/favicon/favicon.ico" />
     <link
@@ -29,7 +29,7 @@ const LayoutFaviconComponent = () => (
       color="#5bbad5"
     />
     <meta name="msapplication-TileColor" content="#da532c" />
-  </>
+  </Head>
 );
 export const LayoutFavicon = memo(LayoutFaviconComponent);
 
