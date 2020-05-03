@@ -18,6 +18,7 @@ const Index = () => {
     setIsFiltered,
     setFilterTitle,
   } = useContext(RecipesContext);
+
   const likedList = recipesList.filter((recipe) => recipe.type === 'liked');
   const newList = recipesList.filter((recipe) => recipe.type === 'new');
 
@@ -35,7 +36,7 @@ const Index = () => {
     setLocalRecipes(recipesList);
     setIsFiltered(false);
     setFilterTitle(``);
-    setRecipesTitle('All recipes');
+    setRecipesTitle('All');
   };
   //filter by type
   const handleFilter = (e) => {
@@ -52,7 +53,7 @@ const Index = () => {
   };
   useEffect(() => {
     setLocalRecipes(recipesList);
-  }, []);
+  }, [recipesList]);
   const recipeTitle = (
     <StyledH2 mt={'1rem'}>
       {recipesTitle} recipes

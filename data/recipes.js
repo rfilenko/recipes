@@ -137,7 +137,7 @@ export const RECIPES_LIST = [
   {
     name: 'THE MOST AMAZING 20 MINUTE SEAFOOD PAELLA',
     id: 5,
-    type: 'new',
+    type: 'liked',
     slugUrl: 'seafood-paella',
     tags: ['paella', 'seafood'],
     description:
