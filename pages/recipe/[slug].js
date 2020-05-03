@@ -106,12 +106,12 @@ export default Recipe;
 
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
-  const res = await fetch('http://localhost:3300/api/recipes');
-  const recipes = await res.json();
+  // const res = await fetch('http://localhost:3300/api/recipes');
+  // const recipes = await res.json();
 
   return {
     props: {
-      recipes,
+      // recipes,
     },
   };
 }
