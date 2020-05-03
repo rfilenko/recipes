@@ -5,4 +5,5 @@ module.exports = {
   env: {
     CLOUDINARY_CLOUD_NAME: 'dq1embvfh',
   },
+  target: 'server',
 };
