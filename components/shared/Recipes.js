@@ -3,6 +3,7 @@ import { Image, Transformation } from 'cloudinary-react';
 import { RecipesContext } from '../contexts/RecipesContext';
 import Link from 'next/link';
 import { StyledRecipe, StyledFlex, StyledTag, StyledButton } from '../styled';
+import { FaLongArrowAltRight } from 'react-icons/fa';
 
 const Recipes = (props) => {
   const { handleTag, list } = props;
@@ -16,7 +17,9 @@ const Recipes = (props) => {
             <StyledRecipe key={recipe.name}>
               <h4>{recipe.name}</h4>
               <Link href={`/recipe/[slug]`} as={`/recipe/${recipe.id}`}>
-                <StyledButton className="more"> more </StyledButton>
+                <StyledButton className="more">
+                  <span>more</span> <FaLongArrowAltRight />
+                </StyledButton>
               </Link>
               <div>
                 <p>

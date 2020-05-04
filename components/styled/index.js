@@ -78,6 +78,8 @@ export const StyledButton = styled.button`
   box-shadow: ${theme.boxShadow.small};
   color: ${theme.colors.white};
   cursor: pointer;
+  display: flex;
+  align-items: center;
   margin-top: ${(props) => (props.mt ? props.mt : '0')};
   margin-bottom: ${(props) => (props.mb ? props.mb : '.5em')};
   margin-left: ${(props) => (props.ml ? props.ml : '0')};
@@ -97,6 +99,9 @@ export const StyledButton = styled.button`
       ${(props) =>
         props.variant ? theme.colors.secondary : theme.colors.reddish};
     outline-offset: 2px;
+  }
+  & svg {
+    margin: 0 0.5rem;
   }
 `;
 export const StyledFooter = styled.footer`
@@ -199,11 +204,16 @@ export const StyledRecipe = styled.div`
 `;
 export const StyledText = styled.h4`
   color: ${theme.colors.text};
+  display: flex;
+  align-items: center;
   font-weight: bold;
   letter-spacing: 0.05em;
   margin-bottom: 0;
   margin-top: 1rem;
   text-transform: uppercase;
+  & svg {
+    margin: 0 0.5rem;
+  }
 `;
 export const StyledRecipeDetail = styled.div`
   .prep_time {

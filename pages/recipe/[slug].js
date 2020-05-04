@@ -13,6 +13,9 @@ import {
   StyledVideoWrapper,
 } from '../../components/styled';
 import { useRouter } from 'next/router';
+import { IoMdTimer } from 'react-icons/io';
+import { GiKnifeFork, GiFruitBowl } from 'react-icons/gi';
+import { theme } from '../../components/styled/theme';
 
 const Recipe = (props) => {
   const { recipesList } = useContext(RecipesContext);
@@ -37,6 +40,7 @@ const Recipe = (props) => {
             <StyledH2>{recipe.name}</StyledH2>
             <p>{recipe.description}</p>
             <div className="prep_time">
+              <IoMdTimer size="1.25rem" color={theme.colors.text} />
               <p>Preparation - {recipe.time_prep}, </p>
               <p>time to cook - {recipe.time_cook}, </p>
               <p>total - {recipe.time_total}</p>
@@ -66,10 +70,15 @@ const Recipe = (props) => {
                 </Image>
               </div>
               <div>
-                <StyledText>Ingridients:</StyledText>
+                <StyledText>
+                  <GiFruitBowl size="1.25rem" color={theme.colors.text} />{' '}
+                  Ingridients:
+                </StyledText>
                 {recipe.servings && (
                   <span className="serves">
-                    (for {recipe.servings} servings)
+                    (for {recipe.servings} servings{' '}
+                    <GiKnifeFork size=".75rem" color={theme.colors.mutedText} />
+                    )
                   </span>
                 )}
                 <ul>
