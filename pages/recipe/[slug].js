@@ -6,6 +6,7 @@ import { RecipesContext } from 'components/contexts/RecipesContext';
 import BaseLayout from 'components/layouts/BaseLayout';
 import { useRouter } from 'next/router';
 import { IoMdTimer } from 'react-icons/io';
+import { FaShareAlt } from 'react-icons/fa';
 import { GiKnifeFork, GiFruitBowl } from 'react-icons/gi';
 import { theme } from 'components/styled/theme';
 import {
@@ -16,6 +17,7 @@ import {
   StyledText,
   StyledRecipeDetail,
   StyledVideoWrapper,
+  StyledFlex,
 } from 'components/styled';
 
 const Recipe = (props) => {
@@ -121,14 +123,11 @@ const Recipe = (props) => {
               </>
             )}
             {navigator.share && (
-              <StyledButton
-                variant="primary"
-                onClick={shareAPI}
-                mr="1rem"
-                mb="0"
-              >
-                share with recipe
-              </StyledButton>
+              <StyledFlex>
+                <StyledButton linear onClick={shareAPI} mb="1rem">
+                  share recipe <FaShareAlt />
+                </StyledButton>
+              </StyledFlex>
             )}
           </StyledRecipeDetail>
         </StyledContainer>
