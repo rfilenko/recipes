@@ -41,11 +41,11 @@ const Recipe = () => {
             <p>{recipe.description}</p>
             <div className="prep_time">
               <p>
-                <IoMdTimer size="1.25rem" color={theme.colors.text} />{' '}
-                Preparation - {recipe.time_prep},
+                <IoMdTimer size="1.25rem" color={theme.colors.text} />
+                preparation - {recipe.time_prep},
               </p>
               <p> time to cook - {recipe.time_cook}, </p>
-              <p>total - {recipe.time_total}</p>
+              <p> total - {recipe.time_total}</p>
             </div>
 
             <div className="tags">

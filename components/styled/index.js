@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { theme } from './theme';
-import { darken } from 'polished';
+import { darken, rem } from 'polished';
 
 export const StyledContainer = styled.div`
   font-size: ${theme.sizes.normal};
@@ -195,8 +195,12 @@ export const StyledRecipe = styled.div`
     height: 100%;
     width: 100%;
     transition: ${theme.transition.normal};
+    min-height: ${rem(256)};
+    min-width: ${rem(350)};
   }
   &:hover {
+    /* transition: ${theme.transition.normal}; */
+    box-shadow: ${theme.boxShadow.medium};
     img {
       transform: scale(1.025, 1.025);
     }
@@ -229,7 +233,7 @@ export const StyledRecipeDetail = styled.div`
     display: flex;
     align-items: center;
     & svg {
-      margin-right: 0.5rem;
+      margin-right: 0.25rem;
     }
   }
   .tags {

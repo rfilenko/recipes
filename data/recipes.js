@@ -37,7 +37,7 @@ export const RECIPES_LIST = [
     time_cook: '25 mins',
     time_total: '1 hour 25 mins',
     image:
-      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588248840/french-onion-meatballs.jpg',
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588673531/onion-meatballs.jpg',
     comment: 'nasty and easy',
   },
   {
@@ -237,5 +237,42 @@ export const RECIPES_LIST = [
     time_total: '1 hour',
     image:
       'https://res.cloudinary.com/dq1embvfh/image/upload/v1588667228/losos-kopr.jpg',
+  },
+  {
+    name: 'Potato soup',
+    id: 8,
+    type: 'new',
+    servings: 8,
+    slugUrl: 'potato-soup',
+    tags: ['potato', 'soup'],
+    description:
+      'This easy Potato Soup recipe is truly the best!  It’s quick and easy to make on the stovetop, it’s nice and creamy (without using heavy cream), and it’s always so cozy and comforting and delicious.',
+    ingridients: [
+      '5 slices bacon, diced',
+      '3 tablespoons (reserved) bacon grease or butter',
+      '1 cup diced white or yellow onion',
+      '4 cloves garlic, peeled and minced',
+      '1/4 cup all-purpose flour',
+      '2 cups chicken stock or vegetable stock',
+      '2 cups milk, warmed',
+      '1.5 pounds Yukon gold potatoes, diced',
+      '1 cup shredded sharp cheddar cheese',
+      '1/2 cup plain Greek yogurt or sour cream',
+      '1 teaspoon sea salt, or more to taste',
+      '1/2 teaspoon freshly-cracked black pepper',
+      'optional toppings: thinly-sliced green onions or chives, extra shredded cheese, extra bacon, sour cream',
+    ],
+    instructions: [
+      'Heat a large stockpot over medium-high heat.  Add diced bacon and cook until crispy, stirring occasionally.  Transfer the bacon to a separate plate, using a slotted spoon, reserving about 3 tablespoons of bacon grease in the stockpot.  (Discard any extra grease, or you can substitute butter in place of the 3 tablespoons of bacon grease.  Also, if you are short on time, you can dice the potatoes and onion while the bacon cooks to save time.)',
+      'Add onion and sauté for 5 minutes, stirring occasionally, until soft.  Stir in the garlic and sauté for an extra 1-2 minutes, stirring occasionally, until fragrant.  Stir the flour into the mixture and sauté for an additional 1 minute to cook the flour, stirring occasionally.  Then stir in the stock until combined, followed by the milk and potatoes.',
+      'Continue cooking until the mixture just reaches a simmer, before it begins to boil.  Then reduce heat to medium-low, cover, and simmer for about 10-15 minutes or until the potatoes are soft, being sure to stir the soup every few minutes so that the bottom does not burn.  (The smaller you dice your potatoes, the faster your soup will cook.)',
+      'Once the potatoes are nice and soft, stir in the cheddar cheese and Greek yogurt (or sour cream), salt, pepper and cooked bacon bits.  Taste and season with extra salt and pepper, if needed.',
+      'Serve warm, garnished with desired toppings.  Or, transfer to a sealed container and refrigerate for up to 3 days.',
+    ],
+    time_prep: '15 mins',
+    time_cook: '30 mins',
+    time_total: '45 mins',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588672882/potato-soup.jpg',
   },
 ];
