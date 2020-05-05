@@ -1,6 +1,7 @@
 const path = require('path');
 const withImages = require('next-images');
 
+global.navigator = () => null;
 module.exports = withImages();
 
 module.exports = {

@@ -6,24 +6,40 @@ import { RecipesContext } from 'components/contexts/RecipesContext';
 import BaseLayout from 'components/layouts/BaseLayout';
 import { useRouter } from 'next/router';
 import { IoMdTimer } from 'react-icons/io';
+import { FaShareAlt } from 'react-icons/fa';
 import { GiKnifeFork, GiFruitBowl } from 'react-icons/gi';
 import { theme } from 'components/styled/theme';
 import {
   StyledContainer,
+  StyledButton,
   StyledH2,
   StyledTag,
   StyledText,
   StyledRecipeDetail,
   StyledVideoWrapper,
+  StyledFlex,
 } from 'components/styled';
 
-const Recipe = () => {
+const Recipe = (props) => {
   const { recipesList } = useContext(RecipesContext);
   const [recipe, setRecipe] = useState(null);
   const router = useRouter();
   const { slug } = router.query;
   let recipeItem;
 
+  const shareAPI = () => {
+    if (navigator.share) {
+      const recipeFullUrl = window.location.href;
+      navigator
+        .share({
+          title: `${recipe.slugUrl}`,
+          text: `${recipe.description}`,
+          url: `${recipeFullUrl}`,
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    }
+  };
   useEffect(() => {
     recipeItem = slug - 1;
     let currRecipe = recipesList[recipeItem];
@@ -105,6 +121,13 @@ const Recipe = () => {
                   <ReactPlayer url={recipe.video} controls />
                 </StyledVideoWrapper>
               </>
+            )}
+            {navigator.share && (
+              <StyledFlex>
+                <StyledButton linear onClick={shareAPI} mb="1rem">
+                  share recipe <FaShareAlt />
+                </StyledButton>
+              </StyledFlex>
             )}
           </StyledRecipeDetail>
         </StyledContainer>
