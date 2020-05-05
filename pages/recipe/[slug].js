@@ -10,6 +10,7 @@ import { GiKnifeFork, GiFruitBowl } from 'react-icons/gi';
 import { theme } from 'components/styled/theme';
 import {
   StyledContainer,
+  StyledButton,
   StyledH2,
   StyledTag,
   StyledText,
@@ -23,15 +24,14 @@ const Recipe = (props) => {
   const router = useRouter();
   const { slug } = router.query;
   let recipeItem;
+
   const shareAPI = () => {
-    // console.log('not in navigator');
-    if (window.navigator.share) {
+    if (navigator.share) {
       const recipeFullUrl = window.location.href;
-      console.log('navigator');
       navigator
         .share({
-          title: 'web.dev',
-          text: `${recipe.slugUrl}`,
+          title: `${recipe.slugUrl}`,
+          text: `${recipe.description}`,
           url: `${recipeFullUrl}`,
         })
         .then(() => console.log('Successful share'))
@@ -42,7 +42,6 @@ const Recipe = (props) => {
     recipeItem = slug - 1;
     let currRecipe = recipesList[recipeItem];
     setRecipe(currRecipe);
-    shareAPI();
   }, []);
 
   if (!recipe) return <p></p>;
@@ -120,6 +119,16 @@ const Recipe = (props) => {
                   <ReactPlayer url={recipe.video} controls />
                 </StyledVideoWrapper>
               </>
+            )}
+            {navigator.share && (
+              <StyledButton
+                variant="primary"
+                onClick={shareAPI}
+                mr="1rem"
+                mb="0"
+              >
+                share with recipe
+              </StyledButton>
             )}
           </StyledRecipeDetail>
         </StyledContainer>
