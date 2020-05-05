@@ -2,8 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import ReactPlayer from 'react-player';
 import fetch from 'isomorphic-fetch';
 import { Image, Transformation } from 'cloudinary-react';
-import { RecipesContext } from '../../components/contexts/RecipesContext';
-import BaseLayout from '../../components/layouts/BaseLayout';
+import { RecipesContext } from 'components/contexts/RecipesContext';
+import BaseLayout from 'components/layouts/BaseLayout';
+import { useRouter } from 'next/router';
+import { IoMdTimer } from 'react-icons/io';
+import { GiKnifeFork, GiFruitBowl } from 'react-icons/gi';
+import { theme } from 'components/styled/theme';
 import {
   StyledContainer,
   StyledH2,
@@ -11,13 +15,9 @@ import {
   StyledText,
   StyledRecipeDetail,
   StyledVideoWrapper,
-} from '../../components/styled';
-import { useRouter } from 'next/router';
-import { IoMdTimer } from 'react-icons/io';
-import { GiKnifeFork, GiFruitBowl } from 'react-icons/gi';
-import { theme } from '../../components/styled/theme';
+} from 'components/styled';
 
-const Recipe = (props) => {
+const Recipe = () => {
   const { recipesList } = useContext(RecipesContext);
   const [recipe, setRecipe] = useState(null);
   const router = useRouter();
@@ -114,14 +114,8 @@ const Recipe = (props) => {
 export default Recipe;
 
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // const res = await fetch('http://localhost:3300/api/recipes');
-  // const recipes = await res.json();
-
   return {
-    props: {
-      // recipes,
-    },
+    props: {},
   };
 }
 

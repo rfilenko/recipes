@@ -1,4 +1,4 @@
-import { RECIPES_LIST } from '../../data/recipes';
+import { RECIPES_LIST } from 'data/recipes';
 
 export default (req, res) => {
   res.statusCode = 200;
