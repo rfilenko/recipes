@@ -226,6 +226,11 @@ export const StyledRecipeDetail = styled.div`
   }
   p {
     margin: 0 0 0.5rem;
+    display: flex;
+    align-items: center;
+    & svg {
+      margin-right: 0.5rem;
+    }
   }
   .tags {
     display: flex;
@@ -308,14 +313,42 @@ export const StyledRecipeDetail = styled.div`
   }
   .instructions {
     ul {
-      list-style: decimal;
+      counter-reset: instructions-counter;
+      list-style: none;
       padding: 0;
-      padding-left: 1rem;
+      padding-left: 0.5rem;
+      @media screen and (min-width: ${theme.breakpoint.mobile}) {
+        padding-left: 2rem;
+      }
     }
     li {
       line-height: 1.5rem;
       margin-bottom: 0.75rem;
       text-align: justify;
+      position: relative;
+      counter-increment: instructions-counter;
+      padding-left: 1.5rem;
+      @media screen and (min-width: ${theme.breakpoint.mobile}) {
+        padding-left: 1rem;
+      }
+
+      &:before {
+        background: ${theme.colors.primary};
+        border-radius: 999px;
+        color: black;
+        content: counter(instructions-counter) '. ';
+        font-family: 'Fira Sans', sans-serif;
+        font-weight: bold;
+        position: absolute;
+        left: -4%;
+        height: 0.75rem;
+        width: 0.75rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        z-index: -1;
+      }
     }
   }
 `;

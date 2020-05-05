@@ -40,9 +40,11 @@ const Recipe = () => {
             <StyledH2>{recipe.name}</StyledH2>
             <p>{recipe.description}</p>
             <div className="prep_time">
-              <IoMdTimer size="1.25rem" color={theme.colors.text} />
-              <p>Preparation - {recipe.time_prep}, </p>
-              <p>time to cook - {recipe.time_cook}, </p>
+              <p>
+                <IoMdTimer size="1.25rem" color={theme.colors.text} />{' '}
+                Preparation - {recipe.time_prep},
+              </p>
+              <p> time to cook - {recipe.time_cook}, </p>
               <p>total - {recipe.time_total}</p>
             </div>
 
@@ -66,7 +68,7 @@ const Recipe = () => {
                   publicId={recipe.slugUrl}
                   alt={recipe.name.toLowerCase()}
                 >
-                  <Transformation fetchFormat="auto" quality="auto" />
+                  <Transformation fetchFormat="auto" />
                 </Image>
               </div>
               <div>
@@ -128,6 +130,7 @@ export async function getStaticPaths() {
       { params: { slug: '4' } },
       { params: { slug: '5' } },
       { params: { slug: '6' } },
+      { params: { slug: '7' } },
     ],
     fallback: true,
   };

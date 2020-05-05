@@ -206,4 +206,36 @@ export const RECIPES_LIST = [
     image:
       'https://res.cloudinary.com/dq1embvfh/image/upload/v1588335326/kefir-pancakes.jpg',
   },
+  {
+    name: 'Losos v koprové omáčce',
+    id: 7,
+    type: 'new',
+    servings: 2,
+    slugUrl: 'losos-kopr',
+    tags: ['losos', 'kopr', 'omáčka'],
+    description: 'Zapečený losos s koprovou omáčkou',
+    ingridients: [
+      '2 filety divokého lososa s kůží',
+      '400 ml kokosového mléka',
+      '2cm z kořene zázvoru',
+      '1 lžička kokosovych aminos',
+      'súl',
+      'pepř',
+      'kopr',
+      'šťáva z bio citronu',
+    ],
+    instructions: [
+      'Lososa očistíme a vložíme do menší uzavíratelné skleněné nádoby.',
+      'Do misky vlijeme kokosove mléko, přidáme kokosové aminos, nastrouhaný zazvor, kopr, sůl  a pepř, promicháme a vlijeme do nádoby s lososem, kterého necháme přes noc (nebo alespoň  š hodiny) v kokosové směsi marinovat.',
+      'Alespoň půl hodiny před pečením vyndáme lososa z lednice a necháme ohřát na pokojovou teplotu',
+      'Poté lososa poklademe plátky citronu a nádobu vložíme do trouby. Pečeme při 170 C po dobu 30 minut',
+      'Na závěr zapneme funkci gril a zapékáme dalžich 5 minut.',
+      'Podáváme společně se zeleninovou přilohou (pyré, rýže, nudle).',
+    ],
+    time_prep: '20 mins',
+    time_cook: '40 mins',
+    time_total: '1 hour',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1588667228/losos-kopr.jpg',
+  },
 ];
