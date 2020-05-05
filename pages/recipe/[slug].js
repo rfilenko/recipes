@@ -17,17 +17,32 @@ import {
   StyledVideoWrapper,
 } from 'components/styled';
 
-const Recipe = () => {
+const Recipe = (props) => {
   const { recipesList } = useContext(RecipesContext);
   const [recipe, setRecipe] = useState(null);
   const router = useRouter();
   const { slug } = router.query;
   let recipeItem;
-
+  const shareAPI = () => {
+    // console.log('not in navigator');
+    if (window.navigator.share) {
+      const recipeFullUrl = window.location.href;
+      console.log('navigator');
+      navigator
+        .share({
+          title: 'web.dev',
+          text: `${recipe.slugUrl}`,
+          url: `${recipeFullUrl}`,
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    }
+  };
   useEffect(() => {
     recipeItem = slug - 1;
     let currRecipe = recipesList[recipeItem];
     setRecipe(currRecipe);
+    shareAPI();
   }, []);
 
   if (!recipe) return <p></p>;
