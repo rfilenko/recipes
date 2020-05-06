@@ -69,10 +69,17 @@ export const StyledHeader = styled.header`
     }
   }
 `;
+const linearBg = `background:linear-gradient(
+    75deg,
+    ${theme.colors.reddish},
+    ${theme.colors.yellow}
+  );`;
 
 export const StyledButton = styled.button`
   background: ${(props) =>
     props.variant ? theme.colors[props.variant] : theme.colors.reddish};
+
+  ${(props) => props.linear && linearBg}
   border: none;
   border-radius: 0.5em;
   box-shadow: ${theme.boxShadow.small};

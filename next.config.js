@@ -2,6 +2,7 @@ const path = require('path');
 const withImages = require('next-images');
 const dev = process.env.NODE_ENV !== 'production';
 
+global.navigator = () => null;
 module.exports = withImages();
 
 module.exports = {
