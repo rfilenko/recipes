@@ -9,7 +9,7 @@ module.exports = {
   env: {
     CLOUDINARY_CLOUD_NAME: 'dq1embvfh',
   },
-  target: 'server',
+  target: 'serverless',
   webpack: (config) => {
     config.resolve.alias['components'] = path.join(__dirname, 'components');
     config.resolve.alias['public'] = path.join(__dirname, 'public');

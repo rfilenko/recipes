@@ -145,11 +145,17 @@ export const getStaticProps = async () => {
 };
 
 export const getStaticPaths = async (ctx) => {
-  const { API_URL } = process.env;
-  const res = await fetch(`${API_URL}/api/recipes`);
-  const data = await res.json();
-  const paths = data.map((d) => ({
-    params: { slug: d.id.toString() },
-  }));
-  return { paths, fallback: false };
+  return {
+    paths: [
+      { params: { slug: '1' } },
+      { params: { slug: '2' } },
+      { params: { slug: '3' } },
+      { params: { slug: '4' } },
+      { params: { slug: '5' } },
+      { params: { slug: '6' } },
+      { params: { slug: '7' } },
+      { params: { slug: '8' } },
+    ],
+    fallback: true,
+  };
 };
