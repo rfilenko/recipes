@@ -121,18 +121,15 @@ export async function getStaticProps() {
   };
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths = async (ctx) => {
+  const { API_URL } = process.env;
+  const res = await fetch(`${API_URL}/api/recipes`);
+  const data = await res.json();
+  const recipeIds = data.map((r) => {
+    return { params: { slug: r.id.toString() } };
+  });
   return {
-    paths: [
-      { params: { slug: '1' } },
-      { params: { slug: '2' } },
-      { params: { slug: '3' } },
-      { params: { slug: '4' } },
-      { params: { slug: '5' } },
-      { params: { slug: '6' } },
-      { params: { slug: '7' } },
-      { params: { slug: '8' } },
-    ],
+    paths: recipeIds,
     fallback: true,
   };
-}
+};
