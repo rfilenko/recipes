@@ -138,21 +138,18 @@ const Recipe = (props) => {
 
 export default Recipe;
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   return {
     props: {},
   };
-}
+};
 
 export const getStaticPaths = async (ctx) => {
   const { API_URL } = process.env;
   const res = await fetch(`${API_URL}/api/recipes`);
   const data = await res.json();
-  const recipeIds = data.map((r) => {
-    return { params: { slug: r.id.toString() } };
-  });
-  return {
-    paths: recipeIds,
-    fallback: true,
-  };
+  const paths = data.map((d) => ({
+    params: { slug: d.id.toString() },
+  }));
+  return { paths, fallback: false };
 };
