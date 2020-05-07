@@ -5,6 +5,7 @@ export const RECIPES_LIST = [
     type: 'liked',
     servings: 8,
     slugUrl: 'onion-meatballs',
+    lang: 'en',
     tags: ['meat', 'onion'],
     description:
       'These french onion meatballs are super delicious! All the flavors of french onion soup made into juicy meatballs. Cheesy, saucy goodness!',
@@ -45,6 +46,7 @@ export const RECIPES_LIST = [
     id: 2,
     type: 'liked',
     slugUrl: 'banana-pudding',
+    lang: 'en',
     tags: ['banana', 'pudding'],
     description:
       'This sweet, rich, and creamy banana pudding recipe goes light on added sugars and big on fresh banana flavor! Whip up this kid-friendly fruit dessert in under 15 minutes, then chill it for an after-dinner treat.',
@@ -75,6 +77,7 @@ export const RECIPES_LIST = [
     type: 'liked',
     servings: 8,
     slugUrl: 'apple-pie',
+    lang: 'en',
     tags: ['apple', 'pie', 'filling'],
     description:
       'Everyone has to make this Classic Apple Pie Recipe for Thanksgiving. You will love the flaky pie crust and the apple pie filling will surprise you.',
@@ -107,6 +110,7 @@ export const RECIPES_LIST = [
     id: 4,
     type: 'new',
     slugUrl: 'dort-mrkvovy',
+    lang: 'cz',
     tags: ['mrkev', 'dort', 'pie'],
     description: 'Mrkvový dort recept popis',
     ingridients: [
@@ -143,6 +147,7 @@ export const RECIPES_LIST = [
     type: 'liked',
     slugUrl: 'seafood-paella',
     servings: 2,
+    lang: 'en',
     tags: ['paella', 'seafood'],
     description:
       'This paella is loaded with Spanish flavors, super easy to make and done in exactly 20 minutes! Enjoy this paella any day of the week and impress your family & friends with Spain´s most treasured dish.',
@@ -179,6 +184,7 @@ export const RECIPES_LIST = [
     id: 6,
     type: 'liked',
     slugUrl: 'kefir-pancakes',
+    lang: 'ru',
     tags: ['kefir', 'pancakes'],
     description:
       'Блины получаются тонкие, ажурные и очень вкусные. Все-все в мелкую дырочку и на столе смотрятся красиво!',
@@ -212,6 +218,7 @@ export const RECIPES_LIST = [
     type: 'new',
     servings: 2,
     slugUrl: 'losos-kopr',
+    lang: 'cz',
     tags: ['losos', 'kopr', 'omáčka'],
     description: 'Zapečený losos s koprovou omáčkou',
     ingridients: [
@@ -244,6 +251,7 @@ export const RECIPES_LIST = [
     type: 'new',
     servings: 8,
     slugUrl: 'potato-soup',
+    lang: 'en',
     tags: ['potato', 'soup'],
     description:
       'This easy Potato Soup recipe is truly the best!  It’s quick and easy to make on the stovetop, it’s nice and creamy (without using heavy cream), and it’s always so cozy and comforting and delicious.',
@@ -281,6 +289,7 @@ export const RECIPES_LIST = [
     type: 'new',
     servings: 4,
     slugUrl: 'kokosove-kure',
+    lang: 'cz',
     tags: ['Kokosové', 'kuře'],
     description:
       'Tento opeřenec patří v Karibiku mezi nejoblíbenější maso a doprovod nasládlého kokosového mléka mu velice sluší. Vyzkoušejte v horkém dni a s překvapením zjistíte, že výsledek vás příjemně osvěží.',
@@ -314,6 +323,7 @@ export const RECIPES_LIST = [
     type: 'new',
     servings: 4,
     slugUrl: 'linyvi-varenyky',
+    lang: 'ua',
     tags: ['varenyky', 'syr'],
     description: `Kласичний народний рецепт лінивих вареників - виходять ніжними, з ідеальним балансом смаку сиру, але залишаючись по суті галушками. І вони дійсно ліниві, тобто роботи з ними мало й дуже швидко їх готувати. 
     <br />  <br />

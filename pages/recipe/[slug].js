@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReactPlayer from 'react-player';
 import { RECIPES_LIST } from '../../data/recipes';
+// import Translations from 'components/shared/Translations';
 import { useRouter } from 'next/router';
 import { RecipesContext } from 'components/contexts/RecipesContext';
 import { Image, Transformation } from 'cloudinary-react';
@@ -22,16 +23,65 @@ import { FaShareAlt } from 'react-icons/fa';
 import { GiKnifeFork, GiFruitBowl, GiBubblingBowl } from 'react-icons/gi';
 
 const Recipe = ({ currentRecipe }) => {
-  const { recipesList } = useContext(RecipesContext);
+  const {
+    recipesList,
+    isFiltered,
+    setIsFiltered,
+    recipeLang,
+    setRecipeLang,
+    recipeServings,
+    setRecipeServings,
+    ingridientsTitle,
+    setIngridientsTitle,
+    instructions,
+    setInstructions,
+    modifications,
+    setModifications,
+    tags,
+    setTags,
+    videoTitle,
+    setVideoTitle,
+  } = useContext(RecipesContext);
+
   const [recipe, setRecipe] = useState(null);
   const router = useRouter();
   const { slug } = router.query;
   let recipeItem;
 
+  const setLang = (lang) => {
+    switch (lang) {
+      case 'ua':
+        setIngridientsTitle('Інгредієнти');
+        setInstructions('Приготування');
+        setModifications('Варіанти');
+        setTags('теги');
+        setVideoTitle('Перегляньте відео рецепту');
+        setRecipeServings('порції');
+        break;
+      case 'cz':
+        setIngridientsTitle('Suroviny');
+        setInstructions('Příprava jídla');
+        setTags('štítky');
+        setVideoTitle('Podívejte se na video níže');
+        setRecipeServings('porce');
+        break;
+      case 'ru':
+        setIngridientsTitle('Ингредиенты');
+        setInstructions('Приготовление');
+        setTags('теги');
+        setVideoTitle('Посмотрите видео');
+        setRecipeServings('порции');
+        break;
+      default:
+        setIngridientsTitle('Ingridients');
+    }
+  };
+
   useEffect(() => {
     recipeItem = slug - 1;
     let currRecipe = recipesList[recipeItem];
     setRecipe(currRecipe);
+    setLang(currRecipe.lang);
   }, []);
 
   const shareAPI = () => {
@@ -47,6 +97,7 @@ const Recipe = ({ currentRecipe }) => {
         .catch((error) => console.log('Error sharing', error));
     }
   };
+
   if (!recipe) return <p></p>;
 
   return (
@@ -66,7 +117,7 @@ const Recipe = ({ currentRecipe }) => {
 
           <div className="tags">
             <p>
-              tags:
+              {tags}:
               {Object.values(recipe.tags).map((value, index) => {
                 return (
                   <StyledTag key={index} as="span">
@@ -90,11 +141,11 @@ const Recipe = ({ currentRecipe }) => {
             <div>
               <StyledText>
                 <GiFruitBowl size="1.25rem" color={theme.colors.text} />
-                Ingridients:
+                {ingridientsTitle}:
               </StyledText>
               {recipe.servings && (
                 <span className="serves">
-                  (for {recipe.servings} servings{' '}
+                  ({recipe.servings} {recipeServings}{' '}
                   <GiKnifeFork size=".75rem" color={theme.colors.mutedText} />)
                 </span>
               )}
@@ -108,7 +159,7 @@ const Recipe = ({ currentRecipe }) => {
                 <div>
                   <StyledText mb="1rem">
                     <GiBubblingBowl size="1.25rem" color={theme.colors.text} />
-                    Modifications:
+                    {modifications}:
                   </StyledText>
                   {recipe.modifications.map((recipe) => {
                     return (
@@ -126,8 +177,9 @@ const Recipe = ({ currentRecipe }) => {
               )}
             </div>
           </div>
+
           <div className="instructions">
-            <StyledText>Instructions:</StyledText>
+            <StyledText>{instructions}:</StyledText>
             <ul>
               {Object.values(recipe.instructions).map((value, index) => {
                 return <li key={index}>{value}</li>;
@@ -136,7 +188,7 @@ const Recipe = ({ currentRecipe }) => {
           </div>
           {!!recipe.video && (
             <>
-              <h4>Watch the Video Below</h4>
+              <h4>{videoTitle}</h4>
               <StyledVideoWrapper>
                 <ReactPlayer url={recipe.video} controls />
               </StyledVideoWrapper>
