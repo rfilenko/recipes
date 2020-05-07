@@ -1,5 +1,5 @@
 import { useState, createContext } from 'react';
-import { RECIPES_LIST } from '../../data/RECIPES';
+import { RECIPES_LIST } from 'data/recipes';
 export const RecipesContext = createContext();
 
 const RecipesContextProvider = (props) => {

@@ -44,7 +44,7 @@ export const StyledGrid = styled.div`
   max-width: unset;
   /* TODO - make mixin for margin */
   margin-top: ${(props) => (props.mt ? props.mt : '0')};
-  margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
+  margin-bottom: ${(props) => (props.mb ? props.mb : '1rem')};
   margin-left: ${(props) => (props.ml ? props.ml : '0')};
   margin-right: ${(props) => (props.mr ? props.mr : '0')};
 `;
@@ -145,8 +145,8 @@ export const StyledRecipe = styled.div`
   border-radius: 0.5em;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
-  max-width: 20rem;
+  /* margin-bottom: 1rem;
+  max-width: 20rem; */
   position: relative;
 
   /* @media screen and (min-width: ${theme.breakpoint.mobile}) {

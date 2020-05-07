@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReactPlayer from 'react-player';
-import { RECIPES_LIST } from '../../data/RECIPES';
+import { RECIPES_LIST } from '../../data/recipes';
 import { useRouter } from 'next/router';
 import { RecipesContext } from 'components/contexts/RecipesContext';
 import { Image, Transformation } from 'cloudinary-react';
