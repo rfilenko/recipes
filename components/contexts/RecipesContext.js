@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext } from 'react';
 import { RECIPES_LIST } from '../../data/RECIPES';
 export const RecipesContext = createContext();
 
