@@ -1,6 +1,6 @@
 const path = require('path');
 const withImages = require('next-images');
-const dev = process.env.NODE_ENV !== 'production';
+const isProd = process.env.NODE_ENV === 'production';
 
 global.navigator = () => null;
 module.exports = withImages();
@@ -8,6 +8,8 @@ module.exports = withImages();
 module.exports = {
   env: {
     CLOUDINARY_CLOUD_NAME: 'dq1embvfh',
+    // Use API_PROD_URL in prod and API_URL for dev.
+    API_URL: isProd ? process.env.API_PROD_URL : process.env.API_URL,
   },
   target: 'serverless',
   webpack: (config) => {

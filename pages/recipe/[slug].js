@@ -7,7 +7,7 @@ import BaseLayout from 'components/layouts/BaseLayout';
 import { useRouter } from 'next/router';
 import { IoMdTimer } from 'react-icons/io';
 import { FaShareAlt } from 'react-icons/fa';
-import { GiKnifeFork, GiFruitBowl } from 'react-icons/gi';
+import { GiKnifeFork, GiFruitBowl, GiBubblingBowl } from 'react-icons/gi';
 import { theme } from 'components/styled/theme';
 import {
   StyledContainer,
@@ -54,7 +54,7 @@ const Recipe = (props) => {
         <StyledContainer>
           <StyledRecipeDetail>
             <StyledH2>{recipe.name}</StyledH2>
-            <p>{recipe.description}</p>
+            <p dangerouslySetInnerHTML={{ __html: recipe.description }} />
             <div className="prep_time">
               <p>
                 <IoMdTimer size="1.25rem" color={theme.colors.text} />
@@ -104,6 +104,30 @@ const Recipe = (props) => {
                     return <li key={index}>{value}</li>;
                   })}
                 </ul>
+
+                {recipe.modifications && (
+                  <div>
+                    <StyledText mb="1rem">
+                      <GiBubblingBowl
+                        size="1.25rem"
+                        color={theme.colors.text}
+                      />
+                      Modifications:
+                    </StyledText>
+                    {recipe.modifications.map((recipe) => {
+                      return (
+                        <div key={recipe.title}>
+                          <span className="serves">{recipe.title}</span>
+                          <ul>
+                            {recipe.list.map((m) => (
+                              <li key={m}>{m}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
             <div className="instructions">

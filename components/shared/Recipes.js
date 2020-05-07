@@ -42,7 +42,7 @@ const Recipes = (props) => {
                 >
                   <Transformation
                     fetchFormat="auto"
-                    // quality="auto"
+                    quality="auto"
                     effect="saturation:30"
                   />
                 </Image>

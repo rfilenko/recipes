@@ -199,6 +199,7 @@ export const StyledRecipe = styled.div`
 
   img {
     object-fit: cover;
+    object-position: right;
     height: 100%;
     width: 100%;
     transition: ${theme.transition.normal};
@@ -220,7 +221,8 @@ export const StyledText = styled.h4`
   font-weight: bold;
   letter-spacing: 0.05em;
   margin-bottom: 0;
-  margin-top: 1rem;
+  margin-top: ${(props) => (props.mt ? props.mt : '1rem')};
+  margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
   text-transform: uppercase;
   & svg {
     margin: 0 0.5rem;
