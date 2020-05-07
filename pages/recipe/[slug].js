@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ReactPlayer from 'react-player';
 import { RECIPES_LIST } from '../../data/recipes';
+import { useRouter } from 'next/router';
+import { RecipesContext } from 'components/contexts/RecipesContext';
 import { Image, Transformation } from 'cloudinary-react';
 import { theme } from 'components/styled/theme';
 import BaseLayout from 'components/layouts/BaseLayout';
@@ -20,7 +22,17 @@ import { FaShareAlt } from 'react-icons/fa';
 import { GiKnifeFork, GiFruitBowl, GiBubblingBowl } from 'react-icons/gi';
 
 const Recipe = ({ currentRecipe }) => {
-  const [recipe, setRecipe] = useState(currentRecipe);
+  const { recipesList } = useContext(RecipesContext);
+  const [recipe, setRecipe] = useState(null);
+  const router = useRouter();
+  const { slug } = router.query;
+  let recipeItem;
+
+  useEffect(() => {
+    recipeItem = slug - 1;
+    let currRecipe = recipesList[recipeItem];
+    setRecipe(currRecipe);
+  }, []);
 
   const shareAPI = () => {
     if (navigator.share) {
@@ -145,10 +157,9 @@ const Recipe = ({ currentRecipe }) => {
 
 export default Recipe;
 
-export async function getStaticProps({ params }) {
-  const currentRecipe = RECIPES_LIST[params.slug - 1];
+export async function getStaticProps({}) {
   return {
-    props: { currentRecipe },
+    props: {},
   };
 }
 export async function getStaticPaths() {
