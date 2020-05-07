@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
-import { RECIPES_LIST } from '../../data/recipes';
+import { RECIPES_LIST } from '../../data/RECIPES';
 export const RecipesContext = createContext();
 
 const RecipesContextProvider = (props) => {
@@ -7,14 +7,24 @@ const RecipesContextProvider = (props) => {
   const [recipesList, setRecipesList] = useState(RECIPES_LIST);
   const [isFiltered, setIsFiltered] = useState(false);
   const [filterTitle, setFilterTitle] = useState('');
+
   //translations
   const [recipeLang, setRecipeLang] = useState('Ingridients');
-  const [recipeServings, setRecipeServings] = useState('servings');
+  const [timeCook, setTimeCook] = useState([
+    'preparation',
+    'time to cook',
+    'total',
+  ]);
   const [ingridientsTitle, setIngridientsTitle] = useState('');
-  const [instructions, setInstructions] = useState('Instructions');
-  const [modifications, setModifications] = useState('Modifications');
-  const [tags, setTags] = useState('tags');
-  const [videoTitle, setVideoTitle] = useState('Watch the Video Below');
+  const [instructions, setInstructions] = useState([
+    'Instructions',
+    'Modifications',
+  ]);
+  const [tagsServings, setTagsServings] = useState(['tags', 'servings']);
+  const [videoShareTitle, setVideoShareTitle] = useState([
+    'Watch the video velow',
+    'share recipe',
+  ]);
 
   return (
     <RecipesContext.Provider
@@ -26,18 +36,16 @@ const RecipesContextProvider = (props) => {
         setFilterTitle,
         recipeLang,
         setRecipeLang,
-        recipeServings,
-        setRecipeServings,
+        timeCook,
+        setTimeCook,
         ingridientsTitle,
         setIngridientsTitle,
         instructions,
         setInstructions,
-        modifications,
-        setModifications,
-        tags,
-        setTags,
-        videoTitle,
-        setVideoTitle,
+        tagsServings,
+        setTagsServings,
+        videoShareTitle,
+        setVideoShareTitle,
       }}
     >
       {children}

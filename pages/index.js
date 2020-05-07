@@ -18,11 +18,12 @@ const Index = () => {
     setIsFiltered,
     setFilterTitle,
   } = useContext(RecipesContext);
+  const [recipesCount, setRecipesCount] = useState(null);
   const likedList = recipesList.filter((recipe) => recipe.type === 'liked');
   const newList = recipesList.filter((recipe) => recipe.type === 'new');
 
   const [localRecipes, setLocalRecipes] = useState([]);
-  const [recipesTitle, setRecipesTitle] = useState('All ');
+  const [recipesTitle, setRecipesTitle] = useState(' ');
   const handleTag = (e) => {
     const filteredList = recipesList.filter((recipe) =>
       recipe.tags.includes(e)
@@ -35,27 +36,31 @@ const Index = () => {
     setLocalRecipes(recipesList);
     setIsFiltered(false);
     setFilterTitle(``);
-    setRecipesTitle('All ');
+    setRecipesTitle(' ');
+    setRecipesCount(recipesList.length);
   };
   //filter by type
   const handleFilter = (e) => {
     const type = e.currentTarget.textContent;
     if (type === '💖') {
       setLocalRecipes(likedList);
-      setRecipesTitle('Liked ');
+      setRecipesTitle('liked ');
+      setRecipesCount(likedList.length);
       setIsFiltered(true);
     } else {
       setLocalRecipes(newList);
-      setRecipesTitle('New ');
+      setRecipesTitle('new ');
+      setRecipesCount(newList.length);
       setIsFiltered(true);
     }
   };
   useEffect(() => {
     setLocalRecipes(recipesList);
+    setRecipesCount(recipesList.length);
   }, []);
   const recipeTitle = (
     <StyledH2 mt={'1rem'}>
-      {recipesTitle} recipes
+      {recipesCount} {recipesTitle} recipes
       {isFiltered && <span> {filterTitle}</span>}
     </StyledH2>
   );

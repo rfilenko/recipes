@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReactPlayer from 'react-player';
-import { RECIPES_LIST } from '../../data/recipes';
-// import Translations from 'components/shared/Translations';
+import { RECIPES_LIST } from '../../data/RECIPES';
 import { useRouter } from 'next/router';
 import { RecipesContext } from 'components/contexts/RecipesContext';
 import { Image, Transformation } from 'cloudinary-react';
@@ -28,19 +27,16 @@ const Recipe = ({ currentRecipe }) => {
     isFiltered,
     setIsFiltered,
     recipeLang,
-    setRecipeLang,
-    recipeServings,
-    setRecipeServings,
+    timeCook,
+    setTimeCook,
     ingridientsTitle,
     setIngridientsTitle,
     instructions,
     setInstructions,
-    modifications,
-    setModifications,
-    tags,
-    setTags,
-    videoTitle,
-    setVideoTitle,
+    tagsServings,
+    setTagsServings,
+    videoShareTitle,
+    setVideoShareTitle,
   } = useContext(RecipesContext);
 
   const [recipe, setRecipe] = useState(null);
@@ -50,27 +46,29 @@ const Recipe = ({ currentRecipe }) => {
 
   const setLang = (lang) => {
     switch (lang) {
-      case 'ua':
-        setIngridientsTitle('Інгредієнти');
-        setInstructions('Приготування');
-        setModifications('Варіанти');
-        setTags('теги');
-        setVideoTitle('Перегляньте відео рецепту');
-        setRecipeServings('порції');
-        break;
       case 'cz':
+        setTimeCook(['připrava', 'čas vaření', 'celkem']);
         setIngridientsTitle('Suroviny');
-        setInstructions('Příprava jídla');
-        setTags('štítky');
-        setVideoTitle('Podívejte se na video níže');
-        setRecipeServings('porce');
+        setInstructions(['Příprava jídla', 'varianty']);
+        setTagsServings(['štítky', 'porce']);
+        setVideoShareTitle(['Podívejte se na video níže', 'Sdilet recept']);
+        break;
+      case 'ua':
+        setTimeCook(['підготовка', 'час готування', 'загалом']);
+        setIngridientsTitle('Інгредієнти');
+        setInstructions(['Приготування', 'Варіанти']);
+        setTagsServings(['теги', 'порції']);
+        setVideoShareTitle([
+          'Перегляньте також відео рецепту',
+          'Поширити рецепт',
+        ]);
         break;
       case 'ru':
+        setTimeCook(['подготовка', 'время готовки', 'всего']);
         setIngridientsTitle('Ингредиенты');
-        setInstructions('Приготовление');
-        setTags('теги');
-        setVideoTitle('Посмотрите видео');
-        setRecipeServings('порции');
+        setInstructions(['Приготовление', 'Варианты']);
+        setTagsServings(['теги', 'порции']);
+        setVideoShareTitle(['Посмотрите также видео', 'Поделиться рецептом']);
         break;
       default:
         setIngridientsTitle('Ingridients');
@@ -109,15 +107,19 @@ const Recipe = ({ currentRecipe }) => {
           <div className="prep_time">
             <p>
               <IoMdTimer size="1.25rem" color={theme.colors.text} />
-              preparation - {recipe.time_prep},
+              {timeCook[0]} - {recipe.time_prep}, &nbsp;
             </p>
-            <p> time to cook - {recipe.time_cook}, </p>
-            <p> total - {recipe.time_total}</p>
+            <p>
+              {timeCook[1]} - {recipe.time_cook},&nbsp;
+            </p>
+            <p>
+              {timeCook[2]} - {recipe.time_total}
+            </p>
           </div>
 
           <div className="tags">
             <p>
-              {tags}:
+              {tagsServings[0]}:
               {Object.values(recipe.tags).map((value, index) => {
                 return (
                   <StyledTag key={index} as="span">
@@ -145,7 +147,7 @@ const Recipe = ({ currentRecipe }) => {
               </StyledText>
               {recipe.servings && (
                 <span className="serves">
-                  ({recipe.servings} {recipeServings}{' '}
+                  ({recipe.servings} {tagsServings[1]}{' '}
                   <GiKnifeFork size=".75rem" color={theme.colors.mutedText} />)
                 </span>
               )}
@@ -159,7 +161,7 @@ const Recipe = ({ currentRecipe }) => {
                 <div>
                   <StyledText mb="1rem">
                     <GiBubblingBowl size="1.25rem" color={theme.colors.text} />
-                    {modifications}:
+                    {instructions[1]}:
                   </StyledText>
                   {recipe.modifications.map((recipe) => {
                     return (
@@ -179,7 +181,7 @@ const Recipe = ({ currentRecipe }) => {
           </div>
 
           <div className="instructions">
-            <StyledText>{instructions}:</StyledText>
+            <StyledText>{instructions[0]}:</StyledText>
             <ul>
               {Object.values(recipe.instructions).map((value, index) => {
                 return <li key={index}>{value}</li>;
@@ -188,7 +190,7 @@ const Recipe = ({ currentRecipe }) => {
           </div>
           {!!recipe.video && (
             <>
-              <h4>{videoTitle}</h4>
+              <h4>{videoShareTitle[0]}</h4>
               <StyledVideoWrapper>
                 <ReactPlayer url={recipe.video} controls />
               </StyledVideoWrapper>
@@ -197,7 +199,8 @@ const Recipe = ({ currentRecipe }) => {
           {navigator.share && (
             <StyledFlex>
               <StyledButton linear onClick={shareAPI} mb="1rem">
-                share recipe <FaShareAlt />
+                {videoShareTitle[1]}
+                <FaShareAlt />
               </StyledButton>
             </StyledFlex>
           )}
