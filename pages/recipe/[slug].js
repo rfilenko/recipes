@@ -167,7 +167,7 @@ export const getStaticProps = async () => {
     props: {},
   };
 };
-
+const ten = { params: { slug: '10' } };
 export const getStaticPaths = async (ctx) => {
   return {
     paths: [
@@ -179,6 +179,8 @@ export const getStaticPaths = async (ctx) => {
       { params: { slug: '6' } },
       { params: { slug: '7' } },
       { params: { slug: '8' } },
+      { params: { slug: '9' } },
+      ten,
     ],
     fallback: true,
   };
