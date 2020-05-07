@@ -51,7 +51,7 @@ const Recipe = ({ currentRecipe }) => {
         setIngridientsTitle('Suroviny');
         setInstructions(['Příprava jídla', 'varianty']);
         setTagsServings(['štítky', 'porce']);
-        setVideoShareTitle(['Podívejte se na video níže', 'Sdilet recept']);
+        setVideoShareTitle(['Mrkněte taky na video', 'Sdilet recept']);
         break;
       case 'ua':
         setTimeCook(['підготовка', 'час готування', 'загалом']);
@@ -101,7 +101,7 @@ const Recipe = ({ currentRecipe }) => {
   return (
     <BaseLayout title={`${recipe.slugUrl} details`}>
       <StyledContainer>
-        <StyledRecipeDetail>
+        <StyledRecipeDetail className="content">
           <StyledH2>{recipe.name}</StyledH2>
           <p dangerouslySetInnerHTML={{ __html: recipe.description }} />
           <div className="prep_time">

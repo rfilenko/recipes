@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Image, Transformation } from 'cloudinary-react';
 import { RecipesContext } from '../contexts/RecipesContext';
 import Link from 'next/link';
-import { StyledRecipe, StyledFlex, StyledTag, StyledButton } from '../styled';
+import { StyledRecipe, StyledGrid, StyledTag, StyledButton } from '../styled';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 
 const Recipes = (props) => {
@@ -10,7 +10,7 @@ const Recipes = (props) => {
   const { isFiltered, filterTitle } = useContext(RecipesContext);
   return (
     <>
-      <StyledFlex mt="1rem">
+      <StyledGrid mt="1rem">
         {!!list &&
           list.length > 0 &&
           list.map((recipe) => (
@@ -50,7 +50,7 @@ const Recipes = (props) => {
               </div>
             </StyledRecipe>
           ))}
-      </StyledFlex>
+      </StyledGrid>
     </>
   );
 };

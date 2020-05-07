@@ -11,8 +11,9 @@ export const StyledContainer = styled.div`
     padding: 0 0.5rem;
   }
   @media screen and (min-width: ${theme.breakpoint.laptop}) {
-    & > * {
+    &&& .content {
       max-width: 85ch;
+      margin: 0 auto 0.5rem;
     }
   }
 `;
@@ -29,6 +30,18 @@ export const StyledFlex = styled.div`
   justify-content: ${(props) =>
     props.spaceAround ? 'space-around' : 'center'};
   align-items: ${(props) => (props.align ? props.align : 'inherit')};
+  /* TODO - make mixin for margin */
+  margin-top: ${(props) => (props.mt ? props.mt : '0')};
+  margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
+  margin-left: ${(props) => (props.ml ? props.ml : '0')};
+  margin-right: ${(props) => (props.mr ? props.mr : '0')};
+`;
+export const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 2rem 3rem;
+  justify-content: center;
+  max-width: unset;
   /* TODO - make mixin for margin */
   margin-top: ${(props) => (props.mt ? props.mt : '0')};
   margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
@@ -136,10 +149,10 @@ export const StyledRecipe = styled.div`
   max-width: 20rem;
   position: relative;
 
-  @media screen and (min-width: ${theme.breakpoint.mobile}) {
+  /* @media screen and (min-width: ${theme.breakpoint.mobile}) {
     margin-left: 1rem;
     max-width: 16rem;
-  }
+  } */
 
   & > *:not(.img-container) {
     padding: 0.5em;
