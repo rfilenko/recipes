@@ -4,13 +4,17 @@ export const RecipesContext = createContext();
 
 const RecipesContextProvider = (props) => {
   const { children } = props;
+  //all recipes
   const [recipesList, setRecipesList] = useState(RECIPES_LIST);
+  const likedList = recipesList.filter((recipe) => recipe.type === 'liked');
+  const newList = recipesList.filter((recipe) => recipe.type === 'new');
+
   const [isFiltered, setIsFiltered] = useState(false);
   const [filterTitle, setFilterTitle] = useState('');
 
   const [recipesLang, setRecipesLang] = useState('lang');
   const [recipesLangisFiltered, setRecipesLangisFiltered] = useState(false);
-  const [disableLangSelect, setDsableLangSelect] = useState(false);
+  const [disableLangSelect, setDisableLangSelect] = useState(false);
 
   //translations
   const [recipeLang, setRecipeLang] = useState('Ingridients');
@@ -34,6 +38,8 @@ const RecipesContextProvider = (props) => {
     <RecipesContext.Provider
       value={{
         recipesList,
+        likedList,
+        newList,
         isFiltered,
         setIsFiltered,
         filterTitle,
@@ -43,7 +49,7 @@ const RecipesContextProvider = (props) => {
         recipesLangisFiltered,
         setRecipesLangisFiltered,
         disableLangSelect,
-        setDsableLangSelect,
+        setDisableLangSelect,
         recipeLang,
         setRecipeLang,
         timeCook,

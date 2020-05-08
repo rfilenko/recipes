@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { RecipesContext } from 'components/contexts/RecipesContext';
 import Recipes from 'components/shared/Recipes';
+import RecipeTypeFilter from 'components/shared/RecipeTypeFilter';
 import LangSelect from 'components/shared/LangSelect';
 import BaseLayout from 'components/layouts/BaseLayout';
 
@@ -9,7 +10,6 @@ import {
   StyledFlex,
   StyledH2,
   StyledButton,
-  StyledSelect,
 } from 'components/styled';
 
 const Index = () => {
@@ -23,15 +23,14 @@ const Index = () => {
     setRecipesLang,
     recipesLangisFiltered,
     setRecipesLangisFiltered,
-    disableLangSelect,
-    setDsableLangSelect,
+    setDisableLangSelect,
   } = useContext(RecipesContext);
-  const [recipesCount, setRecipesCount] = useState(null);
-  const likedList = recipesList.filter((recipe) => recipe.type === 'liked');
-  const newList = recipesList.filter((recipe) => recipe.type === 'new');
 
   const [localRecipes, setLocalRecipes] = useState([]);
   const [recipesTitle, setRecipesTitle] = useState(' ');
+  const [recipesCount, setRecipesCount] = useState(null);
+
+  //cancel filter by recipe tags
   const handleTag = (e) => {
     const filteredList = recipesList.filter((recipe) =>
       recipe.tags.includes(e)
@@ -39,7 +38,10 @@ const Index = () => {
     setLocalRecipes(filteredList);
     setFilterTitle(`with ${e}`);
     setIsFiltered(true);
+    setRecipesCount(filteredList.length);
   };
+
+  //cancel filter by recipe tags
   const handleClearTag = (e) => {
     setRecipesLang('lang');
     setLocalRecipes(recipesList);
@@ -48,36 +50,28 @@ const Index = () => {
     setRecipesTitle(' ');
     setRecipesCount(recipesList.length);
     setRecipesLang(recipesLang);
-    setDsableLangSelect(false);
+    setDisableLangSelect(false);
   };
+
   const handleClearLang = (e) => {
+    setLocalRecipes(recipesList);
+    setIsFiltered(false);
+    setDisableLangSelect(false);
+    setRecipesCount(recipesList.length);
+    setRecipesLangisFiltered(false);
+    setRecipesLang('lang');
+  };
+
+  const clearAllFilters = () => {
     setLocalRecipes(recipesList);
     setRecipesLangisFiltered(false);
     setRecipesCount(recipesList.length);
     setRecipesLang('lang');
   };
-  //filter by type
-  const handleFilter = (e) => {
-    const type = e.currentTarget.textContent;
-    if (type === '💖') {
-      setLocalRecipes(likedList);
-      setRecipesTitle('liked ');
-      setRecipesCount(likedList.length);
-      setIsFiltered(true);
-      setDsableLangSelect(true);
-    } else {
-      setLocalRecipes(newList);
-      setRecipesTitle('new ');
-      setRecipesCount(newList.length);
-      setIsFiltered(true);
-      setDsableLangSelect(true);
-    }
-  };
-
   useEffect(() => {
-    setLocalRecipes(recipesList);
-    setRecipesCount(recipesList.length);
+    clearAllFilters();
   }, []);
+
   const recipeTitle = (
     <StyledH2 mt={'1rem'}>
       {recipesCount} {recipesTitle} {recipesCount === 1 ? 'recipe' : 'recipes'}
@@ -94,17 +88,11 @@ const Index = () => {
     <BaseLayout title="🍩 Recipes App">
       <StyledContainer>
         <StyledFlex mt="1rem" mb="0px">
-          <StyledButton mr=".5rem" onClick={handleFilter} title="Liked recipes">
-            💖
-          </StyledButton>
-          <StyledButton
-            mr=".5rem"
-            variant="primary"
-            title="New recipes"
-            onClick={handleFilter}
-          >
-            🆕
-          </StyledButton>
+          <RecipeTypeFilter
+            setRecipesCount={setRecipesCount}
+            setLocalRecipes={setLocalRecipes}
+            setRecipesTitle={setRecipesTitle}
+          />
           <LangSelect
             setLocalRecipes={setLocalRecipes}
             setRecipesCount={setRecipesCount}
@@ -119,6 +107,7 @@ const Index = () => {
             </StyledButton>
           </StyledFlex>
         ) : null}
+
         {/* clear filter btn */}
         {recipesLangisFiltered ? (
           <StyledFlex>
@@ -128,6 +117,7 @@ const Index = () => {
           </StyledFlex>
         ) : null}
 
+        {/* list of recipes */}
         <Recipes handleTag={handleTag} list={localRecipes} />
       </StyledContainer>
     </BaseLayout>
