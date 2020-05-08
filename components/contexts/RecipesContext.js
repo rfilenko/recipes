@@ -8,6 +8,10 @@ const RecipesContextProvider = (props) => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [filterTitle, setFilterTitle] = useState('');
 
+  const [recipesLang, setRecipesLang] = useState('lang');
+  const [recipesLangisFiltered, setRecipesLangisFiltered] = useState(false);
+  const [disableLangSelect, setDsableLangSelect] = useState(false);
+
   //translations
   const [recipeLang, setRecipeLang] = useState('Ingridients');
   const [timeCook, setTimeCook] = useState([
@@ -34,6 +38,12 @@ const RecipesContextProvider = (props) => {
         setIsFiltered,
         filterTitle,
         setFilterTitle,
+        recipesLang,
+        setRecipesLang,
+        recipesLangisFiltered,
+        setRecipesLangisFiltered,
+        disableLangSelect,
+        setDsableLangSelect,
         recipeLang,
         setRecipeLang,
         timeCook,

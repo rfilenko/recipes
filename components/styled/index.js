@@ -128,6 +128,27 @@ export const StyledFooter = styled.footer`
   background-image: linear-gradient(120deg, #38cfd9, #ff5733, #38cfd9);
   padding: 0.5rem;
 `;
+export const StyledSelect = styled.select`
+  margin: 0 0.5em;
+  min-width: 2rem;
+  border: 2px dashed ${theme.colors.bodyText};
+  box-shadow: ${theme.boxShadow.normal};
+  color: ${theme.colors.bodyText};
+  padding: 0 0.5em;
+  max-height: 1.85rem;
+  cursor: pointer;
+
+  &:focus {
+    box-shadow: ${theme.boxShadow.medium};
+    border-color: ${theme.colors.reddish};
+    outline: none;
+  }
+  &[disabled] {
+    color: ${theme.colors.mutedText};
+    border-color: ${theme.colors.mutedText};
+    cursor: no-drop;
+  }
+`;
 
 export const StyledTag = styled(StyledButton)`
   color: ${theme.colors.bodyText};
