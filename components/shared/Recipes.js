@@ -43,7 +43,7 @@ const Recipes = (props) => {
                   <Transformation
                     fetchFormat="auto"
                     quality="auto"
-                    effect="saturation:30"
+                    effect="saturation:50"
                   />
                 </Image>
                 {recipe.img && recipe.img.length > 0 ? <p>no image</p> : null}

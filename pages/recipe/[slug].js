@@ -137,7 +137,7 @@ const Recipe = ({ currentRecipe }) => {
                 publicId={recipe.slugUrl}
                 alt={recipe.name.toLowerCase()}
               >
-                <Transformation fetchFormat="auto" />
+                <Transformation fetchFormat="auto" quality="auto" />
               </Image>
             </div>
             <div>
