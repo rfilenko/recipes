@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^13.13.5",
+    "@types/react": "^16.9.35",
     "axios": "^0.19.2",
     "cloudinary-react": "^1.5.0",
     "isomorphic-fetch": "^2.2.1",
@@ -21,7 +23,8 @@
     "react-dom": "^16.13.0",
     "react-icons": "^3.10.0",
     "react-player": "^2.0.1",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "next-images": "^1.4.0"

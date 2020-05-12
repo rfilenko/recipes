@@ -1,4 +1,6 @@
-export const RECIPES_LIST = [
+import { RecipeProps } from '../interfaces';
+
+export const RECIPES_LIST: RecipeProps[] = [
   {
     name: 'French onion meatballs',
     id: 1,
@@ -39,7 +41,6 @@ export const RECIPES_LIST = [
     time_total: '1 hour 25 mins',
     image:
       'https://res.cloudinary.com/dq1embvfh/image/upload/v1588673531/onion-meatballs.jpg',
-    comment: 'nasty and easy',
   },
   {
     name: 'Homemade banana pudding',

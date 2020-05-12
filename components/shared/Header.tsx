@@ -2,9 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Logo from './Logo';
-import { StyledHeader, StyledFlex, StyledButton } from '../styled/';
+import { StyledHeader, StyledFlex, StyledButton } from '../styled';
+type Props = {
+  title?: string;
+};
 
-const Header = () => {
+const Header: React.FunctionComponent<Props> = () => {
   const router = useRouter();
   const isRecipePage = router.pathname.includes('/recipe');
   const handleBack = () => {

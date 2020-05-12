@@ -1,30 +1,33 @@
 import { useState, useEffect, useContext } from 'react';
-import { RecipesContext } from 'components/contexts/RecipesContext';
-import Recipes from 'components/shared/Recipes';
-import RecipeTypeFilter from 'components/shared/RecipeTypeFilter';
-import LangSelect from 'components/shared/LangSelect';
-import BaseLayout from 'components/layouts/BaseLayout';
+import {
+  RecipesContext,
+  ContextProps,
+} from '../components/contexts/RecipesContext';
+import Recipes from '../components/shared/Recipes';
+import RecipeTypeFilter from '../components/shared/RecipeTypeFilter';
+import LangSelect from '../components/shared/LangSelect';
+import BaseLayout from '../components/layouts/BaseLayout';
 
 import {
   StyledContainer,
   StyledFlex,
   StyledH2,
   StyledButton,
-} from 'components/styled';
-
+} from '../components/styled';
 const Index = () => {
   const {
-    recipesList,
+    // recipesList,
     isFiltered,
     filterTitle,
     setIsFiltered,
     setFilterTitle,
-    recipesLang,
-    setRecipesLang,
-    recipesLangisFiltered,
-    setRecipesLangisFiltered,
-    setDisableLangSelect,
-  } = useContext(RecipesContext);
+    // recipesLang,
+    // setRecipesLang,
+    // recipesLangisFiltered,
+    // setRecipesLangisFiltered,
+    // setDisableLangSelect,
+  } = useContext<ContextProps>(RecipesContext);
+  console.log(isFiltered);
 
   const [localRecipes, setLocalRecipes] = useState([]);
   const [recipesTitle, setRecipesTitle] = useState(' ');
@@ -42,44 +45,44 @@ const Index = () => {
   };
 
   //cancel filter by recipe tags
-  const handleClearTag = (e) => {
-    setRecipesLang('lang');
-    setLocalRecipes(recipesList);
-    setIsFiltered(false);
-    setFilterTitle(``);
-    setRecipesTitle(' ');
-    setRecipesCount(recipesList.length);
-    setRecipesLang(recipesLang);
-    setDisableLangSelect(false);
-  };
+  // const handleClearTag = (e) => {
+  //   setRecipesLang('lang');
+  //   setLocalRecipes(recipesList);
+  //   setIsFiltered(false);
+  //   setFilterTitle(``);
+  //   setRecipesTitle(' ');
+  //   setRecipesCount(recipesList.length);
+  //   setRecipesLang(recipesLang);
+  //   setDisableLangSelect(false);
+  // };
 
-  const handleClearLang = (e) => {
-    setLocalRecipes(recipesList);
-    setIsFiltered(false);
-    setDisableLangSelect(false);
-    setRecipesCount(recipesList.length);
-    setRecipesLangisFiltered(false);
-    setRecipesLang('lang');
-  };
+  // const handleClearLang = (e) => {
+  //   setLocalRecipes(recipesList);
+  //   setIsFiltered(false);
+  //   setDisableLangSelect(false);
+  //   setRecipesCount(recipesList.length);
+  //   setRecipesLangisFiltered(false);
+  //   setRecipesLang('lang');
+  // };
 
-  const clearAllFilters = () => {
-    setLocalRecipes(recipesList);
-    setRecipesLangisFiltered(false);
-    setRecipesCount(recipesList.length);
-    setRecipesLang('lang');
-  };
+  // const clearAllFilters = () => {
+  //   setLocalRecipes(recipesList);
+  //   setRecipesLangisFiltered(false);
+  //   setRecipesCount(recipesList.length);
+  //   setRecipesLang('lang');
+  // };
   useEffect(() => {
-    clearAllFilters();
+    // clearAllFilters();
   }, []);
 
   const recipeTitle = (
     <StyledH2 mt={'1rem'}>
       {recipesCount} {recipesTitle} {recipesCount === 1 ? 'recipe' : 'recipes'}
-      {recipesLangisFiltered && (
+      {/* {recipesLangisFiltered && (
         <>
           ,<span> lang - {recipesLang}</span>
         </>
-      )}
+      )} */}
       {isFiltered && <span> {filterTitle}</span>}
     </StyledH2>
   );
@@ -100,25 +103,25 @@ const Index = () => {
         </StyledFlex>
         {recipeTitle}
         {/* clear filter btn */}
-        {isFiltered ? (
+        {/* {isFiltered ? (
           <StyledFlex>
             <StyledButton onClick={handleClearTag}>
               Clear type filter
             </StyledButton>
           </StyledFlex>
-        ) : null}
+        ) : null} */}
 
         {/* clear filter btn */}
-        {recipesLangisFiltered ? (
+        {/* {recipesLangisFiltered ? (
           <StyledFlex>
             <StyledButton onClick={handleClearLang}>
               Clear lang filter
             </StyledButton>
           </StyledFlex>
-        ) : null}
+        ) : null} */}
 
         {/* list of recipes */}
-        <Recipes handleTag={handleTag} list={localRecipes} />
+        {/* <Recipes handleTag={handleTag} list={localRecipes} /> */}
       </StyledContainer>
     </BaseLayout>
   );
