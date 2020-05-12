@@ -27,6 +27,7 @@ const Index = () => {
   } = useContext(RecipesContext);
 
   const [localRecipes, setLocalRecipes] = useState([]);
+  const [oneRecipe, setOneRecipe] = useState([]);
   const [recipesTitle, setRecipesTitle] = useState(' ');
   const [recipesCount, setRecipesCount] = useState(null);
 
@@ -70,6 +71,39 @@ const Index = () => {
   };
   useEffect(() => {
     clearAllFilters();
+  }, []);
+
+  // Random recipe of the day
+  const today = new Date().toLocaleDateString();
+  let todayLocalStorage;
+  let one = [];
+
+  function getNumBetween(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+  const setRandom = () => {
+    if (!todayLocalStorage) {
+      localStorage.setItem('today', JSON.stringify(today));
+      todayLocalStorage = JSON.parse(localStorage.getItem('today'));
+    }
+    //get random num
+    const randomRecipeLocalStorage = JSON.parse(
+      localStorage.getItem('randomRecipe')
+    );
+
+    if (randomRecipeLocalStorage && today === todayLocalStorage) {
+      one[0] = recipesList[randomRecipeLocalStorage];
+      setOneRecipe(one);
+    } else {
+      const randomRecipe = getNumBetween(1, recipesList.length);
+      localStorage.setItem('randomRecipe', JSON.stringify(randomRecipe));
+      one[0] = recipesList[randomRecipe];
+      setOneRecipe(one);
+    }
+  };
+
+  useEffect(() => {
+    setRandom();
   }, []);
 
   const recipeTitle = (
@@ -120,6 +154,10 @@ const Index = () => {
         {/* list of recipes */}
         <Recipes handleTag={handleTag} list={localRecipes} />
       </StyledContainer>
+      {/* recipe of the day */}
+
+      <h2>Random recipe of the day</h2>
+      <Recipes handleTag={handleTag} list={oneRecipe} />
     </BaseLayout>
   );
 };

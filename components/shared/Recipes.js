@@ -13,8 +13,8 @@ const Recipes = (props) => {
       <StyledGrid mt="1rem">
         {!!list &&
           list.length > 0 &&
-          list.map((recipe) => (
-            <StyledRecipe key={recipe.name}>
+          list.map((recipe, id) => (
+            <StyledRecipe key={`${recipe.name}_${recipe.id}`}>
               <h4>{recipe.name}</h4>
               <Link href={`/recipe/[slug]`} as={`/recipe/${recipe.id}`}>
                 <StyledButton className="more">
