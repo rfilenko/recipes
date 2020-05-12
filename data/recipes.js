@@ -1,6 +1,6 @@
 export const RECIPES_LIST = [
   {
-    name: 'FRENCH ONION MEATBALLS',
+    name: 'French onion meatballs',
     id: 1,
     type: 'liked',
     servings: 8,
@@ -32,7 +32,7 @@ export const RECIPES_LIST = [
       'Use your hands to form the mixture into 1-inch meatballs. It helps if you wet your hands with water before rolling. It’s okay if the meatballs are not perfect rounds!',
       'Heat the same skillet over medium heat and add a drizzle of olive oil. Add the meatballs in a single layer and brown them on all sides - let them cook for 1 to 2 minutes, before flipping.',
       'Once the meatballs are completely browned, fill a shaker cup or water bottle with the stock and flour. Shake it for 30 seconds. Pour the mixture into the skillet with the meatballs. Add in the remaining caramelized onions. Top the meatballs with the remaining gruyere cheese.',
-      'Bake for 20 to 25 minutes, or until cooked through (you want the internal temp to read 165 degrees F (74 ˚C) ). Serve immediately! I love serving these on sourdough bread, like a meatball melt!',
+      'Bake for 20 to 25 minutes, or until cooked through (you want the internal temp to read 165 degrees F (74 ˚C). Serve immediately! I love serving these on sourdough bread, like a meatball melt!',
     ],
     time_prep: '1 hour',
     time_cook: '25 mins',
@@ -42,7 +42,7 @@ export const RECIPES_LIST = [
     comment: 'nasty and easy',
   },
   {
-    name: 'Homemade Banana Pudding',
+    name: 'Homemade banana pudding',
     id: 2,
     type: 'liked',
     slugUrl: 'banana-pudding',
@@ -72,7 +72,7 @@ export const RECIPES_LIST = [
       'https://res.cloudinary.com/dq1embvfh/image/upload/v1588248839/banana-pudding.jpg',
   },
   {
-    name: 'Apple Pie Recipe with the Best Filling',
+    name: 'Apple pie recipe with the best filling',
     id: 3,
     type: 'liked',
     servings: 8,
@@ -142,7 +142,7 @@ export const RECIPES_LIST = [
       'https://res.cloudinary.com/dq1embvfh/image/upload/v1588512854/dort-mrkvovy.jpg',
   },
   {
-    name: 'THE MOST AMAZING 20 MINUTE SEAFOOD PAELLA',
+    name: 'The most amazing 20 minute seafood paella',
     id: 5,
     type: 'liked',
     slugUrl: 'seafood-paella',
@@ -233,9 +233,9 @@ export const RECIPES_LIST = [
     ],
     instructions: [
       'Lososa očistíme a vložíme do menší uzavíratelné skleněné nádoby.',
-      'Do misky vlijeme kokosove mléko, přidáme kokosové aminos, nastrouhaný zazvor, kopr, sůl  a pepř, promicháme a vlijeme do nádoby s lososem, kterého necháme přes noc (nebo alespoň  š hodiny) v kokosové směsi marinovat.',
+      'Do misky vlijeme kokosove mléko, přidáme kokosové aminos, nastrouhaný zazvor, kopr, sůl a pepř, promicháme a vlijeme do nádoby s lososem, kterého necháme přes noc (nebo alespoň  š hodiny) v kokosové směsi marinovat.',
       'Alespoň půl hodiny před pečením vyndáme lososa z lednice a necháme ohřát na pokojovou teplotu',
-      'Poté lososa poklademe plátky citronu a nádobu vložíme do trouby. Pečeme při 170 C po dobu 30 minut',
+      'Poté lososa poklademe plátky citronu a nádobu vložíme do trouby. Pečeme při 170 ˚C po dobu 30 minut',
       'Na závěr zapneme funkci gril a zapékáme dalžich 5 minut.',
       'Podáváme společně se zeleninovou přilohou (pyré, rýže, nudle).',
     ],
@@ -248,7 +248,7 @@ export const RECIPES_LIST = [
   {
     name: 'Potato soup',
     id: 8,
-    type: 'new',
+    type: 'liked',
     servings: 8,
     slugUrl: 'potato-soup',
     lang: 'en',
@@ -290,7 +290,7 @@ export const RECIPES_LIST = [
     servings: 4,
     slugUrl: 'kokosove-kure',
     lang: 'cz',
-    tags: ['Kokosové', 'kuře'],
+    tags: ['kokosové', 'kuře'],
     description:
       'Tento opeřenec patří v Karibiku mezi nejoblíbenější maso a doprovod nasládlého kokosového mléka mu velice sluší. Vyzkoušejte v horkém dni a s překvapením zjistíte, že výsledek vás příjemně osvěží.',
     ingridients: [
@@ -305,7 +305,7 @@ export const RECIPES_LIST = [
       'ghi nebo domácí sádlo',
     ],
     instructions: [
-      'Troubu předehřejeme na 130 C.',
+      'Troubu předehřejeme na 130 ˚C.',
       'Na středně velkou pánev y rozehřátým ghi vložíme kuřeci plaičky, které pomalu ze všech stran orestujeme. Poté je vzskládáme do nadoby na pečení a zalijeme rozehřatým tukem z pánve.',
       'V misce smicháme vývar, kokosové mléko, sůl, pepř a hotovou směsi polijeme kuře. Na každy kousek kuřete přidáme tymián a máslo. Nádobu přikrzjeme poklici a vložíme na 2 1/2 hodiny do trouby.',
       'Poté nádobu s kuřetem vyndáme, přidáme špenát, opatrně promicháme a bez pokličky vložíme na dalšich 20-30 minut do trouby.',
@@ -325,11 +325,10 @@ export const RECIPES_LIST = [
     slugUrl: 'linyvi-varenyky',
     lang: 'ua',
     tags: ['varenyky', 'syr'],
-    description: `Kласичний народний рецепт лінивих вареників - виходять ніжними, з ідеальним балансом смаку сиру, але залишаючись по суті галушками. І вони дійсно ліниві, тобто роботи з ними мало й дуже швидко їх готувати. 
-    <br />  <br />
-    Такі ліниві вареники можна подавати на безліч способів, але є два улюблені.
-     <br />Перший, з підрум'яненими шкварками з копченого бекону, зі сметаною та свіжо меленим ароматним перцем, политі жиром, що витопився зі шкварок. <br />
-    Другий, на солодко - з підрум'яненими на вершковому маслі панірувальними сухарями, посипані цукром.`,
+    description: `Kласичний народний рецепт лінивих вареників - виходять ніжними, з ідеальним балансом смаку сиру, але залишаючись по суті галушками. І вони дійсно ліниві, тобто роботи з ними мало й дуже швидко їх готувати. <br />  <br />
+            Такі ліниві вареники можна подавати на безліч способів, але є два улюблені.
+            <br />Перший, з підрум'яненими шкварками з копченого бекону, зі сметаною та свіжо меленим ароматним перцем, политі жиром, що витопився зі шкварок. <br />
+            Другий, на солодко - з підрум'яненими на вершковому маслі панірувальними сухарями, посипані цукром.`,
     ingridients: [
       '500 грам домашнього сиру, добре відтиснути',
       '2 яйця',
@@ -377,7 +376,7 @@ export const RECIPES_LIST = [
   {
     name: 'Картопляники с мясом',
     id: 11,
-    type: 'new',
+    type: 'liked',
     servings: 5,
     slugUrl: 'kartoplyanyky',
     lang: 'ru',
@@ -416,5 +415,85 @@ export const RECIPES_LIST = [
     image:
       'https://res.cloudinary.com/dq1embvfh/image/upload/v1589136639/kartoplyanyky.jpg',
     video: 'https://www.youtube.com/watch?v=hbvPOwoX7kM&feature=emb_title',
+  },
+  {
+    name: 'Houbová frittata',
+    id: 12,
+    type: 'new',
+    servings: 4,
+    slugUrl: 'houbova-frittata',
+    lang: 'cz',
+    tags: ['frittata', 'houby'],
+    description: `Kdy jindy než na podzim vyrazit do lesa na houby? A kdy jindy než o víkendu si dopřát takovou tu chlapáckou snídani, co se protáhne až do oběda? Frittata je podobná naší omeletě, základem jsou vajíčka a tak trošku si troufnu říct, co dům dá. Peče se v troubě a často se do ní přidává sýr. Co mě osobně na ní opravdu baví je to servírování. Ještě horkou si ji můžete vzít třeba na zahradu nebo svému „dřevorubci“ udělat piknik v lese. Jíst ji jen tak vidličkami nebo si ji nakrájet jako koláč.`,
+    ingridients: [
+      '1 šalotka',
+      '1 lžíce ghí',
+      '3 středně velké krémové žampiony',
+      '1 lžíce čersvého tymiánu',
+      '1 hrnek nasekaného mangoldu (letní zelenina, jako vzrostlý špenát)',
+      '50 g strouhaného pecorina (slaný tvrdý sýr z ovčího mléka)',
+      '5 vajec',
+      '1 lžíce nastrouhaného parmazánu',
+      'sůl',
+    ],
+    instructions: [
+      'Na pánvi (o průměru 20 cm) s rozehřatým ghí orestujeme najemno nasekanou šalotku, poté přidáme mangold a společně 2-3 minuty restujeme.',
+      'Dále přidáme nasekané houby a tymián, promícháme a dalšich 5 minut na středním plameni restujeme.',
+      'V menši misce smicháme vejce, nastrouhané pecorino a sůl. Poté snižíme plamen a vajecnou směs vlíjeme do pánve. Vše promicháme, pánev překryjeme pokličkou a  na mírnem plameni  necháme 8-10 minut propékat.',
+      'Na závěr frittatu posypeme nastrouhaným syrem a vložíme na 2-3 minuty bez pokličky do trouby na funkci gril. Hotovou frittatu můžeme podávat jako teplou, tak vychladlou.',
+      'Skaldujeme v ledničce.',
+    ],
+
+    time_prep: '10 minut',
+    time_cook: '20 minut',
+    time_total: '30 minut',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1589278148/houbova-frittata.jpg',
+  },
+  {
+    name: 'Pečená vepřová žebra',
+    id: 13,
+    type: 'new',
+    servings: 4,
+    slugUrl: 'veprova-zebra',
+    lang: 'cz',
+    tags: ['vepřová', 'žebra'],
+    description: `Kdo by neměl rád voňavé dokonale upečené žebírka, které se téměř rozpadají. Připravte si vynikající žebra na grilu či v troubě, které povýší geniální marináda do nebeských výšin!`,
+    ingridients: [
+      '1 ½ kg vepřových žeber',
+      '4 lžíce dijonské hořčice',
+      '6 stroužků česneku',
+      '1-2 lžíce cerstvého roymarýnu',
+      '2 hrnky vody',
+      'sůl',
+      'pepř',
+    ],
+    modifications: [
+      {
+        title: 'Na pesto',
+        list: [
+          '2 hrsti nasekaného koriandru',
+          'hrst nasekané naté',
+          '1 palička pečeného česneku',
+          '40 g makadamových ořechů',
+          '40 g strouhaného parmazánu',
+          '10 lžíc avokádového oleje',
+          'sůl',
+        ],
+      },
+    ],
+    instructions: [
+      'Troubu predehrejeme na 170 ˚C.',
+      'Žebra potřeme hořčicí, osolíme, opepříme, posypeme rozmarýnem a vložíme do pekáče s pokličkou.',
+      'Rozmačkané stroužky česneku poklademe na maso a kolem masa, které podlijeme vodou, přiklopíme pokličkou a dáme na 1 ½ hodiny do trouby.',
+      'Poté snížíme teplotu v troubě na 120 ˚C. a pečeme další 2 hodiny. Posledních 20-30 minut pečeme bez pokličky.',
+      'Mezitím si připravíme pesto tak, že bylinky a ořechy nasekáme, česnek pozmačkáme a parmazán nastrouháme, vložíme do skleničky, zalíjeme olejem a promícháme.',
+      'Hotová žebra podáváme společně s pestem a zeleninovým pyré.',
+    ],
+    time_prep: '45 minut',
+    time_cook: '3 hodiný',
+    time_total: '3 hodiny a 45 minut',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1589278148/veprova-zebra.jpg',
   },
 ];

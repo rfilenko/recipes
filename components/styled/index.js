@@ -152,8 +152,10 @@ export const StyledSelect = styled.select`
 
 export const StyledTag = styled(StyledButton)`
   color: ${theme.colors.bodyText};
-  margin: 0 0.25em;
   padding: 0.5em;
+  & + & {
+    margin-left: 0.25em;
+  }
 
   @media screen and (max-width: ${theme.breakpoint.mobile}) {
     font-size: ${theme.sizes.small};
