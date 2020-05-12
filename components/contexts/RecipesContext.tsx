@@ -1,4 +1,4 @@
-import { useState, createContext, ReactNode } from 'react';
+import { useState, createContext, ReactNode, ReactElement } from 'react';
 import { RECIPES_LIST } from '../../data/recipes';
 import { RecipeProps } from '../../interfaces';
 
@@ -11,12 +11,15 @@ export interface ContextProps {
   setFilterTitle: (filterTitle: string) => void;
   // recipeLang: string;
 }
-export interface ProviderProps extends ContextProps {
-  children: ReactNode;
+interface ProfileContextProviderProps {
+  defaults?: Partial<ContextProps>;
+  children?: ReactNode;
 }
-export const RecipesContext = createContext<ContextProps | null>(null);
+export const RecipesContext = createContext<Partial<ContextProps>>({});
 
-const RecipesContextProvider = (props: ProviderProps) => {
+const RecipesContextProvider = (
+  props: ProfileContextProviderProps
+): ReactElement => {
   const { children } = props;
   //all recipes
   const [recipesList, setRecipesList] = useState(RECIPES_LIST);
@@ -52,6 +55,7 @@ const RecipesContextProvider = (props: ProviderProps) => {
     <RecipesContext.Provider
       value={{
         recipesList,
+        setRecipesList,
         // likedList,
         // newList,
         isFiltered,

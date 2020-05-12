@@ -14,35 +14,36 @@ import {
   StyledH2,
   StyledButton,
 } from '../components/styled';
-const Index = () => {
+
+const Index: React.FunctionComponent<ContextProps> = () => {
   const {
     // recipesList,
     isFiltered,
-    filterTitle,
-    setIsFiltered,
-    setFilterTitle,
+    // filterTitle,
+    // setIsFiltered,
+    // setFilterTitle,
     // recipesLang,
     // setRecipesLang,
     // recipesLangisFiltered,
     // setRecipesLangisFiltered,
     // setDisableLangSelect,
-  } = useContext<ContextProps>(RecipesContext);
+  } = useContext(RecipesContext);
   console.log(isFiltered);
 
   const [localRecipes, setLocalRecipes] = useState([]);
-  const [recipesTitle, setRecipesTitle] = useState(' ');
+  const [recipesTitle, setRecipesTitle] = useState('sdas ');
   const [recipesCount, setRecipesCount] = useState(null);
 
   //cancel filter by recipe tags
-  const handleTag = (e) => {
-    const filteredList = recipesList.filter((recipe) =>
-      recipe.tags.includes(e)
-    );
-    setLocalRecipes(filteredList);
-    setFilterTitle(`with ${e}`);
-    setIsFiltered(true);
-    setRecipesCount(filteredList.length);
-  };
+  // const handleTag = (e) => {
+  //   const filteredList = recipesList.filter((recipe) =>
+  //     recipe.tags.includes(e)
+  //   );
+  //   setLocalRecipes(filteredList);
+  //   setFilterTitle(`with ${e}`);
+  //   setIsFiltered(true);
+  //   setRecipesCount(filteredList.length);
+  // };
 
   //cancel filter by recipe tags
   // const handleClearTag = (e) => {
@@ -83,15 +84,15 @@ const Index = () => {
           ,<span> lang - {recipesLang}</span>
         </>
       )} */}
-      {isFiltered && <span> {filterTitle}</span>}
+      {/* {isFiltered && <span> {filterTitle}</span>} */}
     </StyledH2>
   );
 
   return (
     <BaseLayout title="🍩 Recipes App">
       <StyledContainer>
-        <StyledFlex mt="1rem" mb="0px">
-          <RecipeTypeFilter
+        {/* <StyledFlex mt="1rem" mb="0px"> */}
+        {/* <RecipeTypeFilter
             setRecipesCount={setRecipesCount}
             setLocalRecipes={setLocalRecipes}
             setRecipesTitle={setRecipesTitle}
@@ -100,7 +101,7 @@ const Index = () => {
             setLocalRecipes={setLocalRecipes}
             setRecipesCount={setRecipesCount}
           />
-        </StyledFlex>
+        </StyledFlex> */}
         {recipeTitle}
         {/* clear filter btn */}
         {/* {isFiltered ? (
