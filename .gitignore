@@ -5,6 +5,8 @@ out
 
 # env
 .env
+.env.build
+
 # dependencies
 node_modules
 package-lock.json
@@ -33,3 +35,5 @@ test/**/next-env.d.ts
 examples/**/out
 
 
+
+.vercel

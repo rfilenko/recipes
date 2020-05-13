@@ -8,6 +8,7 @@ module.exports = withImages();
 module.exports = {
   env: {
     CLOUDINARY_CLOUD_NAME: 'dq1embvfh',
+    DEMO_KEY: process.env.DEMO_KEY,
     // Use API_PROD_URL in prod and API_URL for dev.
     API_URL: isProd ? process.env.API_PROD_URL : process.env.API_URL,
   },
