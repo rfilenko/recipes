@@ -1,10 +1,13 @@
 # build output
 dist
 .next
+.vercel
 out
 
 # env
 .env
+.env.build
+
 # dependencies
 node_modules
 package-lock.json
