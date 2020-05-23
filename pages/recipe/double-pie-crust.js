@@ -236,17 +236,3 @@ const Recipe = ({ currentRecipe }) => {
 };
 
 export default Recipe;
-
-export async function getStaticProps({ }) {
-  return {
-    props: {},
-  };
-}
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { slug: '301' } },
-    ],
-    fallback: true,
-  };
-}
