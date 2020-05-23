@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReactPlayer from 'react-player';
 import { RECIPES_LIST } from '../../data/recipes';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { RecipesContext } from 'components/contexts/RecipesContext';
 import { Image, Transformation } from 'cloudinary-react';
@@ -40,10 +39,38 @@ const Recipe = ({ currentRecipe }) => {
     setVideoShareTitle,
   } = useContext(RecipesContext);
 
-  const [recipe, setRecipe] = useState(null);
+  const localRecipe = {
+    name: 'Double pie crust recipe',
+    id: 301,
+    type: 'liked',
+    servings: 12,
+    slugUrl: 'pie-crust',
+    lang: 'en',
+    tags: ['apple', 'pie', 'crust'],
+    description:
+      'This homemade pie crust recipe yields a flaky tender crust with rich buttery flavor. It has simple, natural ingredients and uses only butter (NO SHORTENING). Also, learn how to form a fluted pie rim and “blind bake” or pre-bake pie crust.',
+    ingridients: [
+      '2 1/2 cups all-purpose flour plus more to dust, *measured correctly',
+      '1/2 Tbsp granulated sugar',
+      '1/2 tsp sea salt',
+      '1/2 lb COLD unsalted butter(2 sticks) diced into 1/4" pieces',
+      '6 Tbsp ice water(6 to 7 Tbsp)',
+    ],
+    instructions: [
+      'Place flour, sugar and salt into the bowl of a food processor and pulse a few times to combine.',
+      'Add cold diced butter and pulse the mixture until coarse crumbs form with some pea-sized pieces then stop mixing. Mixture should remain dry and powdery. ',
+      'Add 6 Tbsp ice water and pulse just until moist clumps or small balls form. Press a piece of dough between your finger tips and if the dough sticks together, you have added enough water. If not, add more water a teaspoon full at a time. Be careful not to add too much water or the dough will be sticky and difficult to roll out.',
+      'Transfer dough to a clean work surface, and gather dough together into a ball (it should not be smooth and DO NOT knead the dough). Divide dough in half and flatten to form 2 disks. Cover with plastic wrap and refrigerate 1 hour before using in recipes that call for pie crust.',
+    ],
+    time_prep: '15 mins',
+    time_cook: '15 mins',
+    time_total: '30 mins',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1590239518/pie-crust.jpg',
+    video: 'https://www.youtube.com/watch?v=SKDki3BPLzU',
+  };
+  const [recipe, setRecipe] = useState(localRecipe);
   const router = useRouter();
-  const { slug } = router.query;
-  let recipeItem;
 
   const setLang = (lang) => {
     switch (lang) {
@@ -76,14 +103,9 @@ const Recipe = ({ currentRecipe }) => {
     }
   };
 
-
   useEffect(() => {
-    recipeItem = slug - 1;
-    let currRecipe = recipesList[recipeItem];
-    setRecipe(currRecipe);
-    setLang(currRecipe.lang);
+    setLang(recipe.lang);
   }, []);
-
 
   const shareAPI = () => {
     if (navigator.share) {
@@ -99,7 +121,7 @@ const Recipe = ({ currentRecipe }) => {
     }
   };
 
-  if (!recipe) return <p></p>;
+  if (!recipe) return <p>no recipe</p>;
 
   return (
     <BaseLayout title={`${recipe.slugUrl} details`}>
@@ -159,15 +181,6 @@ const Recipe = ({ currentRecipe }) => {
                   return <li key={index}>{value}</li>;
                 })}
               </ul>
-              {
-                !!recipe.link && (
-                  <Link href="/recipe/double-pie-crust">
-                    <StyledButton variant="primary" mr="1rem" mb="0">
-                      double pie crust recipe
-                  </StyledButton>
-                  </Link>
-                )
-              }
 
               {recipe.modifications && (
                 <div>
@@ -224,19 +237,16 @@ const Recipe = ({ currentRecipe }) => {
 
 export default Recipe;
 
-export async function getStaticProps({ req }) {
+export async function getStaticProps({ }) {
   return {
-    props: {
-
-    }
-  }
+    props: {},
+  };
 }
 export async function getStaticPaths() {
-  const paths = Object.values(RECIPES_LIST).map((value) => {
-    return { params: { slug: value.id.toString() } };
-  });
   return {
-    paths,
+    paths: [
+      { params: { slug: '301' } },
+    ],
     fallback: true,
   };
 }

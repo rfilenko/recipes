@@ -79,6 +79,7 @@ export const RECIPES_LIST = [
     slugUrl: 'apple-pie',
     lang: 'en',
     tags: ['apple', 'pie', 'filling'],
+    link: '/double-pie-crust',
     description:
       'Everyone has to make this Classic Apple Pie Recipe for Thanksgiving. You will love the flaky pie crust and the apple pie filling will surprise you.',
     ingridients: [
