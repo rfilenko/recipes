@@ -107,20 +107,6 @@ const Recipe = ({ currentRecipe }) => {
     setLang(recipe.lang);
   }, []);
 
-  const shareAPI = () => {
-    if (navigator.share) {
-      const recipeFullUrl = window.location.href;
-      navigator
-        .share({
-          title: `${recipe.slugUrl}`,
-          text: `${recipe.description}`,
-          url: `${recipeFullUrl}`,
-        })
-        .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing', error));
-    }
-  };
-
   if (!recipe) return <p>no recipe</p>;
 
   return (
@@ -220,14 +206,6 @@ const Recipe = ({ currentRecipe }) => {
                 <ReactPlayer url={recipe.video} controls />
               </StyledVideoWrapper>
             </>
-          )}
-          {navigator.share && (
-            <StyledFlex>
-              <StyledButton linear onClick={shareAPI} mb="1rem">
-                {videoShareTitle[1]}
-                <FaShareAlt />
-              </StyledButton>
-            </StyledFlex>
           )}
         </StyledRecipeDetail>
       </StyledContainer>
