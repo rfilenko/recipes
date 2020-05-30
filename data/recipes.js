@@ -497,4 +497,34 @@ export const RECIPES_LIST = [
     image:
       'https://res.cloudinary.com/dq1embvfh/image/upload/v1589278148/veprova-zebra.jpg',
   },
+  {
+    name: 'Protein Punch Smoothie',
+    id: 14,
+    type: 'new',
+    servings: 1,
+    slugUrl: 'protein-smoothie',
+    lang: 'en',
+    tags: ['smoothie', 'protein', 'banana', 'chia'],
+    description: `This protein punch smoothie is refreshing and delicious, but also packed with protein, energy and chia seeds – a super healthy food!`,
+    ingridients: [
+      '1 cup cashew milk',
+      '1/2 cup peanut butter',
+      '1 banana',
+      '1Tbs soaked chia seeds',
+      '1/8 tsp cinnamon',
+      'ice',
+    ],
+    instructions: [
+      'Measure the ingredients into the blender and let the chia seeds mix with the milk for a few minutes before blending. ',
+      'Once the chia seeds have expanded, blend the ingredients well.',
+      'Next, add ice to create the preferred consistency.',
+      `Notes: The smoothie is best served immediately, however, you can always store leftovers in the fridge with a tight fitting lid.`,
+    ],
+    time_prep: '10 mins',
+    time_cook: '3 min',
+    time_total: '13 mins',
+    image:
+      'https://res.cloudinary.com/dq1embvfh/image/upload/v1590833424/protein-smoothie.jpg',
+  },
+
 ];

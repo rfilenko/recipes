@@ -41,9 +41,9 @@ const Recipes = (props) => {
                   alt={recipe.name.toLowerCase()}
                 >
                   <Transformation
-                  fetchFormat="auto"
-                  quality="auto"
-                  effect="saturation:50"
+                    // fetchFormat="auto"
+                    quality="auto"
+                    effect="saturation:50"
                   />
                 </Image>
                 {recipe.img && recipe.img.length > 0 ? <p>no image</p> : null}
