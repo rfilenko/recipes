@@ -117,7 +117,7 @@ export const StyledButton = styled.button`
   &:focus {
     outline: 1px dotted
       ${(props) =>
-        props.variant ? theme.colors.secondary : theme.colors.reddish};
+    props.variant ? theme.colors.secondary : theme.colors.reddish};
     outline-offset: 2px;
   }
   & svg {
@@ -168,16 +168,9 @@ export const StyledRecipe = styled.div`
   border-radius: 0.5em;
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 1rem;
-  max-width: 20rem; */
   position: relative;
 
-  /* @media screen and (min-width: ${theme.breakpoint.mobile}) {
-    margin-left: 1rem;
-    max-width: 16rem;
-  } */
-
-  & > *:not(.img-container) {
+  & > div:not(.img-container) {
     padding: 0.5em;
   }
   .img-container {
@@ -186,6 +179,7 @@ export const StyledRecipe = styled.div`
     max-height: 200px;
     overflow: hidden;
     position: relative;
+    transition: ${theme.transition.normal};
   }
   .img-container:before {
     background: rgba(0, 0, 0, 0.15);
@@ -206,9 +200,25 @@ export const StyledRecipe = styled.div`
     padding: 0.5em 1.5em;
     text-transform: capitalize;
     z-index: 3;
-    &:focus {
-      outline: 1px dotted ${theme.colors.white};
+
+    :before {
+      background: linear-gradient(-65deg, ${theme.colors.bodyText}, ${theme.colors.primary});
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0%;
+      height: 100%;
+      width: 0;
+      z-index: -1;
+      transition: all 0.2s ease-in;
+      border-radius: 0.5em;
+    }
+    &:focus, &:hover {
+      outline: 1px dotted ${theme.colors.primary};
       outline-offset: 2px;
+      :before {
+        width: 101%;
+      }
     }
   }
 
@@ -216,6 +226,8 @@ export const StyledRecipe = styled.div`
     color: ${theme.colors.bodyText};
     margin: 0;
     text-transform: uppercase;
+    padding-top: 0.7em;
+    padding-left: .5em;
   }
   > div {
     flex-grow: 3;
@@ -226,7 +238,7 @@ export const StyledRecipe = styled.div`
   }
   p {
     font-size: 65%;
-    margin: 0 0 0.5em;
+    margin: 0 0 0.75em;
 
     span {
       font-weight: bold;
@@ -238,15 +250,14 @@ export const StyledRecipe = styled.div`
     object-position: right;
     height: 100%;
     width: 100%;
-    transition: ${theme.transition.normal};
+    transition: all 0.2s ease-in;
     min-height: ${rem(256)};
     min-width: ${rem(350)};
   }
   &:hover {
-    /* transition: ${theme.transition.normal}; */
     box-shadow: ${theme.boxShadow.medium};
     img {
-      transform: scale(1.025, 1.025);
+      transform: scale(1.05, 1.05);
     }
   }
 `;
@@ -274,7 +285,7 @@ export const StyledRecipeDetail = styled.div`
     }
   }
   p {
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.75rem;
     display: flex;
     align-items: center;
     & svg {

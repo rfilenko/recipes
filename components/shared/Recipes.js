@@ -41,7 +41,7 @@ const Recipes = (props) => {
                   alt={recipe.name.toLowerCase()}
                 >
                   <Transformation
-                    // fetchFormat="auto"
+                    fetchFormat="auto"
                     quality="auto"
                     effect="saturation:50"
                   />
