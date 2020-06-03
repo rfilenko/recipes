@@ -112,12 +112,12 @@ export const StyledButton = styled.button`
   &:hover {
     box-shadow: ${theme.boxShadow.medium};
     opacity: 0.75;
-    transform: translate3d(0px, -1px, 0px);
+    /* transform: translate3d(0px, -1px, 0px); */
   }
   &:focus {
     outline: 1px dotted
       ${(props) =>
-    props.variant ? theme.colors.secondary : theme.colors.reddish};
+        props.variant ? theme.colors.secondary : theme.colors.reddish};
     outline-offset: 2px;
   }
   & svg {
@@ -202,7 +202,11 @@ export const StyledRecipe = styled.div`
     z-index: 3;
 
     :before {
-      background: linear-gradient(-65deg, ${theme.colors.bodyText}, ${theme.colors.primary});
+      background: linear-gradient(
+        -65deg,
+        ${theme.colors.bodyText},
+        ${theme.colors.primary}
+      );
       content: '';
       position: absolute;
       top: 0;
@@ -213,7 +217,8 @@ export const StyledRecipe = styled.div`
       transition: all 0.2s ease-in;
       border-radius: 0.5em;
     }
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       outline: 1px dotted ${theme.colors.primary};
       outline-offset: 2px;
       :before {
@@ -227,7 +232,7 @@ export const StyledRecipe = styled.div`
     margin: 0;
     text-transform: uppercase;
     padding-top: 0.7em;
-    padding-left: .5em;
+    padding-left: 0.5em;
   }
   > div {
     flex-grow: 3;
@@ -257,7 +262,7 @@ export const StyledRecipe = styled.div`
   &:hover {
     box-shadow: ${theme.boxShadow.medium};
     img {
-      transform: scale(1.05, 1.05);
+      /* transform: scale(1.05, 1.05); */
     }
   }
 `;
@@ -283,6 +288,9 @@ export const StyledRecipeDetail = styled.div`
     @media screen and (min-width: ${theme.breakpoint.tablet}) {
       display: flex;
     }
+    p {
+      margin-bottom: 0.25rem;
+    }
   }
   p {
     margin: 0 0 0.75rem;
@@ -307,9 +315,11 @@ export const StyledRecipeDetail = styled.div`
 
   .recipe_img {
     position: relative;
+    max-width: 30rem;
+    margin: 0 auto;
 
     @media screen and (min-width: ${theme.breakpoint.tablet}) {
-      width: 35%;
+      align-self: start;
     }
 
     img {
@@ -343,8 +353,9 @@ export const StyledRecipeDetail = styled.div`
 
   .desc {
     @media screen and (min-width: ${theme.breakpoint.tablet}) {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(10rem, 1fr));
+      gap: 2rem;
     }
     margin-bottom: 1rem;
 

@@ -30,7 +30,7 @@ const RecipesContextProvider = (props) => {
   ]);
   const [tagsServings, setTagsServings] = useState(['tags', 'servings']);
   const [videoShareTitle, setVideoShareTitle] = useState([
-    'Watch the video velow',
+    'Watch the video below',
     'share recipe',
   ]);
 

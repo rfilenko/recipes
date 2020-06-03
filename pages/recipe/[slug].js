@@ -76,14 +76,12 @@ const Recipe = ({ currentRecipe }) => {
     }
   };
 
-
   useEffect(() => {
     recipeItem = slug - 1;
     let currRecipe = recipesList[recipeItem];
     setRecipe(currRecipe);
     setLang(currRecipe.lang);
   }, []);
-
 
   const shareAPI = () => {
     if (navigator.share) {
@@ -140,10 +138,7 @@ const Recipe = ({ currentRecipe }) => {
                 publicId={recipe.slugUrl}
                 alt={recipe.name.toLowerCase()}
               >
-                <Transformation
-                  fetchFormat="auto"
-                  quality="auto"
-                />
+                <Transformation fetchFormat="auto" quality="auto" />
               </Image>
             </div>
             <div>
@@ -162,15 +157,13 @@ const Recipe = ({ currentRecipe }) => {
                   return <li key={index}>{value}</li>;
                 })}
               </ul>
-              {
-                !!recipe.link && (
-                  <Link href="/recipe/double-pie-crust">
-                    <StyledButton variant="primary" mr="1rem" mb="0">
-                      double pie crust recipe
+              {!!recipe.link && (
+                <Link href="/recipe/double-pie-crust">
+                  <StyledButton variant="primary" mr="1rem" mb="0">
+                    double pie crust recipe
                   </StyledButton>
-                  </Link>
-                )
-              }
+                </Link>
+              )}
 
               {recipe.modifications && (
                 <div>
@@ -229,10 +222,8 @@ export default Recipe;
 
 export async function getStaticProps({ req }) {
   return {
-    props: {
-
-    }
-  }
+    props: {},
+  };
 }
 export async function getStaticPaths() {
   const paths = Object.values(RECIPES_LIST).map((value) => {
