@@ -7,6 +7,7 @@ import { RecipesContext } from 'components/contexts/RecipesContext';
 import { Image, Transformation } from 'cloudinary-react';
 import { theme } from 'components/styled/theme';
 import BaseLayout from 'components/layouts/BaseLayout';
+import Recipes from 'components/shared/Recipes';
 import {
   StyledContainer,
   StyledButton,
@@ -40,6 +41,7 @@ const Recipe = ({ currentRecipe }) => {
     setVideoShareTitle,
   } = useContext(RecipesContext);
 
+  const last3 = recipesList.slice(Math.max(recipesList.length - 3, 1));
   const [recipe, setRecipe] = useState(null);
   const router = useRouter();
   const { slug } = router.query;
@@ -213,6 +215,10 @@ const Recipe = ({ currentRecipe }) => {
             </StyledFlex>
           )}
         </StyledRecipeDetail>
+
+        {/* last 3 added recipes */}
+        <h4>Last added</h4>
+        <Recipes list={last3} />
       </StyledContainer>
     </BaseLayout>
   );

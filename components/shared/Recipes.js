@@ -28,7 +28,14 @@ const Recipes = (props) => {
                 </p>
                 <p>
                   {recipe.tags.map((t) => (
-                    <StyledTag key={t} onClick={() => handleTag(t)}>
+                    <StyledTag
+                      key={t}
+                      onClick={
+                        handleTag
+                          ? () => handleTag(t)
+                          : () => console.log('none tags')
+                      }
+                    >
                       {t}
                     </StyledTag>
                   ))}
