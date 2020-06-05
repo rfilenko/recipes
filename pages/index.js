@@ -30,6 +30,23 @@ const Index = () => {
   const [recipesTitle, setRecipesTitle] = useState(' ');
   const [recipesCount, setRecipesCount] = useState(null);
 
+  const [value, setValue] = useState('');
+  const filterRecipesByName = () => {
+    const filteredList = recipesList.filter((item) =>
+      item.name.toLowerCase().includes(value)
+    );
+    setLocalRecipes(filteredList);
+    setRecipesCount(filteredList.length);
+  };
+  const handleInput = (e) => {
+    setValue(e.target.value);
+    filterRecipesByName;
+  };
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    filterRecipesByName();
+  };
+
   //cancel filter by recipe tags
   const handleTag = (e) => {
     const filteredList = recipesList.filter((recipe) =>
@@ -97,8 +114,20 @@ const Index = () => {
             setLocalRecipes={setLocalRecipes}
             setRecipesCount={setRecipesCount}
           />
+
+          {/* //filter recipes by name */}
+          <form className="filter-name" onSubmit={handleFormSubmit}>
+            <input
+              type="text"
+              onChange={handleInput}
+              onKeyUp={filterRecipesByName}
+              defaultValue={value}
+              placeholder="search a recipe"
+            />
+          </form>
         </StyledFlex>
         {recipeTitle}
+
         {/* clear filter btn */}
         {isFiltered ? (
           <StyledFlex>

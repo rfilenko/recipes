@@ -38,6 +38,30 @@ const GlobalStyle = createGlobalStyle`
     font-family:'Fira Sans', sans-serif;
     margin-top: 0.5em;
   }
+  .filter-name {
+    @media screen and (max-width: 460px) {
+      padding: 1rem 2rem;
+    }
+    input {
+    border-radius: 0.5em;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+    margin-right: .5rem;
+    padding: 0.5em 1.5em;
+    margin: 0 0.5em;
+    min-width: 2rem;
+    border: 2px dashed #2a2a2a;
+    box-shadow: 1px 1px 13px 1px rgba(0,0,0,0.13);
+
+      &:focus {
+        background: rgba(255, 165, 0, .11);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+        border-color: #FF5733;
+      }
+    }
+  }
+  ::placeholder { 
+    color: #2a2a2a;
+  }
 `;
 
 export default GlobalStyle;
