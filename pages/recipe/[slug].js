@@ -217,8 +217,8 @@ const Recipe = ({ currentRecipe }) => {
         </StyledRecipeDetail>
 
         {/* last 3 added recipes */}
-        <h4>Last added</h4>
-        <Recipes list={last3} />
+        {/* <h4>Last added</h4>
+        <Recipes list={last3} /> */}
       </StyledContainer>
     </BaseLayout>
   );

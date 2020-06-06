@@ -163,12 +163,13 @@ export const StyledTag = styled(StyledButton)`
   }
 `;
 
-export const StyledRecipe = styled.div`
+export const StyledRecipe = styled.a`
   box-shadow: ${theme.boxShadow.normal};
   border-radius: 0.5em;
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
 
   & > div:not(.img-container) {
     padding: 0.5em;
@@ -261,8 +262,9 @@ export const StyledRecipe = styled.div`
   }
   &:hover {
     box-shadow: ${theme.boxShadow.medium};
+    text-decoration: none;
     img {
-      /* transform: scale(1.05, 1.05); */
+      transform: scale(1.025);
     }
   }
 `;
