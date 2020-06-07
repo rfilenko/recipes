@@ -17,10 +17,12 @@ const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
-  }
-  a:hover {
+    transition: all 0.2s ease-in;
+    display: inline-block;
+    &:hover {
       text-decoration: underline;
       opacity: .75;
+    }
   }
   img {
     display: block;
@@ -61,6 +63,10 @@ const GlobalStyle = createGlobalStyle`
   }
   ::placeholder { 
     color: #2a2a2a;
+  }
+  .hidden {
+    display: none;
+    visibility: hidden;
   }
 `;
 

@@ -153,8 +153,10 @@ export const StyledSelect = styled.select`
 export const StyledTag = styled(StyledButton)`
   color: ${theme.colors.bodyText};
   padding: 0.5em;
+  margin-left: 0.5em;
+  margin-bottom: 0;
   & + & {
-    margin-left: 0.25em;
+    margin-left: 0.5em;
   }
 
   @media screen and (max-width: ${theme.breakpoint.mobile}) {
@@ -163,13 +165,12 @@ export const StyledTag = styled(StyledButton)`
   }
 `;
 
-export const StyledRecipe = styled.a`
+export const StyledRecipe = styled.div`
   box-shadow: ${theme.boxShadow.normal};
   border-radius: 0.5em;
   display: flex;
   flex-direction: column;
   position: relative;
-  cursor: pointer;
 
   & > div:not(.img-container) {
     padding: 0.5em;
@@ -235,6 +236,20 @@ export const StyledRecipe = styled.a`
     padding-top: 0.7em;
     padding-left: 0.5em;
   }
+  a {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: ${theme.colors.primary};
+    }
+    &:focus {
+      text-decoration: none;
+      outline-style: dotted;
+      outline-color: currentColor;
+      outline-width: 2px;
+      outline-offset: 2px;
+    }
+  }
   > div {
     flex-grow: 3;
   }
@@ -264,7 +279,7 @@ export const StyledRecipe = styled.a`
     box-shadow: ${theme.boxShadow.medium};
     text-decoration: none;
     img {
-      transform: scale(1.025);
+      /* transform: scale(1.025); */
     }
   }
 `;
@@ -286,6 +301,7 @@ export const StyledRecipeDetail = styled.div`
   .prep_time {
     color: ${theme.colors.mutedText};
     font-size: 0.8rem;
+    margin: 0 0 0.75rem;
 
     @media screen and (min-width: ${theme.breakpoint.tablet}) {
       display: flex;
@@ -302,16 +318,35 @@ export const StyledRecipeDetail = styled.div`
       margin-right: 0.25rem;
     }
   }
-  .tags {
-    display: flex;
-    font-size: 75%;
-    font-weight: bold;
-    justify-content: center;
-    margin-bottom: 1rem;
 
-    p {
-      display: flex;
+  /* categories */
+  .category {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    h3 {
+      margin: 0 0 0.5rem;
+      font-weight: normal;
+      span {
+        margin-left: 0.5rem;
+        color: ${theme.colors.primary};
+      }
+    }
+
+    .tags {
+      display: inline-flex;
+      font-size: 75%;
+      font-weight: bold;
+      justify-content: center;
       align-items: center;
+      margin-left: auto;
+    }
+    @media screen and (max-width: ${theme.breakpoint.mobile}) {
+      flex-direction: column;
+      align-items: flex-start;
+      .tags {
+        margin-left: 0;
+      }
     }
   }
 

@@ -34,21 +34,29 @@ const LangSelect = ({ setLocalRecipes, setRecipesCount }) => {
   }, []);
 
   return (
-    <StyledSelect
-      disabled={disableLangSelect}
-      title={disableLangSelect ? 'Clear filter first 😋' : null}
-      onChange={handleSelect}
-      defaultValue={recipesLang}
-    >
-      <option value="all" disabled={!isFiltered}>
-        all
-      </option>
-      {filteredlangList.map((item) => (
-        <option key={item} value={item}>
-          {item}
+    <>
+      <label className="hidden" for="languages-select" aria-hidden="true">
+        Choose a language:
+      </label>
+      <StyledSelect
+        id="languages-select"
+        disabled={disableLangSelect}
+        title={disableLangSelect ? 'Clear filter first 😋' : null}
+        onChange={handleSelect}
+        defaultValue={recipesLang}
+      >
+        <option value="all" disabled={!isFiltered}>
+          all
         </option>
-      ))}
-    </StyledSelect>
+        {/* <optgroup label="languages"> */}
+        {filteredlangList.map((item) => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        ))}
+        {/* </optgroup> */}
+      </StyledSelect>
+    </>
   );
 };
 export default LangSelect;

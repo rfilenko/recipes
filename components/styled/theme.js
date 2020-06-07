@@ -13,7 +13,7 @@ export const theme = {
   },
   colors: {
     bodyText: '#2a2a2a',
-    mutedText: '#949494',
+    mutedText: '#757575',
     primary: '#38cfd9',
     reddish: '#FF5733',
     secondary: '#659da1',

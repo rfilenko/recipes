@@ -7,6 +7,7 @@ export const RECIPES_LIST = [
     slugUrl: 'onion-meatballs',
     lang: 'en',
     tags: ['meat', 'onion'],
+    category: ['main dish'],
     description:
       'These french onion meatballs are super delicious! All the flavors of french onion soup made into juicy meatballs. Cheesy, saucy goodness!',
     ingridients: [
@@ -48,6 +49,7 @@ export const RECIPES_LIST = [
     slugUrl: 'banana-pudding',
     lang: 'en',
     tags: ['banana', 'pudding'],
+    category: ['desert'],
     description:
       'This sweet, rich, and creamy banana pudding recipe goes light on added sugars and big on fresh banana flavor! Whip up this kid-friendly fruit dessert in under 15 minutes, then chill it for an after-dinner treat.',
     ingridients: [
@@ -79,6 +81,7 @@ export const RECIPES_LIST = [
     slugUrl: 'apple-pie',
     lang: 'en',
     tags: ['apple', 'pie', 'filling'],
+    category: ['desert'],
     link: '/double-pie-crust',
     description:
       'Everyone has to make this Classic Apple Pie Recipe for Thanksgiving. You will love the flaky pie crust and the apple pie filling will surprise you.',
@@ -113,6 +116,7 @@ export const RECIPES_LIST = [
     slugUrl: 'dort-mrkvovy',
     lang: 'cz',
     tags: ['mrkev', 'dort', 'pie'],
+    category: ['desert'],
     description: 'Mrkvový dort recept popis',
     ingridients: [
       '3 středně velké mrkve, nadrobno nastrouhane',
@@ -150,6 +154,7 @@ export const RECIPES_LIST = [
     servings: 2,
     lang: 'en',
     tags: ['paella', 'seafood'],
+    category: ['main dish'],
     description:
       'This paella is loaded with Spanish flavors, super easy to make and done in exactly 20 minutes! Enjoy this paella any day of the week and impress your family & friends with Spain´s most treasured dish.',
     ingridients: [
@@ -187,6 +192,7 @@ export const RECIPES_LIST = [
     slugUrl: 'kefir-pancakes',
     lang: 'ru',
     tags: ['kefir', 'pancakes'],
+    category: ['desert'],
     description:
       'Блины получаются тонкие, ажурные и очень вкусные. Все-все в мелкую дырочку и на столе смотрятся красиво!',
     ingridients: [
@@ -221,6 +227,7 @@ export const RECIPES_LIST = [
     slugUrl: 'losos-kopr',
     lang: 'cz',
     tags: ['losos', 'kopr', 'omáčka'],
+    category: ['main dish'],
     description: 'Zapečený losos s koprovou omáčkou',
     ingridients: [
       '2 filety divokého lososa s kůží',
@@ -254,6 +261,7 @@ export const RECIPES_LIST = [
     slugUrl: 'potato-soup',
     lang: 'en',
     tags: ['potato', 'soup'],
+    category: ['soup'],
     description:
       'This easy Potato Soup recipe is truly the best!  It’s quick and easy to make on the stovetop, it’s nice and creamy (without using heavy cream), and it’s always so cozy and comforting and delicious.',
     ingridients: [
@@ -292,6 +300,7 @@ export const RECIPES_LIST = [
     slugUrl: 'kokosove-kure',
     lang: 'cz',
     tags: ['kokosové', 'kuře'],
+    category: ['main dish'],
     description:
       'Tento opeřenec patří v Karibiku mezi nejoblíbenější maso a doprovod nasládlého kokosového mléka mu velice sluší. Vyzkoušejte v horkém dni a s překvapením zjistíte, že výsledek vás příjemně osvěží.',
     ingridients: [
@@ -326,6 +335,7 @@ export const RECIPES_LIST = [
     slugUrl: 'linyvi-varenyky',
     lang: 'ua',
     tags: ['varenyky', 'syr'],
+    category: ['main dish'],
     description: `Kласичний народний рецепт лінивих вареників - виходять ніжними, з ідеальним балансом смаку сиру, але залишаючись по суті галушками. І вони дійсно ліниві, тобто роботи з ними мало й дуже швидко їх готувати. <br />  <br />
             Такі ліниві вареники можна подавати на безліч способів, але є два улюблені.
             <br />Перший, з підрум'яненими шкварками з копченого бекону, зі сметаною та свіжо меленим ароматним перцем, политі жиром, що витопився зі шкварок. <br />
@@ -382,6 +392,7 @@ export const RECIPES_LIST = [
     slugUrl: 'kartoplyanyky',
     lang: 'ru',
     tags: ['kartoplyanyky', 'myaso'],
+    category: ['main dish'],
     description: `Название этого блюда произошло от основного ингредиента. Классический рецепт картопляников без начинки, начинка это уже импровизация. Импровизируем сегодня с мясной начинкой.`,
     ingridients: [
       '1 кг картофельного пюре',
@@ -425,6 +436,7 @@ export const RECIPES_LIST = [
     slugUrl: 'houbova-frittata',
     lang: 'cz',
     tags: ['frittata', 'houby'],
+    category: ['main dish'],
     description: `Kdy jindy než na podzim vyrazit do lesa na houby? A kdy jindy než o víkendu si dopřát takovou tu chlapáckou snídani, co se protáhne až do oběda? Frittata je podobná naší omeletě, základem jsou vajíčka a tak trošku si troufnu říct, co dům dá. Peče se v troubě a často se do ní přidává sýr. Co mě osobně na ní opravdu baví je to servírování. Ještě horkou si ji můžete vzít třeba na zahradu nebo svému „dřevorubci“ udělat piknik v lese. Jíst ji jen tak vidličkami nebo si ji nakrájet jako koláč.`,
     ingridients: [
       '1 šalotka',
@@ -459,6 +471,7 @@ export const RECIPES_LIST = [
     slugUrl: 'veprova-zebra',
     lang: 'cz',
     tags: ['vepřová', 'žebra'],
+    category: ['main dish'],
     description: `Kdo by neměl rád voňavé dokonale upečené žebírka, které se téměř rozpadají. Připravte si vynikající žebra na grilu či v troubě, které povýší geniální marináda do nebeských výšin!`,
     ingridients: [
       '1 ½ kg vepřových žeber',
@@ -505,6 +518,7 @@ export const RECIPES_LIST = [
     slugUrl: 'protein-smoothie',
     lang: 'en',
     tags: ['smoothie', 'protein', 'banana', 'chia'],
+    category: ['desert'],
     description: `This protein punch smoothie is refreshing and delicious, but also packed with protein, energy and chia seeds – a super healthy food!`,
     ingridients: [
       '1 cup cashew milk',
@@ -534,6 +548,7 @@ export const RECIPES_LIST = [
     slugUrl: 'cottage-cheese-pancakes',
     lang: 'en',
     tags: ['cottage', 'cheese', 'pancakes', 'oats'],
+    category: ['desert'],
     description: `A healthy and delicious recipe for Oatmeal Cottage Cheese Pancakes. These simple cottage cheese pancakes are fluffy and light, and the perfect breakfast for the entire family. The recipe contains oatmeal, cottage cheese, and eggs for a protein rich and filling breakfast. This pancake recipe is also gluten free. `,
     ingridients: [
       '2 medium eggs',
@@ -565,6 +580,7 @@ export const RECIPES_LIST = [
     slugUrl: 'alkaline-smoothie',
     lang: 'en',
     tags: ['smoothie', 'alkaline'],
+    category: ['desert'],
     description: `This Alkaline Smoothie is a great way to start your day with a high pH! Great for those who suffer from acid reflux, indigestion, or GERD.
     <br />  <br />
     An alkaline smoothie is a smoothie that has a high pH level and shouldn’t cause acid reflux or GERD symptoms. Smoothies can be loaded with acid once you add in things like berries, and juices.`,
@@ -612,6 +628,7 @@ export const RECIPES_LIST = [
     slugUrl: 'varenyky-kartoplya',
     lang: 'ua',
     tags: ['varenyky', 'kartoplya'],
+    category: ['main dish'],
     description: `Вареники з картопляною начинкою і таким ніжним тістом - поза конкуренцією`,
     ingridients: [
       '3 склянки(450 г) борошна',

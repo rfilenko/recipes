@@ -119,9 +119,14 @@ const Recipe = ({ currentRecipe }) => {
               {timeCook[2]} - {recipe.time_total}
             </p>
           </div>
-
-          <div className="tags">
-            <p>
+          <section className="category">
+            <h3>
+              Category:
+              {Object.values(recipe.category).map((value, index) => {
+                return <span key={index}>{value}</span>;
+              })}
+            </h3>
+            <div className="tags">
               {tagsServings[0]}:
               {Object.values(recipe.tags).map((value, index) => {
                 return (
@@ -130,8 +135,8 @@ const Recipe = ({ currentRecipe }) => {
                   </StyledTag>
                 );
               })}
-            </p>
-          </div>
+            </div>
+          </section>
           <div className="desc">
             <div className="recipe_img">
               {!recipe.image && <p>no image </p>}
