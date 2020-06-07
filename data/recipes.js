@@ -81,7 +81,7 @@ export const RECIPES_LIST = [
     slugUrl: 'apple-pie',
     lang: 'en',
     tags: ['apple', 'pie', 'filling'],
-    category: ['desert'],
+    category: ['dessert'],
     link: '/double-pie-crust',
     description:
       'Everyone has to make this Classic Apple Pie Recipe for Thanksgiving. You will love the flaky pie crust and the apple pie filling will surprise you.',
@@ -116,7 +116,7 @@ export const RECIPES_LIST = [
     slugUrl: 'dort-mrkvovy',
     lang: 'cz',
     tags: ['mrkev', 'dort', 'pie'],
-    category: ['desert'],
+    category: ['zákusek'],
     description: 'Mrkvový dort recept popis',
     ingridients: [
       '3 středně velké mrkve, nadrobno nastrouhane',
@@ -192,7 +192,7 @@ export const RECIPES_LIST = [
     slugUrl: 'kefir-pancakes',
     lang: 'ru',
     tags: ['kefir', 'pancakes'],
-    category: ['desert'],
+    category: ['десерт'],
     description:
       'Блины получаются тонкие, ажурные и очень вкусные. Все-все в мелкую дырочку и на столе смотрятся красиво!',
     ingridients: [
@@ -227,7 +227,7 @@ export const RECIPES_LIST = [
     slugUrl: 'losos-kopr',
     lang: 'cz',
     tags: ['losos', 'kopr', 'omáčka'],
-    category: ['main dish'],
+    category: ['hlavní jídlo'],
     description: 'Zapečený losos s koprovou omáčkou',
     ingridients: [
       '2 filety divokého lososa s kůží',
@@ -300,7 +300,7 @@ export const RECIPES_LIST = [
     slugUrl: 'kokosove-kure',
     lang: 'cz',
     tags: ['kokosové', 'kuře'],
-    category: ['main dish'],
+    category: ['hlavní jídlo'],
     description:
       'Tento opeřenec patří v Karibiku mezi nejoblíbenější maso a doprovod nasládlého kokosového mléka mu velice sluší. Vyzkoušejte v horkém dni a s překvapením zjistíte, že výsledek vás příjemně osvěží.',
     ingridients: [
@@ -335,7 +335,7 @@ export const RECIPES_LIST = [
     slugUrl: 'linyvi-varenyky',
     lang: 'ua',
     tags: ['varenyky', 'syr'],
-    category: ['main dish'],
+    category: ['головна страва'],
     description: `Kласичний народний рецепт лінивих вареників - виходять ніжними, з ідеальним балансом смаку сиру, але залишаючись по суті галушками. І вони дійсно ліниві, тобто роботи з ними мало й дуже швидко їх готувати. <br />  <br />
             Такі ліниві вареники можна подавати на безліч способів, але є два улюблені.
             <br />Перший, з підрум'яненими шкварками з копченого бекону, зі сметаною та свіжо меленим ароматним перцем, политі жиром, що витопився зі шкварок. <br />
@@ -392,7 +392,7 @@ export const RECIPES_LIST = [
     slugUrl: 'kartoplyanyky',
     lang: 'ru',
     tags: ['kartoplyanyky', 'myaso'],
-    category: ['main dish'],
+    category: ['главное блюдо'],
     description: `Название этого блюда произошло от основного ингредиента. Классический рецепт картопляников без начинки, начинка это уже импровизация. Импровизируем сегодня с мясной начинкой.`,
     ingridients: [
       '1 кг картофельного пюре',
@@ -436,7 +436,7 @@ export const RECIPES_LIST = [
     slugUrl: 'houbova-frittata',
     lang: 'cz',
     tags: ['frittata', 'houby'],
-    category: ['main dish'],
+    category: ['hlavní jídlo'],
     description: `Kdy jindy než na podzim vyrazit do lesa na houby? A kdy jindy než o víkendu si dopřát takovou tu chlapáckou snídani, co se protáhne až do oběda? Frittata je podobná naší omeletě, základem jsou vajíčka a tak trošku si troufnu říct, co dům dá. Peče se v troubě a často se do ní přidává sýr. Co mě osobně na ní opravdu baví je to servírování. Ještě horkou si ji můžete vzít třeba na zahradu nebo svému „dřevorubci“ udělat piknik v lese. Jíst ji jen tak vidličkami nebo si ji nakrájet jako koláč.`,
     ingridients: [
       '1 šalotka',
@@ -471,7 +471,7 @@ export const RECIPES_LIST = [
     slugUrl: 'veprova-zebra',
     lang: 'cz',
     tags: ['vepřová', 'žebra'],
-    category: ['main dish'],
+    category: ['hlavní jídlo'],
     description: `Kdo by neměl rád voňavé dokonale upečené žebírka, které se téměř rozpadají. Připravte si vynikající žebra na grilu či v troubě, které povýší geniální marináda do nebeských výšin!`,
     ingridients: [
       '1 ½ kg vepřových žeber',
@@ -518,7 +518,7 @@ export const RECIPES_LIST = [
     slugUrl: 'protein-smoothie',
     lang: 'en',
     tags: ['smoothie', 'protein', 'banana', 'chia'],
-    category: ['desert'],
+    category: ['dessert'],
     description: `This protein punch smoothie is refreshing and delicious, but also packed with protein, energy and chia seeds – a super healthy food!`,
     ingridients: [
       '1 cup cashew milk',
@@ -548,7 +548,7 @@ export const RECIPES_LIST = [
     slugUrl: 'cottage-cheese-pancakes',
     lang: 'en',
     tags: ['cottage', 'cheese', 'pancakes', 'oats'],
-    category: ['desert'],
+    category: ['dessert'],
     description: `A healthy and delicious recipe for Oatmeal Cottage Cheese Pancakes. These simple cottage cheese pancakes are fluffy and light, and the perfect breakfast for the entire family. The recipe contains oatmeal, cottage cheese, and eggs for a protein rich and filling breakfast. This pancake recipe is also gluten free. `,
     ingridients: [
       '2 medium eggs',
@@ -580,8 +580,8 @@ export const RECIPES_LIST = [
     slugUrl: 'alkaline-smoothie',
     lang: 'en',
     tags: ['smoothie', 'alkaline'],
-    category: ['desert'],
-    description: `This Alkaline Smoothie is a great way to start your day with a high pH! Great for those who suffer from acid reflux, indigestion, or GERD.
+    category: ['dessert'],
+    description: `This alkaline smoothie is a great way to start your day with a high pH! Great for those who suffer from acid reflux, indigestion, or GERD.
     <br />  <br />
     An alkaline smoothie is a smoothie that has a high pH level and shouldn’t cause acid reflux or GERD symptoms. Smoothies can be loaded with acid once you add in things like berries, and juices.`,
     ingridients: [
@@ -628,7 +628,7 @@ export const RECIPES_LIST = [
     slugUrl: 'varenyky-kartoplya',
     lang: 'ua',
     tags: ['varenyky', 'kartoplya'],
-    category: ['main dish'],
+    category: ['головна страва'],
     description: `Вареники з картопляною начинкою і таким ніжним тістом - поза конкуренцією`,
     ingridients: [
       '3 склянки(450 г) борошна',

@@ -4,6 +4,7 @@ import { RECIPES_LIST } from '../../data/recipes';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { RecipesContext } from 'components/contexts/RecipesContext';
+
 import { Image, Transformation } from 'cloudinary-react';
 import { theme } from 'components/styled/theme';
 import BaseLayout from 'components/layouts/BaseLayout';
@@ -37,6 +38,8 @@ const Recipe = ({ currentRecipe }) => {
     setInstructions,
     tagsServings,
     setTagsServings,
+    сategorie,
+    setCategorie,
     videoShareTitle,
     setVideoShareTitle,
   } = useContext(RecipesContext);
@@ -53,6 +56,7 @@ const Recipe = ({ currentRecipe }) => {
         setTimeCook(['připrava', 'čas vaření', 'celkem']);
         setIngridientsTitle('Suroviny');
         setInstructions(['Příprava jídla', 'varianty']);
+        setCategorie('Kategorie');
         setTagsServings(['štítky', 'porce']);
         setVideoShareTitle(['Mrkněte taky na video', 'Sdilet recept']);
         break;
@@ -60,6 +64,7 @@ const Recipe = ({ currentRecipe }) => {
         setTimeCook(['підготовка', 'час готування', 'загалом']);
         setIngridientsTitle('Інгредієнти');
         setInstructions(['Приготування', 'Варіанти']);
+        setCategorie('Категорія');
         setTagsServings(['теги', 'порції']);
         setVideoShareTitle([
           'Перегляньте також відео рецепту',
@@ -70,6 +75,7 @@ const Recipe = ({ currentRecipe }) => {
         setTimeCook(['подготовка', 'время готовки', 'всего']);
         setIngridientsTitle('Ингредиенты');
         setInstructions(['Приготовление', 'Варианты']);
+        setCategorie('Категория');
         setTagsServings(['теги', 'порции']);
         setVideoShareTitle(['Посмотрите также видео', 'Поделиться рецептом']);
         break;
@@ -102,7 +108,7 @@ const Recipe = ({ currentRecipe }) => {
   if (!recipe) return <p></p>;
 
   return (
-    <BaseLayout title={`${recipe.slugUrl} details`}>
+    <BaseLayout title={`${recipe.slugUrl} recipe details`}>
       <StyledContainer>
         <StyledRecipeDetail className="content">
           <StyledH2>{recipe.name}</StyledH2>
@@ -121,7 +127,7 @@ const Recipe = ({ currentRecipe }) => {
           </div>
           <section className="category">
             <h3>
-              Category:
+              {сategorie}:
               {Object.values(recipe.category).map((value, index) => {
                 return <span key={index}>{value}</span>;
               })}

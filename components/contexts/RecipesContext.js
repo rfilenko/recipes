@@ -24,6 +24,7 @@ const RecipesContextProvider = (props) => {
     'total',
   ]);
   const [ingridientsTitle, setIngridientsTitle] = useState('');
+  const [сategorie, setCategorie] = useState('Category');
   const [instructions, setInstructions] = useState([
     'Instructions',
     'Modifications',
@@ -60,6 +61,8 @@ const RecipesContextProvider = (props) => {
         setInstructions,
         tagsServings,
         setTagsServings,
+        сategorie,
+        setCategorie,
         videoShareTitle,
         setVideoShareTitle,
       }}

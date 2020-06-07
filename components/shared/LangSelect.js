@@ -35,7 +35,7 @@ const LangSelect = ({ setLocalRecipes, setRecipesCount }) => {
 
   return (
     <>
-      <label className="hidden" for="languages-select" aria-hidden="true">
+      <label className="hidden" htmlFor="languages-select" aria-hidden="true">
         Choose a language:
       </label>
       <StyledSelect

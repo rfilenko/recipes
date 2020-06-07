@@ -329,7 +329,7 @@ export const StyledRecipeDetail = styled.div`
       font-weight: normal;
       span {
         margin-left: 0.5rem;
-        color: ${theme.colors.primary};
+        color: #237a80;
       }
     }
 

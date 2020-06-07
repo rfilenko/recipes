@@ -10,7 +10,6 @@ export default class MyApp extends App {
     return (
       <>
         <GlobalStyles />
-
         <ThemeProvider theme={theme}>
           <RecipesContextProvider>
             <Component {...pageProps} />
