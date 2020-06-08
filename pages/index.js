@@ -4,7 +4,6 @@ import Recipes from 'components/shared/Recipes';
 import RecipeTypeFilter from 'components/shared/RecipeTypeFilter';
 import LangSelect from 'components/shared/LangSelect';
 import BaseLayout from 'components/layouts/BaseLayout';
-
 import {
   StyledContainer,
   StyledFlex,
@@ -118,12 +117,16 @@ const Index = () => {
           {/* //filter recipes by name */}
           <form className="filter-name" onSubmit={handleFormSubmit}>
             <input
+              id="search-recipe"
               type="text"
               onChange={handleInput}
               onKeyUp={filterRecipesByName}
               defaultValue={value}
               placeholder="search a recipe"
             />
+            <label className="sr-only" htmlFor="search-recipe">
+              Search a recipe
+            </label>
           </form>
         </StyledFlex>
         {recipeTitle}

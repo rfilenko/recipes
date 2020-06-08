@@ -146,6 +146,7 @@ const Recipe = ({ currentRecipe }) => {
           <div className="desc">
             <div className="recipe_img">
               {!recipe.image && <p>no image </p>}
+
               <Image
                 cloudName={process.env.CLOUDINARY_CLOUD_NAME}
                 publicId={recipe.slugUrl}

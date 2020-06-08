@@ -35,9 +35,6 @@ const LangSelect = ({ setLocalRecipes, setRecipesCount }) => {
 
   return (
     <>
-      <label className="hidden" htmlFor="languages-select" aria-hidden="true">
-        Choose a language:
-      </label>
       <StyledSelect
         id="languages-select"
         disabled={disableLangSelect}
@@ -56,6 +53,9 @@ const LangSelect = ({ setLocalRecipes, setRecipesCount }) => {
         ))}
         {/* </optgroup> */}
       </StyledSelect>
+      <label className="sr-only" htmlFor="languages-select">
+        Choose a language:
+      </label>
     </>
   );
 };

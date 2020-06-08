@@ -8,6 +8,7 @@ import { FaLongArrowAltRight } from 'react-icons/fa';
 const Recipes = (props) => {
   const { handleTag, list } = props;
   const { isFiltered, filterTitle } = useContext(RecipesContext);
+
   return (
     <>
       <StyledGrid mt="1rem">
@@ -17,9 +18,10 @@ const Recipes = (props) => {
             <StyledRecipe key={recipe.name}>
               <h4>
                 <Link href={`/recipe/[slug]`} as={`/recipe/${recipe.id}`}>
-                  {recipe.name}
+                  <a>{recipe.name}</a>
                 </Link>
               </h4>
+
               <Link href={`/recipe/[slug]`} as={`/recipe/${recipe.id}`}>
                 <StyledButton className="more">
                   <span>more</span> <FaLongArrowAltRight />
@@ -45,6 +47,7 @@ const Recipes = (props) => {
                   ))}
                 </p>
               </div>
+
               <div className="img-container">
                 <Image
                   cloudName={process.env.CLOUDINARY_CLOUD_NAME}
