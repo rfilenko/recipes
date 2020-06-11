@@ -35,6 +35,40 @@ const RecipesContextProvider = (props) => {
     'share recipe',
   ]);
 
+  const setLang = (lang) => {
+    switch (lang) {
+      case 'cz':
+        setTimeCook(['připrava', 'čas vaření', 'celkem']);
+        setIngridientsTitle('Suroviny');
+        setInstructions(['Příprava jídla', 'varianty']);
+        setCategorie('Kategorie');
+        setTagsServings(['štítky', 'porce']);
+        setVideoShareTitle(['Mrkněte taky na video', 'Sdilet recept']);
+        break;
+      case 'ua':
+        setTimeCook(['підготовка', 'час готування', 'загалом']);
+        setIngridientsTitle('Інгредієнти');
+        setInstructions(['Приготування', 'Варіанти']);
+        setCategorie('Категорія');
+        setTagsServings(['теги', 'порції']);
+        setVideoShareTitle([
+          'Перегляньте також відео рецепту',
+          'Поширити рецепт',
+        ]);
+        break;
+      case 'ru':
+        setTimeCook(['подготовка', 'время готовки', 'всего']);
+        setIngridientsTitle('Ингредиенты');
+        setInstructions(['Приготовление', 'Варианты']);
+        setCategorie('Категория');
+        setTagsServings(['теги', 'порции']);
+        setVideoShareTitle(['Посмотрите также видео', 'Поделиться рецептом']);
+        break;
+      default:
+        setIngridientsTitle('Ingridients');
+    }
+  };
+
   return (
     <RecipesContext.Provider
       value={{
@@ -65,6 +99,7 @@ const RecipesContextProvider = (props) => {
         setCategorie,
         videoShareTitle,
         setVideoShareTitle,
+        setLang,
       }}
     >
       {children}

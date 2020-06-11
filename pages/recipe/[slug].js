@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReactPlayer from 'react-player';
-import { RECIPES_LIST } from '../../data/recipes';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { RECIPES_LIST } from '../../data/recipes';
 import { RecipesContext } from 'components/contexts/RecipesContext';
 
 import { Image, Transformation } from 'cloudinary-react';
 import { theme } from 'components/styled/theme';
 import BaseLayout from 'components/layouts/BaseLayout';
 import Recipes from 'components/shared/Recipes';
+import ShareRecipe from 'components/shared/ShareRecipe';
+
 import {
   StyledContainer,
   StyledButton,
@@ -17,31 +19,21 @@ import {
   StyledText,
   StyledRecipeDetail,
   StyledVideoWrapper,
-  StyledFlex,
 } from 'components/styled';
 
 import { IoMdTimer } from 'react-icons/io';
-import { FaShareAlt } from 'react-icons/fa';
 import { GiKnifeFork, GiFruitBowl, GiBubblingBowl } from 'react-icons/gi';
 
 const Recipe = ({ currentRecipe }) => {
   const {
     recipesList,
-    isFiltered,
-    setIsFiltered,
-    recipeLang,
     timeCook,
-    setTimeCook,
     ingridientsTitle,
-    setIngridientsTitle,
     instructions,
-    setInstructions,
     tagsServings,
-    setTagsServings,
     сategorie,
-    setCategorie,
     videoShareTitle,
-    setVideoShareTitle,
+    setLang,
   } = useContext(RecipesContext);
 
   const last3 = recipesList.slice(Math.max(recipesList.length - 3, 1));
@@ -50,60 +42,12 @@ const Recipe = ({ currentRecipe }) => {
   const { slug } = router.query;
   let recipeItem;
 
-  const setLang = (lang) => {
-    switch (lang) {
-      case 'cz':
-        setTimeCook(['připrava', 'čas vaření', 'celkem']);
-        setIngridientsTitle('Suroviny');
-        setInstructions(['Příprava jídla', 'varianty']);
-        setCategorie('Kategorie');
-        setTagsServings(['štítky', 'porce']);
-        setVideoShareTitle(['Mrkněte taky na video', 'Sdilet recept']);
-        break;
-      case 'ua':
-        setTimeCook(['підготовка', 'час готування', 'загалом']);
-        setIngridientsTitle('Інгредієнти');
-        setInstructions(['Приготування', 'Варіанти']);
-        setCategorie('Категорія');
-        setTagsServings(['теги', 'порції']);
-        setVideoShareTitle([
-          'Перегляньте також відео рецепту',
-          'Поширити рецепт',
-        ]);
-        break;
-      case 'ru':
-        setTimeCook(['подготовка', 'время готовки', 'всего']);
-        setIngridientsTitle('Ингредиенты');
-        setInstructions(['Приготовление', 'Варианты']);
-        setCategorie('Категория');
-        setTagsServings(['теги', 'порции']);
-        setVideoShareTitle(['Посмотрите также видео', 'Поделиться рецептом']);
-        break;
-      default:
-        setIngridientsTitle('Ingridients');
-    }
-  };
-
   useEffect(() => {
     recipeItem = slug - 1;
     let currRecipe = recipesList[recipeItem];
     setRecipe(currRecipe);
     setLang(currRecipe.lang);
   }, []);
-
-  const shareAPI = () => {
-    if (navigator.share) {
-      const recipeFullUrl = window.location.href;
-      navigator
-        .share({
-          title: `${recipe.slugUrl}`,
-          text: `${recipe.description}`,
-          url: `${recipeFullUrl}`,
-        })
-        .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing', error));
-    }
-  };
 
   if (!recipe) return <p></p>;
 
@@ -119,7 +63,7 @@ const Recipe = ({ currentRecipe }) => {
               {timeCook[0]} - {recipe.time_prep}, &nbsp;
             </p>
             <p>
-              {timeCook[1]} - {recipe.time_cook},&nbsp;
+              {timeCook[1]} - {recipe.time_cook}, &nbsp;
             </p>
             <p>
               {timeCook[2]} - {recipe.time_total}
@@ -201,7 +145,6 @@ const Recipe = ({ currentRecipe }) => {
               )}
             </div>
           </div>
-
           <div className="instructions">
             <StyledText>{instructions[0]}:</StyledText>
             <ul>
@@ -218,14 +161,7 @@ const Recipe = ({ currentRecipe }) => {
               </StyledVideoWrapper>
             </>
           )}
-          {navigator.share && (
-            <StyledFlex>
-              <StyledButton linear onClick={shareAPI} mb="1rem">
-                {videoShareTitle[1]}
-                <FaShareAlt />
-              </StyledButton>
-            </StyledFlex>
-          )}
+          <ShareRecipe recipe={recipe} />
         </StyledRecipeDetail>
 
         {/* last 3 added recipes */}
