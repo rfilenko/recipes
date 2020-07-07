@@ -153,7 +153,6 @@ export const StyledSelect = styled.select`
 export const StyledTag = styled(StyledButton)`
   color: ${theme.colors.bodyText};
   padding: 0.5em;
-  margin-left: 0.5em;
   margin-bottom: 0;
   & + & {
     margin-left: 0.5em;
