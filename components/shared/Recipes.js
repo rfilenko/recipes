@@ -54,11 +54,7 @@ const Recipes = (props) => {
                   publicId={recipe.slugUrl}
                   alt={recipe.name.toLowerCase()}
                 >
-                  <Transformation
-                    fetchFormat="auto"
-                    quality="auto"
-                    effect="saturation:50"
-                  />
+                  <Transformation fetchFormat="auto" quality="auto" />
                 </Image>
                 {recipe.img && recipe.img.length > 0 ? <p>no image</p> : null}
               </div>

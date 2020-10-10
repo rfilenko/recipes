@@ -40,6 +40,7 @@ const Recipe = ({ currentRecipe }) => {
   const [recipe, setRecipe] = useState(null);
   const router = useRouter();
   const { slug } = router.query;
+
   let recipeItem;
 
   useEffect(() => {
