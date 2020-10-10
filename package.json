@@ -8,8 +8,11 @@
     "build": "next build",
     "start": "next start"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "recipes-app",
+    "next-js"
+  ],
+  "author": "roman.filenko@gmail.com",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
