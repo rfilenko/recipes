@@ -101,7 +101,7 @@ export const StyledButton = styled.button`
   display: flex;
   align-items: center;
   margin-top: ${(props) => (props.mt ? props.mt : '0')};
-  margin-bottom: ${(props) => (props.mb ? props.mb : '.5em')};
+  margin-bottom: ${(props) => (props.mb ? props.mb : '.25em')};
   margin-left: ${(props) => (props.ml ? props.ml : '0')};
   margin-right: ${(props) => (props.mr ? props.mr : '0')};
   padding: 0.5em 1.5em;
@@ -153,10 +153,6 @@ export const StyledSelect = styled.select`
 export const StyledTag = styled(StyledButton)`
   color: ${theme.colors.bodyText};
   padding: 0.5em;
-  margin-bottom: 0;
-  & + & {
-    margin-left: 0.5em;
-  }
 
   @media screen and (max-width: ${theme.breakpoint.mobile}) {
     font-size: ${theme.sizes.small};
@@ -232,8 +228,7 @@ export const StyledRecipe = styled.div`
     color: ${theme.colors.bodyText};
     margin: 0;
     text-transform: uppercase;
-    padding-top: 0.7em;
-    padding-left: 0.5em;
+    padding: 0.7em 0.5em 0;
   }
   a {
     &:hover,

@@ -2,8 +2,15 @@ import { useContext } from 'react';
 import { Image, Transformation } from 'cloudinary-react';
 import { RecipesContext } from '../contexts/RecipesContext';
 import Link from 'next/link';
+import styled from 'styled-components';
 import { StyledRecipe, StyledGrid, StyledTag, StyledButton } from '../styled';
 import { FaLongArrowAltRight } from 'react-icons/fa';
+
+export const StyledTagsWrap = styled('p')`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+`;
 
 const Recipes = (props) => {
   const { handleTag, list } = props;
@@ -32,7 +39,7 @@ const Recipes = (props) => {
                   preparation: {recipe.time_prep}, {''}
                   total time: <span>{recipe.time_total}</span>
                 </p>
-                <p>
+                <StyledTagsWrap>
                   {recipe.tags.map((t) => (
                     <StyledTag
                       key={t}
@@ -45,7 +52,7 @@ const Recipes = (props) => {
                       {t}
                     </StyledTag>
                   ))}
-                </p>
+                </StyledTagsWrap>
               </div>
 
               <div className="img-container">
