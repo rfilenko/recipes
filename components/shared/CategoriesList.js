@@ -8,11 +8,14 @@ import { capitalize, getOccurrence } from '../../utils';
 const CategoriesUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
   li {
     color: ${theme.colors.reddish};
     font-size: 0.75rem;
     font-weight: bold;
     border: 2px solid ${theme.colors.reddish};
+    margin-bottom: 0.25rem;
     padding: 0.5rem 1.5rem;
     border-radius: 0.5rem;
     cursor: pointer;
@@ -23,10 +26,13 @@ const CategoriesUl = styled.ul`
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     li:not(:last-of-type) {
       margin-right: 0.25rem;
     }
+  }
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
   }
 `;
 const CategoriesList = ({ setLocalRecipes, setRecipesCount }) => {

@@ -87,23 +87,12 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 0.5rem;
   }
 }
-ul {
-  padding: 0;
-  margin: 0;
-  li {
-    margin-bottom: .25rem;
-  }
-}
 
 @media screen and (min-width: 768px) {
   .main-section {
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 3rem;
-
-    ul {
-      flex-direction: column;
-    }
   }
 }
 
