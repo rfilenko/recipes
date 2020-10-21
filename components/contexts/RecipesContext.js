@@ -41,7 +41,6 @@ const RecipesContextProvider = (props) => {
         setTimeCook(['připrava', 'čas vaření', 'celkem']);
         setIngridientsTitle('Suroviny');
         setInstructions(['Příprava jídla', 'varianty']);
-        setCategorie('Kategorie');
         setTagsServings(['štítky', 'porce']);
         setVideoShareTitle(['Mrkněte taky na video', 'Sdilet recept']);
         break;
@@ -49,7 +48,6 @@ const RecipesContextProvider = (props) => {
         setTimeCook(['підготовка', 'час готування', 'загалом']);
         setIngridientsTitle('Інгредієнти');
         setInstructions(['Приготування', 'Варіанти']);
-        setCategorie('Категорія');
         setTagsServings(['теги', 'порції']);
         setVideoShareTitle([
           'Перегляньте також відео рецепту',
@@ -60,7 +58,6 @@ const RecipesContextProvider = (props) => {
         setTimeCook(['подготовка', 'время готовки', 'всего']);
         setIngridientsTitle('Ингредиенты');
         setInstructions(['Приготовление', 'Варианты']);
-        setCategorie('Категория');
         setTagsServings(['теги', 'порции']);
         setVideoShareTitle(['Посмотрите также видео', 'Поделиться рецептом']);
         break;

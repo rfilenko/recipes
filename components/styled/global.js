@@ -69,17 +69,42 @@ const GlobalStyle = createGlobalStyle`
     visibility: hidden;
   }
   .sr-only {
-	border: 0 !important;
-	clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-	-webkit-clip-path: inset(50%) !important;
-		clip-path: inset(50%) !important;  /* 2 */
-	height: 1px !important;
-	margin: -1px !important;
-	overflow: hidden !important;
-	padding: 0 !important;
-	position: absolute !important;
-	width: 1px !important;
-	white-space: nowrap !important;            /* 3 */
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+    -webkit-clip-path: inset(50%) !important;
+      clip-path: inset(50%) !important;  /* 2 */
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;            /* 3 */
+}
+.main-section {
+  h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+}
+ul {
+  padding: 0;
+  margin: 0;
+  li {
+    margin-bottom: .25rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main-section {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 3rem;
+
+    ul {
+      flex-direction: column;
+    }
+  }
 }
 
 `;

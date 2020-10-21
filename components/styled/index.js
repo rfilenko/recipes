@@ -329,6 +329,7 @@ export const StyledRecipeDetail = styled.div`
 
     .tags {
       display: inline-flex;
+      gap: 0.5em;
       font-size: 75%;
       font-weight: bold;
       justify-content: center;

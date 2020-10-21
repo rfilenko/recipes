@@ -10,6 +10,7 @@ import {
   StyledH2,
   StyledButton,
 } from 'components/styled';
+import CategoriesList from '../components/shared/CategoriesList';
 
 const Index = () => {
   const {
@@ -30,6 +31,7 @@ const Index = () => {
   const [recipesCount, setRecipesCount] = useState(null);
 
   const [value, setValue] = useState('');
+
   const filterRecipesByName = () => {
     const filteredList = recipesList.filter((item) =>
       item.name.toLowerCase().includes(value)
@@ -148,9 +150,16 @@ const Index = () => {
             </StyledButton>
           </StyledFlex>
         ) : null}
-
-        {/* list of recipes */}
-        <Recipes handleTag={handleTag} list={localRecipes} />
+        <section className="main-section">
+          {/* list of categories */}
+          <CategoriesList
+            setLocalRecipes={setLocalRecipes}
+            setRecipesCount={setRecipesCount}
+            clearAllFilters={clearAllFilters}
+          />
+          {/* list of recipes */}
+          <Recipes handleTag={handleTag} list={localRecipes} />
+        </section>
       </StyledContainer>
     </BaseLayout>
   );

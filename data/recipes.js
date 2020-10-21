@@ -49,7 +49,7 @@ export const RECIPES_LIST = [
     slugUrl: 'banana-pudding',
     lang: 'en',
     tags: ['banana', 'pudding'],
-    category: ['desert'],
+    category: ['dessert'],
     description:
       'This sweet, rich, and creamy banana pudding recipe goes light on added sugars and big on fresh banana flavor! Whip up this kid-friendly fruit dessert in under 15 minutes, then chill it for an after-dinner treat.',
     ingridients: [
@@ -116,7 +116,7 @@ export const RECIPES_LIST = [
     slugUrl: 'dort-mrkvovy',
     lang: 'cz',
     tags: ['mrkev', 'dort', 'pie'],
-    category: ['zákusek'],
+    category: ['dessert'],
     description: 'Mrkvový dort recept popis',
     ingridients: [
       '3 středně velké mrkve, nadrobno nastrouhane',
@@ -192,7 +192,7 @@ export const RECIPES_LIST = [
     slugUrl: 'kefir-pancakes',
     lang: 'ru',
     tags: ['kefir', 'pancakes'],
-    category: ['десерт'],
+    category: ['dessert'],
     description:
       'Блины получаются тонкие, ажурные и очень вкусные. Все-все в мелкую дырочку и на столе смотрятся красиво!',
     ingridients: [
@@ -227,7 +227,7 @@ export const RECIPES_LIST = [
     slugUrl: 'losos-kopr',
     lang: 'cz',
     tags: ['losos', 'kopr', 'omáčka'],
-    category: ['hlavní jídlo'],
+    category: ['main dish'],
     description: 'Zapečený losos s koprovou omáčkou',
     ingridients: [
       '2 filety divokého lososa s kůží',
@@ -300,7 +300,7 @@ export const RECIPES_LIST = [
     slugUrl: 'kokosove-kure',
     lang: 'cz',
     tags: ['kokosové', 'kuře'],
-    category: ['hlavní jídlo'],
+    category: ['main dish'],
     description:
       'Tento opeřenec patří v Karibiku mezi nejoblíbenější maso a doprovod nasládlého kokosového mléka mu velice sluší. Vyzkoušejte v horkém dni a s překvapením zjistíte, že výsledek vás příjemně osvěží.',
     ingridients: [
@@ -335,7 +335,7 @@ export const RECIPES_LIST = [
     slugUrl: 'linyvi-varenyky',
     lang: 'ua',
     tags: ['varenyky', 'syr'],
-    category: ['головна страва'],
+    category: ['main dish'],
     description: `Kласичний народний рецепт лінивих вареників - виходять ніжними, з ідеальним балансом смаку сиру, але залишаючись по суті галушками. І вони дійсно ліниві, тобто роботи з ними мало й дуже швидко їх готувати. <br />  <br />
             Такі ліниві вареники можна подавати на безліч способів, але є два улюблені.
             <br />Перший, з підрум'яненими шкварками з копченого бекону, зі сметаною та свіжо меленим ароматним перцем, политі жиром, що витопився зі шкварок. <br />
@@ -392,7 +392,7 @@ export const RECIPES_LIST = [
     slugUrl: 'kartoplyanyky',
     lang: 'ru',
     tags: ['kartoplyanyky', 'myaso'],
-    category: ['главное блюдо'],
+    category: ['main dish'],
     description: `Название этого блюда произошло от основного ингредиента. Классический рецепт картопляников без начинки, начинка это уже импровизация. Импровизируем сегодня с мясной начинкой.`,
     ingridients: [
       '1 кг картофельного пюре',
@@ -436,7 +436,7 @@ export const RECIPES_LIST = [
     slugUrl: 'houbova-frittata',
     lang: 'cz',
     tags: ['frittata', 'houby'],
-    category: ['hlavní jídlo'],
+    category: ['main dish'],
     description: `Kdy jindy než na podzim vyrazit do lesa na houby? A kdy jindy než o víkendu si dopřát takovou tu chlapáckou snídani, co se protáhne až do oběda? Frittata je podobná naší omeletě, základem jsou vajíčka a tak trošku si troufnu říct, co dům dá. Peče se v troubě a často se do ní přidává sýr. Co mě osobně na ní opravdu baví je to servírování. Ještě horkou si ji můžete vzít třeba na zahradu nebo svému „dřevorubci“ udělat piknik v lese. Jíst ji jen tak vidličkami nebo si ji nakrájet jako koláč.`,
     ingridients: [
       '1 šalotka',
@@ -471,7 +471,7 @@ export const RECIPES_LIST = [
     slugUrl: 'veprova-zebra',
     lang: 'cz',
     tags: ['vepřová', 'žebra'],
-    category: ['hlavní jídlo'],
+    category: ['main dish'],
     description: `Kdo by neměl rád voňavé dokonale upečené žebírka, které se téměř rozpadají. Připravte si vynikající žebra na grilu či v troubě, které povýší geniální marináda do nebeských výšin!`,
     ingridients: [
       '1 ½ kg vepřových žeber',
@@ -628,7 +628,7 @@ export const RECIPES_LIST = [
     slugUrl: 'varenyky-kartoplya',
     lang: 'ua',
     tags: ['varenyky', 'kartoplya'],
-    category: ['головна страва'],
+    category: ['main dish'],
     description: `Вареники з картопляною начинкою і таким ніжним тістом - поза конкуренцією`,
     ingridients: [
       '3 склянки(450 г) борошна',
@@ -677,7 +677,7 @@ export const RECIPES_LIST = [
     slugUrl: 'sharlotka-s-yablokami',
     lang: 'ru',
     tags: ['sharlotka', 'yabloko'],
-    category: ['десерт'],
+    category: ['dessert'],
     description: `Классическая шарлотка с яблоками всего из 5 ингредиентов! Это самый простой, вкусный и быстрый рецепт шарлотки по которому готовила яблочную шарлотку еще моя мама. 
 Шарлотка получается очень нежной и вкусной. Под румяной золотистой корочкой скрывается нежная мякоть бисквита и сочные, ароматные ломтики яблок - это просто вкуснятина!
 <br /><br />
@@ -713,7 +713,7 @@ export const RECIPES_LIST = [
     slugUrl: 'panna-cotta',
     lang: 'ru',
     tags: ['panna-cotta', 'strawberry'],
-    category: ['десерт'],
+    category: ['dessert'],
     description: `Панна котта – это знаменитый итальянский десерт из сливок, который обычно подают вместе c ягодами, фруктами и сладким соусом.`,
     ingridients: [
       'сливки 20% 400 мл',
@@ -754,7 +754,7 @@ export const RECIPES_LIST = [
     slugUrl: 'zharkoe-svinina',
     lang: 'ru',
     tags: ['zharkoe', 'svinina', 'kartoshka'],
-    category: ['главное блюдо'],
+    category: ['main dish'],
     description: `Жаркое с картофелем -— отличное блюдо для обеда или сытного ужина. Готовится оно легко и довольно просто, а получается вкусным и ароматным. Обычный картофель, приготовленный вместе с мясом, приобретает особый вкус и аромат. Я надеюсь, что рецепт жаркого из свинины с картошкой вам понравится и вы будете готовить это блюдо не один раз.`,
     ingridients: [
       'cвинина, мякоть  — 600-700 грамм',
