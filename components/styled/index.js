@@ -17,11 +17,25 @@ export const StyledContainer = styled.div`
     }
   }
 `;
+
 export const StyledH2 = styled.h2`
   text-align: center;
   margin-bottom: 0.5rem;
   span {
     color: ${theme.colors.reddish};
+  }
+  @media screen and (min-width: ${theme.breakpoint.laptop}) {
+    &.recipes-title {
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      font-size: 1.25em;
+      margin-top: 0.5rem;
+      color: ${theme.colors.whiteBlue};
+      span {
+        color: ${theme.colors.whiteBlue};
+      }
+    }
   }
 `;
 
@@ -52,7 +66,7 @@ export const StyledFlex = styled.div`
       margin-top: 0.5rem;
     }
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${theme.breakpoint.laptop}) {
     ${({ posAbs }) => posAbs && positionAbsolute};
   }
 `;

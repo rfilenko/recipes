@@ -4,18 +4,17 @@ import Recipes from 'components/shared/Recipes';
 import RecipeTypeFilter from 'components/shared/RecipeTypeFilter';
 import LangSelect from 'components/shared/LangSelect';
 import BaseLayout from 'components/layouts/BaseLayout';
-import { StyledContainer, StyledFlex, StyledH2 } from 'components/styled';
+import { StyledContainer, StyledFlex } from 'components/styled';
 import FilterButton from '../components/shared/FilterButton';
 import CategoriesList from '../components/shared/CategoriesList';
+import RecipeTitle from '../components/shared/RecipeTitle';
 
 const Index = () => {
   const {
     recipesList,
     isFiltered,
-    filterTitle,
     setIsFiltered,
     setFilterTitle,
-    recipesLang,
     setRecipesLang,
     recipesLangisFiltered,
     setRecipesLangisFiltered,
@@ -62,18 +61,6 @@ const Index = () => {
   useEffect(() => {
     clearAllFilters();
   }, []);
-
-  const recipeTitle = (
-    <StyledH2 mt={'1rem'}>
-      {recipesCount} {recipesTitle} {recipesCount === 1 ? 'recipe' : 'recipes'}
-      {recipesLangisFiltered && (
-        <>
-          ,<span> lang - {recipesLang}</span>
-        </>
-      )}
-      {isFiltered && <span> {filterTitle}</span>}
-    </StyledH2>
-  );
 
   return (
     <BaseLayout title="🍩 Recipes App">
@@ -124,7 +111,7 @@ const Index = () => {
             />
           )}
         </StyledFlex>
-        {recipeTitle}
+        <RecipeTitle recipesTitle={recipesTitle} recipesCount={recipesCount} />
         <section className="main-section">
           {/* list of categories */}
           <CategoriesList

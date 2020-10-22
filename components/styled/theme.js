@@ -20,6 +20,7 @@ export const theme = {
     text: '#404040',
     yellow: '#eaee44',
     white: '#fff',
+    whiteBlue: 'aliceblue',
   },
   sizes: {
     small: '0.75rem',

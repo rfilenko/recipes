@@ -26,12 +26,12 @@ const CategoriesUl = styled.ul`
     }
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: ${theme.breakpoint.small}) {
     li:not(:last-of-type) {
       margin-right: 0.25rem;
     }
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${theme.breakpoint.laptop}) {
     flex-direction: column;
   }
 `;
