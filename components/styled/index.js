@@ -24,7 +24,16 @@ export const StyledH2 = styled.h2`
     color: ${theme.colors.reddish};
   }
 `;
+
+export const positionAbsolute = css`
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+`;
+
 export const StyledFlex = styled.div`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: ${(props) =>
@@ -35,6 +44,17 @@ export const StyledFlex = styled.div`
   margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
   margin-left: ${(props) => (props.ml ? props.ml : '0')};
   margin-right: ${(props) => (props.mr ? props.mr : '0')};
+  .filter-btn {
+    margin-bottom: ${({ mb }) => (mb ? mb : '0.25em')};
+  }
+  @media screen and (max-width: 599px) {
+    .filter-btn {
+      margin-top: 0.5rem;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    ${({ posAbs }) => posAbs && positionAbsolute};
+  }
 `;
 export const StyledGrid = styled.div`
   display: grid;
@@ -132,6 +152,7 @@ export const StyledSelect = styled.select`
   margin: 0 0.5em;
   min-width: 2rem;
   border: 2px dashed ${theme.colors.bodyText};
+  border-radius: 0.5em;
   box-shadow: ${theme.boxShadow.normal};
   color: ${theme.colors.bodyText};
   padding: 0 0.5em;

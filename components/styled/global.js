@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
   }
   .filter-name {
     @media screen and (max-width: 460px) {
-      padding: 1rem 2rem;
+      padding: 1rem 2rem 0;
     }
     input {
     border-radius: 0.5em;

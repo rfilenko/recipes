@@ -4,12 +4,8 @@ import Recipes from 'components/shared/Recipes';
 import RecipeTypeFilter from 'components/shared/RecipeTypeFilter';
 import LangSelect from 'components/shared/LangSelect';
 import BaseLayout from 'components/layouts/BaseLayout';
-import {
-  StyledContainer,
-  StyledFlex,
-  StyledH2,
-  StyledButton,
-} from 'components/styled';
+import { StyledContainer, StyledFlex, StyledH2 } from 'components/styled';
+import FilterButton from '../components/shared/FilterButton';
 import CategoriesList from '../components/shared/CategoriesList';
 
 const Index = () => {
@@ -23,13 +19,11 @@ const Index = () => {
     setRecipesLang,
     recipesLangisFiltered,
     setRecipesLangisFiltered,
-    setDisableLangSelect,
   } = useContext(RecipesContext);
 
   const [localRecipes, setLocalRecipes] = useState([]);
   const [recipesTitle, setRecipesTitle] = useState(' ');
   const [recipesCount, setRecipesCount] = useState(null);
-
   const [value, setValue] = useState('');
 
   const filterRecipesByName = () => {
@@ -39,12 +33,12 @@ const Index = () => {
     setLocalRecipes(filteredList);
     setRecipesCount(filteredList.length);
   };
-  const handleInput = (e) => {
-    setValue(e.target.value);
+  const handleInput = ({ target }) => {
+    setValue(target.value);
     filterRecipesByName;
   };
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
     filterRecipesByName();
   };
 
@@ -57,27 +51,6 @@ const Index = () => {
     setFilterTitle(`with ${e}`);
     setIsFiltered(true);
     setRecipesCount(filteredList.length);
-  };
-
-  //cancel filter by recipe tags
-  const handleClearTag = (e) => {
-    setRecipesLang('lang');
-    setLocalRecipes(recipesList);
-    setIsFiltered(false);
-    setFilterTitle(``);
-    setRecipesTitle(' ');
-    setRecipesCount(recipesList.length);
-    setRecipesLang(recipesLang);
-    setDisableLangSelect(false);
-  };
-
-  const handleClearLang = (e) => {
-    setLocalRecipes(recipesList);
-    setIsFiltered(false);
-    setDisableLangSelect(false);
-    setRecipesCount(recipesList.length);
-    setRecipesLangisFiltered(false);
-    setRecipesLang('lang');
   };
 
   const clearAllFilters = () => {
@@ -130,26 +103,28 @@ const Index = () => {
               Search a recipe
             </label>
           </form>
+
+          {isFiltered && (
+            <FilterButton
+              handleFilter="handleClearTag"
+              btnText="Clear type filter"
+              setLocalRecipes={setLocalRecipes}
+              setRecipesTitle={setRecipesTitle}
+              setRecipesCount={setRecipesCount}
+            />
+          )}
+
+          {recipesLangisFiltered && (
+            <FilterButton
+              handleFilter="handleClearLang"
+              btnText="Clear lang filter"
+              setLocalRecipes={setLocalRecipes}
+              setRecipesTitle={setRecipesTitle}
+              setRecipesCount={setRecipesCount}
+            />
+          )}
         </StyledFlex>
         {recipeTitle}
-
-        {/* clear filter btn */}
-        {isFiltered ? (
-          <StyledFlex>
-            <StyledButton onClick={handleClearTag}>
-              Clear type filter
-            </StyledButton>
-          </StyledFlex>
-        ) : null}
-
-        {/* clear filter btn */}
-        {recipesLangisFiltered ? (
-          <StyledFlex>
-            <StyledButton onClick={handleClearLang}>
-              Clear lang filter
-            </StyledButton>
-          </StyledFlex>
-        ) : null}
         <section className="main-section">
           {/* list of categories */}
           <CategoriesList
