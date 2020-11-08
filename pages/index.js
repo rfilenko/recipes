@@ -79,6 +79,7 @@ const Index = () => {
           {/* //filter recipes by name */}
           <form className="filter-name" onSubmit={handleFormSubmit}>
             <input
+              className="styled-input servingsInput"
               id="search-recipe"
               type="text"
               onChange={handleInput}

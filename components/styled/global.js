@@ -44,7 +44,8 @@ const GlobalStyle = createGlobalStyle`
     @media screen and (max-width: 460px) {
       padding: 1rem 2rem 0;
     }
-    input {
+  }
+  .styled-input {
     border-radius: 0.5em;
     box-shadow: 0 5px 10px rgba(0,0,0,0.12);
     margin-right: .5rem;
@@ -57,9 +58,14 @@ const GlobalStyle = createGlobalStyle`
       &:focus {
         background: rgba(255, 165, 0, .11);
         box-shadow: 0 5px 10px rgba(0,0,0,0.12);
-        border-color: #FF5733;
+        border-color: ${theme.colors.reddish};
+        color:  ${theme.colors.reddish};
       }
-    }
+  }
+  .servingsInput {
+    min-width: 3rem;
+    padding: 0.5rem;
+    font-weight: bold;
   }
   ::placeholder { 
     color: #2a2a2a;
@@ -86,6 +92,10 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     margin-bottom: 0.5rem;
   }
+}
+.category-lastList {
+  padding:0;
+  border: 1px solid red;
 }
 
 @media screen and (min-width: ${theme.breakpoint.laptop}) {

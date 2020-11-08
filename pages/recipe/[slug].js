@@ -8,7 +8,6 @@ import { RecipesContext } from 'components/contexts/RecipesContext';
 import { Image, Transformation } from 'cloudinary-react';
 import { theme } from 'components/styled/theme';
 import BaseLayout from 'components/layouts/BaseLayout';
-import Recipes from 'components/shared/Recipes';
 import ShareRecipe from 'components/shared/ShareRecipe';
 
 import {
@@ -36,10 +35,18 @@ const Recipe = ({ currentRecipe }) => {
     setLang,
   } = useContext(RecipesContext);
 
-  const last3 = recipesList.slice(Math.max(recipesList.length - 3, 1));
   const [recipe, setRecipe] = useState(null);
+  const [coef, setCoef] = useState(1);
+  const [servingsNum, setServingsNum] = useState(0);
+  const [initialServings, setInitialServings] = useState(0);
+  const [sameCategory, setSameCategory] = useState([]);
   const router = useRouter();
   const { slug } = router.query;
+
+  const handleServingsNum = ({ target }) => {
+    setServingsNum(target.value);
+    setCoef(target.value / initialServings);
+  };
 
   let recipeItem;
 
@@ -48,6 +55,12 @@ const Recipe = ({ currentRecipe }) => {
     let currRecipe = recipesList[recipeItem];
     setRecipe(currRecipe);
     setLang(currRecipe.lang);
+    const categoryList = recipesList.filter((r) => {
+      return r.category[0] === currRecipe.category[0] && r.id !== currRecipe.id;
+    });
+    setSameCategory(categoryList);
+    setInitialServings(currRecipe.servings);
+    setServingsNum(currRecipe.servings);
   }, []);
 
   if (!recipe) return <p></p>;
@@ -56,7 +69,7 @@ const Recipe = ({ currentRecipe }) => {
     <BaseLayout title={`${recipe.slugUrl} recipe details`}>
       <StyledContainer>
         <StyledRecipeDetail className="content">
-          <StyledH2>{recipe.name}</StyledH2>
+          <StyledH2 className="recipe-details">{recipe.name}</StyledH2>
           <p dangerouslySetInnerHTML={{ __html: recipe.description }} />
           <div className="prep_time">
             <p>
@@ -88,6 +101,30 @@ const Recipe = ({ currentRecipe }) => {
               })}
             </div>
           </section>
+
+          {/* // show sameCategory links */}
+          {/* {sameCategory.length && (
+            <div>
+              Last added in this category:
+              <ul className="category-lastList">
+                {sameCategory.length &&
+                  sameCategory
+                    .slice(Math.max(sameCategory.length - 3, 1))
+                    .map((i) => (
+                      <li key={i.name}>
+                        {' '}
+                        <Link
+                          // href="/recipe/[slug]"
+                          href={`/recipe/${i.id}`}
+                        >
+                          <a>{i.name}</a>
+                        </Link>
+                      </li>
+                    ))}
+              </ul>
+            </div>
+          )} */}
+
           <div className="desc">
             <div className="recipe_img">
               {!recipe.image && <p>no image </p>}
@@ -101,19 +138,40 @@ const Recipe = ({ currentRecipe }) => {
               </Image>
             </div>
             <div>
-              <StyledText>
+              <StyledText mb="1rem">
                 <GiFruitBowl size="1.25rem" color={theme.colors.text} />
                 {ingridientsTitle}:
               </StyledText>
+              <input
+                className="styled-input servingsInput"
+                type="number"
+                value={servingsNum}
+                min="1"
+                max="10"
+                onChange={(e) => handleServingsNum(e, coef)}
+              />
               {recipe.servings && (
                 <span className="serves">
-                  ({recipe.servings} {tagsServings[1]}{' '}
+                  ({recipe.servings * coef} {tagsServings[1]}{' '}
                   <GiKnifeFork size=".75rem" color={theme.colors.mutedText} />)
                 </span>
               )}
               <ul>
                 {Object.values(recipe.ingridients).map((value, index) => {
-                  return <li key={index}>{value}</li>;
+                  let ingridientVal;
+                  const val = value[0] * coef;
+                  // whether a value is an integer
+                  if (Number.isInteger(val)) {
+                    ingridientVal = val;
+                  } else {
+                    ingridientVal = val.toFixed(2);
+                  }
+                  const hasNumber = value[0] !== null;
+                  return (
+                    <li key={index}>
+                      {`${hasNumber ? ingridientVal : ''} ${value[1]}`}{' '}
+                    </li>
+                  );
                 })}
               </ul>
               {!!recipe.link && (
@@ -135,9 +193,16 @@ const Recipe = ({ currentRecipe }) => {
                       <div key={recipe.title}>
                         <span className="serves">{recipe.title}</span>
                         <ul>
-                          {recipe.list.map((m) => (
-                            <li key={m}>{m}</li>
-                          ))}
+                          {recipe.list.map((m) => {
+                            const ingridientVal = m[0] * coef;
+                            const hasNumber = m[0] !== null;
+
+                            return (
+                              <li key={m}>
+                                {`${hasNumber ? ingridientVal : ''} ${m[1]}`}
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
                     );
@@ -164,10 +229,6 @@ const Recipe = ({ currentRecipe }) => {
           )}
           <ShareRecipe recipe={recipe} />
         </StyledRecipeDetail>
-
-        {/* last 3 added recipes */}
-        {/* <h4>Last added</h4>
-        <Recipes list={last3} /> */}
       </StyledContainer>
     </BaseLayout>
   );
