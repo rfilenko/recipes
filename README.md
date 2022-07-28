@@ -1,5 +1,9 @@
 # Simple recipes app🥗
 
+## Check the app
+
+[deploy](https://recipes-app-rfilenko.vercel.app/)
+
 ## Technologies used in the project:
 
 - build with Next JS
