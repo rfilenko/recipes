@@ -909,7 +909,7 @@ export const RECIPES_LIST = [
     video: 'https://www.youtube.com/watch?v=EiqJwjxucgY',
   },
   {
-    name: 'banana pancakes for baby',
+    name: 'baby banana pancakes',
     id: 24,
     type: 'liked',
     servings: 4,
@@ -919,10 +919,10 @@ export const RECIPES_LIST = [
     category: ['dessert'],
     description: `Banana Pancakes are an easy and quick breakfast, lunch or snack for your baby! Made with only 3 simple ingredients – banana, egg and flour, these pancakes are fluffy, soft, and perfect for baby, baby-led weaning and toddlers! 6 months and up!`,
     ingridients: [
-      ['', ' Banana: you are looking for a ripe banana with a couple of brown spots on it. Bananas with brown spots are not only sweeter but they also help with constipation instead of aiding to it (like yellow bananas).'],
-      [1, 'one large egg is needed to bind everything together'],
-      ['', 'I used whole wheat in this version, but all-purpose, white whole wheat, oat flour or a one-for-one gluten-free flour also works'],
-      ['', 'I love adding a pinch of cinnamon to my banana pancakes to really up the taste factor. But you can also omit this spice if you prefer.'],
+      [null, ' Banana: you are looking for a ripe banana with a couple of brown spots on it. Bananas with brown spots are not only sweeter but they also help with constipation instead of aiding to it (like yellow bananas).'],
+      [1, 'large egg is needed to bind everything together'],
+      [null, 'I used whole wheat in this version, but all-purpose, white whole wheat, oat flour or a one-for-one gluten-free flour also works'],
+      [null, 'I love adding a pinch of cinnamon to my banana pancakes to really up the taste factor. But you can also omit this spice if you prefer.'],
     ],
     instructions: [
       `Mash: in a medium bowl, mash the banana until very smooth with only a few lumps.`,
@@ -933,9 +933,8 @@ export const RECIPES_LIST = [
     ],
     time_prep: '2 min',
     time_cook: '8 min',
-    time_total: '10 min',
-    image:
-      'https://res.cloudinary.com/dq1embvfh/image/upload/v1638827402/pancake_dufxcd.jpg',
-    video: '',
+    time_total: '15 min',
+    image: 'https://res.cloudinary.com/dq1embvfh/image/upload/v1638827402/banana-pancakes.jpg',
+    video: null,
   },
 ];

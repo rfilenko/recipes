@@ -127,6 +127,7 @@ const Recipe = ({ currentRecipe }) => {
 
           <div className="desc">
             <div className="recipe_img">
+            
               {!recipe.image && <p>no image </p>}
 
               <Image
