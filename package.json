@@ -15,7 +15,7 @@
   "author": "roman.filenko@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.2",
     "cloudinary-react": "^1.5.0",
     "isomorphic-fetch": "^2.2.1",
     "next": "^9.5.1",
