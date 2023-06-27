@@ -22,6 +22,15 @@ export const theme = {
     white: '#fff',
     whiteBlue: 'aliceblue',
   },
+  darkTheme: {
+    colors: {
+      bodyBg: '#171717',
+      bodyText: '#e2dfdf',
+      text: '#e2dfdf',
+      reddish: '#ea824d',
+      orange: '#ff5722',
+    }
+  },
   sizes: {
     small: '0.75rem',
     normal: '1rem',

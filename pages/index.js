@@ -6,6 +6,7 @@ import LangSelect from 'components/shared/LangSelect';
 import BaseLayout from 'components/layouts/BaseLayout';
 import { StyledContainer, StyledFlex } from 'components/styled';
 import FilterButton from '../components/shared/FilterButton';
+import ToggleThemeButton from '../components/shared/ToggleThemeButton';
 import CategoriesList from '../components/shared/CategoriesList';
 import RecipeTitle from '../components/shared/RecipeTitle';
 
@@ -111,6 +112,8 @@ const Index = () => {
               setRecipesCount={setRecipesCount}
             />
           )}
+          <ToggleThemeButton btnText="Toggle Theme" />
+
         </StyledFlex>
         <RecipeTitle recipesTitle={recipesTitle} recipesCount={recipesCount} />
         <section className="main-section">

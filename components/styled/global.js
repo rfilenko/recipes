@@ -11,9 +11,65 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme.colors.text};
     font-family: 'Merriweather', serif;
   }
+
+  html[data-theme-preference=dark] {
+    body{
+      background: ${theme.darkTheme.colors.bodyBg};
+      color: ${theme.darkTheme.colors.text};
+    }
+
+    h4 {
+      color: ${theme.darkTheme.colors.bodyText};
+    }
+
+    h4[class^="styled__StyledText"] svg {
+      fill: ${theme.darkTheme.colors.bodyText};
+    }
+    [class^="styled__StyledSelect"] {
+      background:${theme.darkTheme.colors.reddish};
+      color: ${theme.darkTheme.colors.bodyText};
+      border-color: ${theme.darkTheme.colors.reddish};
+    }
+    [class^="styled__StyledButton"] {
+      background:${theme.darkTheme.colors.reddish}
+    }
+
+    .more {
+      border-color:${theme.darkTheme.colors.reddish}
+    }
+    .more:hover {
+      outline-color: ${theme.darkTheme.colors.orange};
+    }
+    .more:before {
+      background: linear-gradient( -65deg,#2a2a2a,${theme.darkTheme.colors.orange});
+    }
+
+    .img-container:before {
+      background: rgba(0,0,0,0.15);
+    }
+
+    [class^="styled__StyledHeader"] {
+      background-image: linear-gradient( 120deg,#165155,#777922,#16585d );
+    }
+    [class^="styled__StyledHeader"] svg circle {
+      filter: brightness(0.5);
+    }
+
+    .styled-input, .prep_time, .desc .serves {
+      color: ${theme.darkTheme.colors.bodyText};
+    }
+
+    [class^="CategoriesList__CategoriesUl"] li {
+      background:${theme.darkTheme.colors.reddish};
+      border-color: ${theme.darkTheme.colors.reddish};
+      color:${theme.darkTheme.colors.text};
+    }
+  }
+
   main {
         margin-top: 3.5rem;
   }
+  
   a {
     color: inherit;
     text-decoration: none;
