@@ -28,5 +28,8 @@
   },
   "devDependencies": {
     "next-images": "^1.4.0"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
