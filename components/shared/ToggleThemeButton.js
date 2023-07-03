@@ -1,11 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { RecipesContext } from 'components/contexts/RecipesContext';
 import { StyledFlex, StyledButton } from 'components/styled';
 
 const ToggleThemeButton = ({ btnText }) => {
     let prefersDark;
     let currentTheme;
-    React.useEffect(() => {
+    useEffect(() => {
         prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
         if (localStorage.getItem('theme-preference')) {
