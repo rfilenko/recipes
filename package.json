@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next -p 3300",
     "build": "next build",
-    "start": "cross-env NODE_OPTIONS=\"--openssl-legacy-provider --inspect\" next start"
+    "start": "next start"
   },
   "keywords": [
     "recipes-app",
@@ -28,5 +28,8 @@
   },
   "devDependencies": {
     "next-images": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=16.20.1"
   }
 }
