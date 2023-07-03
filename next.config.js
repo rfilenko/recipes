@@ -11,7 +11,9 @@ module.exports = {
     // Use API_PROD_URL in prod and API_URL for dev.
     API_URL: isProd ? process.env.API_PROD_URL : process.env.API_URL,
   },
-  target: 'serverless',
+  experimental: {
+    forceSwcTransforms: true,
+  },
   webpack: (config) => {
     config.resolve.alias['components'] = path.join(__dirname, 'components');
     config.resolve.alias['public'] = path.join(__dirname, 'public');
